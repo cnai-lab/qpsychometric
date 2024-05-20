@@ -43,7 +43,7 @@ qpsychometric
   * Load the MNLI model into a pipeline: `mnli = pipeline("zero-shot-classification",device=device, model=p)`
   * Set the model's identifier for the pipeline: `mnli.model_identifier = p`
 * How to load a questionnaire: ?
-* How to run a question from a questionnaire through your MNLI pipeline: ?
+* How to run a question from a questionnaire through an MNLI pipeline: ?
 * How to run a report for a question's performance: ?
 * How to run a full questionnaire: ?
 
