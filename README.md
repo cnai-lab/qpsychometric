@@ -24,13 +24,13 @@
 ### Structure of the qpsychometric library:
 qpsychometric  
 |-mental_health  
-| |-generalized_anxiety_disorder (GAD)  
-| |-patient_health_questionnaire (PHQ)  
-| |-sense_of_coherence (SOC)  
+|--generalized_anxiety_disorder (GAD)  
+|--patient_health_questionnaire (PHQ)  
+|--sense_of_coherence (SOC)  
 |-personality_traits  
-| |-big5 (BIG5)  
+|--big5 (BIG5)  
 |-social_biases  
-| |-ambivalent_sex_inventory (ASI)  
+|--ambivalent_sex_inventory (ASI)  
 
 ### Commands and steps for running a questionnaire:
 
