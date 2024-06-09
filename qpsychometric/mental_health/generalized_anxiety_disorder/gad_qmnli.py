@@ -126,3 +126,4 @@ class GAD7Q7(_QMNLI):
 
 gad2_qmnli = [GAD7Q1, GAD7Q2]
 gad7_qmnli = [GAD7Q1, GAD7Q2, GAD7Q3, GAD7Q4, GAD7Q5, GAD7Q6, GAD7Q7]
+gad_qmnli = gad7_qmnli

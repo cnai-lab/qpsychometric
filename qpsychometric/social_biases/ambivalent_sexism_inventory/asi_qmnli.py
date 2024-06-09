@@ -809,7 +809,7 @@ class ASIQ22(QMNLI):
         **kwargs,
     )
 
-asi_all_qmnli = [ASIQ1, ASIQ2, ASIQ3, ASIQ4, ASIQ5, ASIQ6, ASIQ7, ASIQ8, ASIQ9, ASIQ10, ASIQ11, ASIQ12, ASIQ13, ASIQ14, ASIQ15, ASIQ16, ASIQ17, ASIQ18, ASIQ19, ASIQ20, ASIQ21, ASIQ22]
+asi_qmnli = [ASIQ1, ASIQ2, ASIQ3, ASIQ4, ASIQ5, ASIQ6, ASIQ7, ASIQ8, ASIQ9, ASIQ10, ASIQ11, ASIQ12, ASIQ13, ASIQ14, ASIQ15, ASIQ16, ASIQ17, ASIQ18, ASIQ19, ASIQ20, ASIQ21, ASIQ22]
 asi_bg_qmnli = [question for question in asi_all_qmnli if "B(G)" in question.__doc__]
 asi_bi_qmnli = [question for question in asi_all_qmnli if "B(I)" in question.__doc__]
 asi_bp_qmnli = [question for question in asi_all_qmnli if "B(P)" in question.__doc__]

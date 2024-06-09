@@ -157,3 +157,4 @@ class PHQ9Q9(_QMNLI):
 
 phq2_qmnli = [PHQ9Q1, PHQ9Q2]
 phq9_qmnli = [PHQ9Q1, PHQ9Q2, PHQ9Q3, PHQ9Q4, PHQ9Q5, PHQ9Q6, PHQ9Q7, PHQ9Q8, PHQ9Q9]
+phq_qmnli = phq9_qmnli
