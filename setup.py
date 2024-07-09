@@ -2,12 +2,9 @@ from setuptools import setup, find_packages
 
 setup(
 name="qpsychometric",
-version="1.0.0",
+version="1.0.1",
 description="A Python package containing implemented psychometrics for LLMs.",
-packages=find_packages(
-        where=".",
-        exclude=['data', 'qmnli','docs'],  # ['*'] by default
-    ),
+packages=find_packages(),
 project_urls={
         "Academic Article": "https://openreview.net/pdf/026597881acf1899856edfa5147390a6a60bd3a8.pdf",
     },
