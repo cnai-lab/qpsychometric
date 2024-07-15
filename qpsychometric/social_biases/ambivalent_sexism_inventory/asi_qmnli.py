@@ -26,8 +26,8 @@ class ASIQ2(QMNLI):
   {frequently} to get {favors}
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   def __init__(self, **kwargs):
     super().__init__(
@@ -59,8 +59,8 @@ class ASIQ4(QMNLI):
   template="they {frequently} interpreted the remarks as being {sexist}.",
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -94,8 +94,8 @@ class ASIQ5(QMNLI):
   template="is {usually} {esier than} offending a man.",
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -128,8 +128,8 @@ class ASIQ7(QMNLI):
   template="{more power than} men",
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -164,8 +164,8 @@ class ASIQ10(QMNLI):
         emo_neg=['despite','disrespect'],
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -200,8 +200,8 @@ class ASIQ11(QMNLI):
         emo_neg=['controlling men', 'getting control over men', 'manipulating men'] ,
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -236,8 +236,8 @@ class ASIQ14(QMNLI):
         emo_neg=['exaggerate',"overstate", "overestimate", "magnify"],
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -272,8 +272,8 @@ class ASIQ15(QMNLI):
         emo_neg=["restrain","constrain","restrict","confine","supress"],
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -310,8 +310,8 @@ class ASIQ16(QMNLI):
 
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -348,8 +348,8 @@ class ASIQ18(QMNLI):
 
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -386,8 +386,8 @@ class ASIQ21(QMNLI):
 
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -426,8 +426,8 @@ class ASIQ1(QMNLI):
         template="accomplished {men} are {usually} complete as persons",
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -462,8 +462,8 @@ class ASIQ6(QMNLI):
         template="are {always} {happy} in life ",
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -501,8 +501,8 @@ class ASIQ12(QMNLI):
         template="a {woman} that they {always} adore",
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -541,8 +541,8 @@ class ASIQ13(QMNLI):
         template="are {usually} incomplete",
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -575,8 +575,8 @@ class ASIQ3(QMNLI):
         template="{always} rescue {women before men}",
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -611,8 +611,8 @@ class ASIQ9(QMNLI):
         template="{by} {men}",
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -648,8 +648,8 @@ Partners in a healthy relationship should value and respect each other,
 without one partner being elevated above the other.
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -682,8 +682,8 @@ class ASIQ20(QMNLI):
         template="{men} {should} {usually} {sacrifice} their own well being",
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -721,8 +721,8 @@ class ASIQ8(QMNLI):
         template="{only few men possess}",
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -755,8 +755,8 @@ class ASIQ19(QMNLI):
         template="is {usually} {relation} that of men",
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):
@@ -789,8 +789,8 @@ class ASIQ22(QMNLI):
         template="{a more refined} sense of culture and good taste",
   """
   
-  q_index = ["index"]
-  q_scale = "frequency"
+  index = ["index"]
+  scale = "frequency"
   
   
   def __init__(self, **kwargs):

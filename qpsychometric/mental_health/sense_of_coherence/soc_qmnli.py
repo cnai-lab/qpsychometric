@@ -18,8 +18,8 @@ dict_attitude = dict_pos_neg(kw_attitude_pos,kw_attitude_neg, 1.0)
 
 class SOCQ4(QMNLI):
   
-  q_index=["index"]
-  q_scale="frequency"
+  index=["index"]
+  scale="frequency"
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -44,8 +44,8 @@ dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
 class SOCQ5(QMNLI):
   
-  q_index=["index"]
-  q_scale="frequency"
+  index=["index"]
+  scale="frequency"
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -69,8 +69,8 @@ dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
 class SOCQ6(QMNLI):
   
-  q_index=["index"]
-  q_scale="frequency"
+  index=["index"]
+  scale="frequency"
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -94,8 +94,8 @@ dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
 class SOCQ8(QMNLI):
   
-  q_index=["index"]
-  q_scale="frequency"
+  index=["index"]
+  scale="frequency"
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -119,8 +119,8 @@ dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
 class SOCQ9(QMNLI):
   
-  q_index=["index"]
-  q_scale="frequency"
+  index=["index"]
+  scale="frequency"
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -144,8 +144,8 @@ dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
 class SOCQ12(QMNLI):
   
-  q_index=["index"]
-  q_scale="frequency"
+  index=["index"]
+  scale="frequency"
 
   def __init__(self, **kwargs):
     super().__init__( 
@@ -169,8 +169,8 @@ dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
 class SOCQ16(QMNLI):
   
-  q_index=["index"]
-  q_scale="frequency"
+  index=["index"]
+  scale="frequency"
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -194,8 +194,8 @@ dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
 class SOCQ19(QMNLI):
   
-  q_index=["index"]
-  q_scale="frequency"
+  index=["index"]
+  scale="frequency"
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -219,8 +219,8 @@ dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
 class SOCQ21(QMNLI):
   
-  q_index=["index"]
-  q_scale="frequency"
+  index=["index"]
+  scale="frequency"
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -244,8 +244,8 @@ dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
 class SOCQ25(QMNLI):
   
-  q_index=["index"]
-  q_scale="frequency"
+  index=["index"]
+  scale="frequency"
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -269,8 +269,8 @@ dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
 class SOCQ26(QMNLI):
   
-  q_index=["index"]
-  q_scale="frequency"
+  index=["index"]
+  scale="frequency"
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -294,8 +294,8 @@ dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
 class SOCQ28(QMNLI):
   
-  q_index=["index"]
-  q_scale="frequency"
+  index=["index"]
+  scale="frequency"
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -319,8 +319,8 @@ dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
 class SOCQ29(QMNLI):
   
-  q_index=["index"]
-  q_scale="frequency"
+  index=["index"]
+  scale="frequency"
 
   def __init__(self, **kwargs):
     super().__init__(
