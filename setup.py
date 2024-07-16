@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
 name="qpsychometric",
-version="1.0.1",
+version="1.0.5",
 description="A Python package containing implemented psychometrics for LLMs.",
 packages=find_packages(),
 project_urls={
