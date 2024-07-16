@@ -12,6 +12,7 @@ frequency_weights:SCALE = {
 }
 
 class GAD7Q1(_QMNLI):
+  
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I feel {emotion}.",
@@ -28,6 +29,8 @@ class GAD7Q1(_QMNLI):
         )
 
 class GAD7Q2(_QMNLI):
+  
+    
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I was {emotion}.",
@@ -44,6 +47,8 @@ class GAD7Q2(_QMNLI):
         )
 
 class GAD7Q3(_QMNLI):
+  
+    
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I felt {emotion} about different things.",
@@ -60,6 +65,8 @@ class GAD7Q3(_QMNLI):
         )
 
 class GAD7Q4(_QMNLI):
+  
+    
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I've been having {emotion} relaxing.",
@@ -77,6 +84,8 @@ class GAD7Q4(_QMNLI):
         )
 
 class GAD7Q5(_QMNLI):
+  
+    
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I felt {emotion}.",
@@ -93,6 +102,8 @@ class GAD7Q5(_QMNLI):
         )
 
 class GAD7Q6(_QMNLI):
+  
+    
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I became {emotion}.",
@@ -109,6 +120,8 @@ class GAD7Q6(_QMNLI):
         )
 
 class GAD7Q7(_QMNLI):
+  
+    
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I felt {emotion} about upcoming events.",
@@ -126,3 +139,4 @@ class GAD7Q7(_QMNLI):
 
 gad2_qmnli = [GAD7Q1, GAD7Q2]
 gad7_qmnli = [GAD7Q1, GAD7Q2, GAD7Q3, GAD7Q4, GAD7Q5, GAD7Q6, GAD7Q7]
+gad_qmnli = gad7_qmnli
