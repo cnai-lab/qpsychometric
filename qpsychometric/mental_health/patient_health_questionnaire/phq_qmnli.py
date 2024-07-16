@@ -12,6 +12,7 @@ frequency_weights:SCALE = {
 }
 
 class PHQ9Q1(_QMNLI):
+  
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I had {emotion} in doing things.",
@@ -28,6 +29,7 @@ class PHQ9Q1(_QMNLI):
         )
 
 class PHQ9Q2(_QMNLI):
+  
     def __init__(self, **kwargs ):
         super().__init__(
             context="Over the last 2 weeks, I have been feeling {emotion}.",
@@ -44,6 +46,7 @@ class PHQ9Q2(_QMNLI):
         )
 
 class PHQ9Q3(_QMNLI):
+  
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I {intensifier} had trouble falling asleep.",
@@ -60,6 +63,7 @@ class PHQ9Q3(_QMNLI):
         )
 
 class PHQ9Q4(_QMNLI):
+  
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I have been feeling {emotion}.",
@@ -76,6 +80,7 @@ class PHQ9Q4(_QMNLI):
         )
 
 class PHQ9Q5(_QMNLI):
+  
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I had {emotion}.",
@@ -92,6 +97,7 @@ class PHQ9Q5(_QMNLI):
         )
 
 class PHQ9Q6(_QMNLI):
+  
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I feel {emotion}.",
@@ -108,6 +114,7 @@ class PHQ9Q6(_QMNLI):
         )
 
 class PHQ9Q7(_QMNLI):
+  
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I {intensifier} had trouble concentrating.",
@@ -124,6 +131,7 @@ class PHQ9Q7(_QMNLI):
         )
 
 class PHQ9Q8(_QMNLI):
+  
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I move or speak {emotion}.",
@@ -140,6 +148,7 @@ class PHQ9Q8(_QMNLI):
         )
 
 class PHQ9Q9(_QMNLI):
+  
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I have {emotion} thoughts.",
@@ -157,3 +166,4 @@ class PHQ9Q9(_QMNLI):
 
 phq2_qmnli = [PHQ9Q1, PHQ9Q2]
 phq9_qmnli = [PHQ9Q1, PHQ9Q2, PHQ9Q3, PHQ9Q4, PHQ9Q5, PHQ9Q6, PHQ9Q7, PHQ9Q8, PHQ9Q9]
+phq_qmnli = phq9_qmnli
