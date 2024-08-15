@@ -33,18 +33,18 @@ Currently contains the following questionnaires: ASI, BIG5, Compassion Scale, GA
 * SOC:
   * soc_qmnli (all questions of SOC)
 
-## Structure of the qpsychometric library:
-qpsychometric  
-|-mental_health  
-| |-generalized_anxiety_disorder (GAD)  
-| |-patient_health_questionnaire (PHQ)  
-| |-sense_of_coherence (SOC)  
-|-personality_traits  
-| |-big5 (BIG5)
-| |-compassion_scale (Compassion Scale)
-| |-sd3 (SD3)
-|-social_biases  
-| |-ambivalent_sex_inventory (ASI)  
+## Structure of the qpsychometric package:
+qpsychometric<br>
+|-mental_health<br>
+| |-generalized_anxiety_disorder (GAD)<br>
+| |-patient_health_questionnaire (PHQ)<br>
+| |-sense_of_coherence (SOC)<br>
+|-personality_traits<br>
+| |-big5 (BIG5)<br>
+| |-compassion_scale (Compassion Scale)<br>
+| |-sd3 (SD3)<br>
+|-social_biases<br>
+| |-ambivalent_sex_inventory (ASI)<br>
 
 ## Commands and steps for running a questionnaire:
 
