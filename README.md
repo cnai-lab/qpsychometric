@@ -91,14 +91,14 @@ qpsychometric<br>
    This package includes (as it relies on) the package qlatent.<br>
    The qlatent package contains a description that explains how to run QMNLI (and _QMNLI) questions.<br>
    Look at these descriptions for the info you need.<br>
-* How to run a full questionnaire:
+* How to run a questionnaire:
   ```
   """
   Simply iterate through the questionnaire (as it is a list of questions),
   and apply the code for running a question on each question individually.
   """
 
-  for Q in tqdm(<questionnaire_name>):
+  for Q in tqdm(asi_h_qmnli):
     Qs = split_question(Q,
                         index=Q.q_index,
                         scales=[Q.q_scale],
