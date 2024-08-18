@@ -17,8 +17,8 @@ Currently contains the following questionnaires: ASI, BIG5, Compassion Scale, GA
   * asi_h_qmnli (questions from the hostile sexism category of ASI)
 * BIG5:
   * big5_qmnli (all questions of BIG5)
-* Compassion Scale:
-  * compassion_scale_qmnli (all questions of Compassion Scale)
+* CS:
+  * compassion_scale_qmnli (all questions of CS)
 * GAD:
   * gad2_qmnli (first 2 questions of GAD)
   * gad7_qmnli (all questions of GAD)
@@ -63,13 +63,59 @@ qpsychometric<br>
   nli = pipeline("zero-shot-classification",device=device, model=p)
   nli.model_identifier = p
   ```
-* How to load a question: ?
-* How to load a questionnaire: ?
+* How to load a question:
+  ```
+  """
+  As mentioned before, the package contains 3 categories of questionnaires:
+   Mental health
+   Personality traits
+   Social biases
+  
+  The package provides the following questionnaires:
+   ASI - 22 questions (1-22)
+   BIG5 - 14 questions (1-14)
+   CS - 24 questions (1-24)
+   GAD - 7 questions (1-7)
+   PHQ - 9 questions (1-9)
+   SD3 - 27 questions (1-27)
+   SOC - 12 questions (4-6, 8, 12, 16, 19, 21, 25-26, 28-29)
+  
+  The format for a question's name is the following:
+   <shortened_questionnaire_name>Q<question_number>
+  For example:
+   ASIQ2
+   CSQ10
+   SOCQ28
+
+  The format for importing the question from the right questionnaire is the following:
+   from qpsychometric.<category_with_underscores>.<full_questionnaire_name_with_underscores>.<full_questionnaire_name_with_underscores> import <question_name>
+  For example:
+   from qpsychometric.social_biases.ambivalent_sexism_inventory.<ambivalent_sexism_inventory> import ASIQ2
+   from qpsychometric.personality_traits.compassion_scale.compassion_scale import CSQ10
+   from qpsychometric.mental_health.sense_of_coherence.sense_of_coherence import SOCQ28
+  """
+  ```
+* How to load a questionnaire:
+  ```
+  """
+  As mentioned in the previous section (about how to load a question), the package provides the following questionnaires:
+   ASI - 22 questions (1-22)
+   BIG5 - 14 questions (1-14)
+   CS - 24 questions (1-24)
+   GAD - 7 questions (1-7)
+   PHQ - 9 questions (1-9)
+   SD3 - 27 questions (1-27)
+   SOC - 12 questions (4-6, 8, 12, 16, 19, 21, 25-26, 28-29)
+
+  The questionnaires are located in at least 1 list, because questionnaires are lists of questions:
+   ASI - asi_qmnli (questions 1-22), asi_bg_qmnli (questions 8, 19, 22), asi_bi_qmnli (questions 1, 6, 12-13), asi_bp_qmnli (questions 3, 9, 17, 20), asi_h_qmnli (questions 2, 4-5, 7, 10-11, 14-16, 18, 21)
+  """
+  ```
 * How to run a question from a questionnaire through an MNLI pipeline: ?
 * How to run a report for a question's performance: ?
 * How to run a full questionnaire: ?
 
-### Run examples:
+## Run examples:
 Load MNLI pipeline
 ```
 p = "typeform/distilbert-base-uncased-mnli"
