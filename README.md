@@ -90,7 +90,7 @@ qpsychometric<br>
   The format for importing the question from the right questionnaire is the following:
    from qpsychometric.<category_with_underscores>.<full_questionnaire_name_with_underscores>.<full_questionnaire_name_with_underscores> import <question_name>
   For example:
-   from qpsychometric.social_biases.ambivalent_sexism_inventory.<ambivalent_sexism_inventory> import ASIQ2
+   from qpsychometric.social_biases.ambivalent_sexism_inventory.ambivalent_sexism_inventory import ASIQ2
    from qpsychometric.personality_traits.compassion_scale.compassion_scale import CSQ10
    from qpsychometric.mental_health.sense_of_coherence.sense_of_coherence import SOCQ28
   """
@@ -108,7 +108,31 @@ qpsychometric<br>
    SOC - 12 questions (4-6, 8, 12, 16, 19, 21, 25-26, 28-29)
 
   The questionnaires are located in at least 1 list, because questionnaires are lists of questions:
-   ASI - asi_qmnli (questions 1-22), asi_bg_qmnli (questions 8, 19, 22), asi_bi_qmnli (questions 1, 6, 12-13), asi_bp_qmnli (questions 3, 9, 17, 20), asi_h_qmnli (questions 2, 4-5, 7, 10-11, 14-16, 18, 21)
+   ASI - asi_qmnli (questions 1-22)
+         asi_bg_qmnli (questions 8, 19, 22)
+         asi_bi_qmnli (questions 1, 6, 12-13)
+         asi_bp_qmnli (questions 3, 9, 17, 20)
+         asi_h_qmnli (questions 2, 4-5, 7, 10-11, 14-16, 18, 21)
+   BIG5 - big5_qmnli (questions 1-14)
+   CS - compassion_scale_qmnli (questions 1-24)
+   GAD - gad2_qmnli (questions 1-2)
+         gad7_qmnli (questions 1-7)
+         gad_qmnli (A.K.A gad7_qmnli)
+   PHQ - phq2_qmnli (questions 1-2)
+         phq9_qmnli (questions 1-9)
+         phq_qmnli (A.K.A phq9_qmnli)
+   SD3 - sd3_qmnli (questions 1-27)
+         sd3_machiavellianism_qmnli (questions 1, 4, 7, 10, 13, 16, 19, 22, 25)
+         sd3_narcissism_qmnli (questions 2, 5, 8, 11, 14, 17, 20, 23, 26)
+         sd3_psychopathy_qmnli (questions 3, 6, 9, 12, 15, 18, 21, 24, 27)
+   SOC - soc_qmnli (question 4-6, 8, 12, 16, 19, 21, 25-26, 28-29)
+
+  The format for importing a questionnaire is the following:
+   from qpsychometric.<category_with_underscores>.<full_questionnaire_name_with_underscores>.<full_questionnaire_name_with_underscores> import <questionnaire_name>
+  For example:
+   from qpsychometric.social_biases.ambivalent_sexism_inventory.ambivalent_sexism_inventory import asi_h_qmnli
+   from qpsychometric.personality_traits.compassion_scale.compassion_scale import compassion_scale_qmnli
+   from qpsychometric.mental_health.sense_of_coherence.sense_of_coherence import soc_qmnli
   """
   ```
 * How to run a question from a questionnaire through an MNLI pipeline: ?
