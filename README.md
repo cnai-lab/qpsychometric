@@ -59,121 +59,46 @@ qpsychometric<br>
 * How to load an NLI model from huggingface.com into a pipeline a few simple steps:
   ```
   device = 0 if torch.cuda.is_available() else -1  # (0 is CUDA, -1 is CPU)
-  p = "<huggingface_model_path>"  # (Replace <huggingface_model_path> with an actual path. For example, use "typeform/distilbert-base-uncased-mnli")
+  p = "typeform/distilbert-base-uncased-mnli"  # You may replace the presented path with another MNLI model's path
   nli = pipeline("zero-shot-classification",device=device, model=p)
   nli.model_identifier = p
   ```
 * How to load a question:
   ```
   """
-  As mentioned before, the package contains 3 categories of questionnaires:
-   Mental health
-   Personality traits
-   Social biases
-  
-  The package provides the following questionnaires:
-   ASI - 22 questions (1-22)
-   BIG5 - 14 questions (1-14)
-   CS - 24 questions (1-24)
-   GAD - 7 questions (1-7)
-   PHQ - 9 questions (1-9)
-   SD3 - 27 questions (1-27)
-   SOC - 12 questions (4-6, 8, 12, 16, 19, 21, 25-26, 28-29)
-  
-  The format for a question's name is the following:
-   <shortened_questionnaire_name>Q<question_number>
-  For example:
-   ASIQ2
-   CSQ10
-   SOCQ28
-
   The format for importing the question from the right questionnaire is the following:
-   from qpsychometric.<category_with_underscores>.<full_questionnaire_name_with_underscores>.<full_questionnaire_name_with_underscores> import <question_name>
+   from qpsychometric.<category_underscored>.<full_questionnaire_name_underscored>.<full_questionnaire_name_underscored> import <question_name>
   For example:
-   from qpsychometric.social_biases.ambivalent_sexism_inventory.ambivalent_sexism_inventory import ASIQ2
-   from qpsychometric.personality_traits.compassion_scale.compassion_scale import CSQ10
-   from qpsychometric.mental_health.sense_of_coherence.sense_of_coherence import SOCQ28
   """
+  
+  from qpsychometric.social_biases.ambivalent_sexism_inventory.ambivalent_sexism_inventory import ASIQ2
+  from qpsychometric.personality_traits.compassion_scale.compassion_scale import CSQ10
+  from qpsychometric.mental_health.sense_of_coherence.sense_of_coherence import SOCQ28
   ```
 * How to load a questionnaire:
   ```
   """
-  As mentioned in the previous section (about how to load a question), the package provides the following questionnaires:
-   ASI - 22 questions (1-22)
-   BIG5 - 14 questions (1-14)
-   CS - 24 questions (1-24)
-   GAD - 7 questions (1-7)
-   PHQ - 9 questions (1-9)
-   SD3 - 27 questions (1-27)
-   SOC - 12 questions (4-6, 8, 12, 16, 19, 21, 25-26, 28-29)
-
-  The questionnaires are located in at least 1 list, because questionnaires are lists of questions:
-   ASI - asi_qmnli (questions 1-22)
-         asi_bg_qmnli (questions 8, 19, 22)
-         asi_bi_qmnli (questions 1, 6, 12-13)
-         asi_bp_qmnli (questions 3, 9, 17, 20)
-         asi_h_qmnli (questions 2, 4-5, 7, 10-11, 14-16, 18, 21)
-   BIG5 - big5_qmnli (questions 1-14)
-   CS - compassion_scale_qmnli (questions 1-24)
-   GAD - gad2_qmnli (questions 1-2)
-         gad7_qmnli (questions 1-7)
-         gad_qmnli (A.K.A gad7_qmnli)
-   PHQ - phq2_qmnli (questions 1-2)
-         phq9_qmnli (questions 1-9)
-         phq_qmnli (A.K.A phq9_qmnli)
-   SD3 - sd3_qmnli (questions 1-27)
-         sd3_machiavellianism_qmnli (questions 1, 4, 7, 10, 13, 16, 19, 22, 25)
-         sd3_narcissism_qmnli (questions 2, 5, 8, 11, 14, 17, 20, 23, 26)
-         sd3_psychopathy_qmnli (questions 3, 6, 9, 12, 15, 18, 21, 24, 27)
-   SOC - soc_qmnli (question 4-6, 8, 12, 16, 19, 21, 25-26, 28-29)
-
   The format for importing a questionnaire is the following:
    from qpsychometric.<category_with_underscores>.<full_questionnaire_name_with_underscores>.<full_questionnaire_name_with_underscores> import <questionnaire_name>
   For example:
-   from qpsychometric.social_biases.ambivalent_sexism_inventory.ambivalent_sexism_inventory import asi_h_qmnli
-   from qpsychometric.personality_traits.compassion_scale.compassion_scale import compassion_scale_qmnli
-   from qpsychometric.mental_health.sense_of_coherence.sense_of_coherence import soc_qmnli
   """
+  
+  from qpsychometric.social_biases.ambivalent_sexism_inventory.ambivalent_sexism_inventory import asi_h_qmnli
+  from qpsychometric.personality_traits.compassion_scale.compassion_scale import compassion_scale_qmnli
+  from qpsychometric.mental_health.sense_of_coherence.sense_of_coherence import soc_qmnli
   ```
-* How to run a question from a questionnaire through an MNLI pipeline: ?
-* How to run a report for a question's performance: ?
-* How to run a full questionnaire: ?
+* How to run a question from a questionnaire through an MNLI pipeline:<br>
+  This package includes (as it relies on) the package qlatent.<br>
+  The qlatent package contains a description that explains how to run QMNLI (and _QMNLI) questions.<br>
+  Look at these descriptions for the info you need.<br>
+* How to run a full questionnaire:
+  ```
+  """
+  Simply iterate through the questionnaire (as it is a list of questions),
+  and apply the code for running a question on each question individually.
+  """
 
-## Run examples:
-Load MNLI pipeline
-```
-p = "typeform/distilbert-base-uncased-mnli"
-mnli = pipeline("zero-shot-classification",device=device, model=p)
-mnli.model_identifier = p
-```
-
-Define question factor function
-```
-def split_question(Q, index, scales, softmax, filters):
-  result = []
-  for s in scales:
-    q = QCACHE(Q(index=index, scale=s))
-    for sf in softmax:
-      for f in filters:
-        if sf:            
-            qsf = QSOFTMAX(q,dim=[index[0], s])
-            qsf_f = QFILTER(qsf,filters[f],filtername=f)
-            print((index, s),sf,f)
-            result.append(qsf_f)
-        else:
-            qsf = QPASS(q,descupdate={'softmax':''})
-            qsf_f = QFILTER(qsf,filters[f],filtername=f)
-            print(s,sf,f)
-            result.append(qsf_f)
-  return result
-
-```
-
-Load questions for a questionnaire (short dark triad in this example)
-```
-from qpsychometric.personality_traits.short_dark_triad.sd3_qmnli import sd3_qmnli
-
-for Q in tqdm(sd3_qmnli):
+  for Q in tqdm(<questionnaire_name>):
     Qs = split_question(Q,
                         index=Q.q_index,
                         scales=[Q.q_scale],
@@ -183,25 +108,5 @@ for Q in tqdm(sd3_qmnli):
                                 },
                         )
     print(Qs[0]._descriptor['Ordinal'])
-    Qs[0].run(mnli).mean_score()
-```
-
-You can also load all available questions and run them. Here we load questions from files that ends with "_qmnli.py".
-```
-from qpsychometric.utils import load_questions
-
-all_questions = load_questions(pattern='_qmnli.py')
-
-for Q in tqdm(all_questions):
-    Qs = split_question(Q,
-                        index=Q.q_index,
-                        scales=[Q.q_scale],
-                        softmax=[True],
-                        filters={'unfiltered':{},
-                                "positiveonly":Q().get_filter_for_postive_keywords()
-                                },
-                        )
-    print(Qs[0]._descriptor)
-    Qs[0].run(mnli).mean_score()
-```
-?
+    Qs[0].run(mnli)  # you may add .mean_score() or .report() after the run() function
+  ```
