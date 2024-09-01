@@ -6,11 +6,11 @@ This package contains several psychometric questionnaires from the following cat
 - Social biases
 
 These psychometric questionnaires will help you to assess your model's biases and behavioural tendencies.
-Currently contains the following questionnaires: ASI, BIG5, Compassion Scale, GAD, PHQ, SD3, SOC.
+Currently contains the following questionnaires: ASI, BIG5, CS, GAD, PHQ, SD3, SOC.
 
 ## List of questionnaires are available for running
 * ASI:
-  * asi_all_qmnli (all questions of ASI)
+  * asi_qmnli (all questions of ASI)
   * asi_bg_qmnli (questions from the benevolent sexism - complementary gender differentiation category of ASI)
   * asi_bi_qmnli (questions from the benevolent sexism - heterosexual intimacy category of ASI)
   * asi_bp_qmnli (questions from the benevolent sexism - protective paternalism category of ASI)
