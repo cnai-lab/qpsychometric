@@ -30,7 +30,6 @@ class GAD7Q1(_QMNLI):
 
 class GAD7Q2(_QMNLI):
   
-    
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I was {emotion}.",
@@ -48,7 +47,6 @@ class GAD7Q2(_QMNLI):
 
 class GAD7Q3(_QMNLI):
   
-    
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I felt {emotion} about different things.",
@@ -66,7 +64,6 @@ class GAD7Q3(_QMNLI):
 
 class GAD7Q4(_QMNLI):
   
-    
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I've been having {emotion} relaxing.",
@@ -84,7 +81,6 @@ class GAD7Q4(_QMNLI):
         )
 
 class GAD7Q5(_QMNLI):
-  
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -103,7 +99,6 @@ class GAD7Q5(_QMNLI):
 
 class GAD7Q6(_QMNLI):
   
-    
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I became {emotion}.",
@@ -121,7 +116,6 @@ class GAD7Q6(_QMNLI):
 
 class GAD7Q7(_QMNLI):
   
-    
     def __init__(self, **kwargs):
         super().__init__(
             context="Over the last 2 weeks, I felt {emotion} about upcoming events.",

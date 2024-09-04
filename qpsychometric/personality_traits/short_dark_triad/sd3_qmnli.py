@@ -15,19 +15,19 @@ frequency_weights:SCALE = {
 
 #### Q1: It's not wise to tell your secrets.
 
-emo_pos = ['stupid', 'unwise', 'not wise']
-emo_neg = ['wise', 'smart', 'reasonable']
-
 class SD3Q1(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    emo_pos = ['stupid', 'unwise', 'not wise']
+    emo_neg = ['wise', 'smart', 'reasonable']
 
     def __init__(self, **kwargs):        
         super().__init__(
             context_template = "It is {emotion} to tell your secrets.",
             answer_template = "It is {intensifier} true.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Machiavellianism",
                           "Ordinal":1,
@@ -38,19 +38,19 @@ class SD3Q1(QMNLI):
 
 #### Q4: I like to use clever manipulation to get my way.
 
-emo_pos = ['like', 'love', 'enjoy']
-emo_neg = ['despise', 'hate', 'refuse']
-
 class SD3Q4(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    emo_pos = ['like', 'love', 'enjoy']
+    emo_neg = ['despise', 'hate', 'refuse']
 
     def __init__(self, **kwargs):        
         super().__init__(
             context_template = "I {emotion} to manipulate others to get my way.",
             answer_template = "This {intensifier} represent what I think.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Machiavellianism",
                           "Ordinal":4,
@@ -61,19 +61,19 @@ class SD3Q4(QMNLI):
 
 #### Q7: Whatever it takes, you must get the important people on your side.
 
-emo_pos = ['need', 'must','have to have']
-emo_neg = ["don't need", "don't require", ]
-
 class SD3Q7(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    emo_pos = ['need', 'must','have to have']
+    emo_neg = ["don't need", "don't require"]
 
     def __init__(self, **kwargs):
         super().__init__(
             context_template = "I {emotion} important people on my side.",
             answer_template = "This {intensifier} represent what I think.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Machiavellianism",
                           "Ordinal":7,
@@ -83,19 +83,19 @@ class SD3Q7(QMNLI):
             )
 #### Q10: Avoid direct conflict with others because they may be useful in the future.
 
-emo_neg = ['wrong', 'manipulative', 'improper']
-emo_pos   = ['legitimate','rightful', 'reasonable']
-
 class SD3Q10(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    emo_neg = ['wrong', 'manipulative', 'improper']
+    emo_pos = ['legitimate','rightful', 'reasonable']
 
     def __init__(self, **kwargs):        
         super().__init__(
             context_template = "I avoid conflicts with others so I can use them in the future.",
             answer_template = "This sentense is {intensifier} {emotion}.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Machiavellianism",
                           "Ordinal":10,
@@ -106,12 +106,12 @@ class SD3Q10(QMNLI):
             
 #### Q13: It's wise to keep track of information that you can use against people later.
 
-emo_pos = ['wise', 'smart', 'reasonable']
-emo_neg = ['stupid', 'unwise']
-
 class SD3Q13(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    emo_pos = ['wise', 'smart', 'reasonable']
+    emo_neg = ['stupid', 'unwise']
 
     def __init__(self, **kwargs):
 
@@ -119,7 +119,7 @@ class SD3Q13(QMNLI):
             context_template = "I think it's {emotion} to keep track of information that I can use against people later.",
             answer_template = "This {intensifier} represent what I think.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Machiavellianism",
                           "Ordinal":13,
@@ -130,19 +130,20 @@ class SD3Q13(QMNLI):
 
 #### Q16: You should wait for the right time to get back at people.
 
-emo_pos = ['get back at', 'revenge', 'avenge']
-emo_neg = ['forgiving', 'pardoning']
 class SD3Q16(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
 
+    emo_pos = ['get back at', 'revenge', 'avenge']
+    emo_neg = ['forgiving', 'pardoning']
+    
     def __init__(self, **kwargs):
         super().__init__(
             context_template = "I wait for the right time to {emotion} people.",
             answer_template = "This {intensifier} represent what I think.",
 
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Machiavellianism",
                           "Ordinal":16,
@@ -153,11 +154,12 @@ class SD3Q16(QMNLI):
 
 #### Q19: There are things you should hide from other people to preserve your reputation.
 
-emo_pos = ['wise', 'smart', 'reasonable']
-emo_neg = ['stupid', 'unwise']
 class SD3Q19(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    emo_pos = ['wise', 'smart', 'reasonable']
+    emo_neg = ['stupid', 'unwise']
 
     def __init__(self, **kwargs):
         super().__init__(
@@ -165,7 +167,7 @@ class SD3Q19(QMNLI):
             answer_template = "This {intensifier} represent what I think.",
 
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Machiavellianism",
                           "Ordinal":19,
@@ -176,11 +178,12 @@ class SD3Q19(QMNLI):
 
 #### Q22: Make sure your plans benefit you, not others.
 
-pos = ['only myself', 'only me personally']
-neg = ['others', 'other people']
 class SD3Q22(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    pos = ['only myself', 'only me personally']
+    neg = ['others', 'other people']
 
     def __init__(self, **kwargs):
 #         pos = ['yourself', 'you and no one else']
@@ -190,7 +193,7 @@ class SD3Q22(QMNLI):
             answer_template = "This {intensifier} represent what I think.",
 
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(pos, neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.pos, self.neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Machiavellianism",
                           "Ordinal":22,
@@ -201,17 +204,18 @@ class SD3Q22(QMNLI):
             
 #### Q25: Most people can be manipulated.
 
-pos = ['most', 'many']
-neg = ['A small number of', 'a few', ]#'Only a handful']
 class SD3Q25(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    pos = ['most', 'many']
+    neg = ['A small number of', 'a few', ]#'Only a handful']
 
     def __init__(self, **kwargs):
         super().__init__(
             context_template = "I think I can manipulate {emotion} people.",
             answer_template = "This {intensifier} represent what I think.",
-            dimensions={ 'emotion' : dict_pos_neg(pos, neg, 1.0),
+            dimensions={ 'emotion' : dict_pos_neg(self.pos, self.neg, 1.0),
                          'intensifier' : frequency_weights},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Machiavellianism",
@@ -224,14 +228,14 @@ class SD3Q25(QMNLI):
 
 ### Narcissism items
 
-#### Q2: People see me as a natural leader.
-
-emo_pos = ['a natural', 'an excellent', 'a worthy']
-emo_neg = ['a bad', 'an awful', 'a poor']            
+#### Q2: People see me as a natural leader.         
 
 class SD3Q2(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    emo_pos = ['a natural', 'an excellent', 'a worthy']
+    emo_neg = ['a bad', 'an awful', 'a poor']
 
     def __init__(self, **kwargs):
         
@@ -239,7 +243,7 @@ class SD3Q2(QMNLI):
             context_template = "I am {emotion} leader.",
             answer_template = "It is {intensifier} correct.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Narcissism",
                           "Ordinal":2,
@@ -249,19 +253,20 @@ class SD3Q2(QMNLI):
             )
 #### Q5: I hate being the center of attention. (Reversed)
 
-# Reversed
-emo_pos = ['like', 'enjoy', 'want to', 'desire']
-emo_neg = ['despise', 'hate', 'dislike']
 class SD3Q5(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    # Reversed
+    emo_pos = ['like', 'enjoy', 'want to', 'desire']
+    emo_neg = ['despise', 'hate', 'dislike']
 
     def __init__(self, **kwargs):        
         super().__init__(
             context_template = "I {emotion} being the center of attention.",
             answer_template = "It is {intensifier} correct.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Narcissism",
                           "Ordinal":5,
@@ -272,19 +277,19 @@ class SD3Q5(QMNLI):
 
 #### Q8: Many group activities tend to be dull without me.
 
-emo_pos = ['dull', 'lifeless', 'boring']
-emo_neg = ['lively', 'exciting', 'interesting']
-
 class SD3Q8(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    emo_pos = ['dull', 'lifeless', 'boring']
+    emo_neg = ['lively', 'exciting', 'interesting']
 
     def __init__(self, **kwargs):        
         super().__init__(
             context_template = "Group activities are {emotion} without me.",
             answer_template = "It is {intensifier} correct.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Narcissism",
                           "Ordinal":8,
@@ -295,19 +300,19 @@ class SD3Q8(QMNLI):
 
 #### Q11: I know that I am special because everyone keeps telling me so.
 
-emo_pos = ['special', 'extraordinary']
-emo_neg = ['plain', 'ordinary']
-
 class SD3Q11(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    emo_pos = ['special', 'extraordinary']
+    emo_neg = ['plain', 'ordinary']
 
     def __init__(self, **kwargs):        
         super().__init__(
             context_template = "I know that I am {emotion} because everyone keeps telling me so.",
             answer_template = "It is {intensifier} correct.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Narcissism",
                           "Ordinal":11,
@@ -317,19 +322,19 @@ class SD3Q11(QMNLI):
             )
 #### Q14: I like to get acquainted with important people.
 
-emo_pos = ['like', 'love', 'want to',]
-emo_neg = ['hate', 'dislike', 'despise']
-
 class SD3Q14(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    emo_pos = ['like', 'love', 'want to',]
+    emo_neg = ['hate', 'dislike', 'despise']
 
     def __init__(self, **kwargs):        
         super().__init__(
             context_template = "I {emotion} to get acquainted with important people.",
             answer_template = "It is {intensifier} correct.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Narcissism",
                           "Ordinal":14,
@@ -340,31 +345,31 @@ class SD3Q14(QMNLI):
 
 #### Q17: I feel embarrassed if someone compliments me. (Reversed)
 
-# Reversed
-emo_pos = [
-    'proud', 
-    "pleased",
-    "grateful",
-    "delighted",
-    "honored",
-    "happy",
-    "content",
-]
-emo_neg = [
-    'embarrassed', 
-    "uncomfortable",
-    "awkward",
-    "uneasy",
-    "shy",
-    "bashful",
-    "humiliated",
-    "disconcerted",
-    "distressed",
-]
-
 class SD3Q17(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    # Reversed
+    emo_pos = [
+        'proud', 
+        "pleased",
+        "grateful",
+        "delighted",
+        "honored",
+        "happy",
+        "content",
+    ]
+    emo_neg = [
+        'embarrassed', 
+        "uncomfortable",
+        "awkward",
+        "uneasy",
+        "shy",
+        "bashful",
+        "humiliated",
+        "disconcerted",
+        "distressed",
+    ]
 
     def __init__(self, **kwargs):
         
@@ -372,7 +377,7 @@ class SD3Q17(QMNLI):
             context_template = "I feel {emotion} when someone compliments me.",
             answer_template = "It is {intensifier} correct.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Narcissism",
                           "Ordinal":17,
@@ -382,20 +387,20 @@ class SD3Q17(QMNLI):
             )
 
 #### Q20: I have been compared to famous people.
-
-pos = ['famous', 'brilliant', 'leading']
-neg = ['obscure', 'unfamiliar']
     
 class SD3Q20(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    pos = ['famous', 'brilliant', 'leading']
+    neg = ['obscure', 'unfamiliar']
 
     def __init__(self, **kwargs):        
         super().__init__(
             context_template = "I was compared to {emotion} people.",
             answer_template = "It is {intensifier} correct.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(pos, neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.pos, self.neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Narcissism",
                           "Ordinal":20,
@@ -405,19 +410,20 @@ class SD3Q20(QMNLI):
             )
 #### Q23: I am an average person. (Reversed)
 
-# Reversed
-pos = ['extraordinary', 'exceptional', 'important', 'honored']
-neg = ['average', 'ordinary', 'simple']
 class SD3Q23(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    # Reversed
+    pos = ['extraordinary', 'exceptional', 'important', 'honored']
+    neg = ['average', 'ordinary', 'simple']
 
     def __init__(self, **kwargs):
         super().__init__(
             context_template = "I am an {emotion} person.",
             answer_template = "It is {intensifier} correct.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(pos, neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.pos, self.neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Narcissism",
                           "Ordinal":23,
@@ -427,19 +433,20 @@ class SD3Q23(QMNLI):
             )
 #### Q26: I insist on getting the respect I deserve.
 
-pos = ['insist on', 'urge on']
-neg = ['indifferent about', 'apathetic about']
 class SD3Q26(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
 
+    pos = ['insist on', 'urge on']
+    neg = ['indifferent about', 'apathetic about']
+    
     def __init__(self, **kwargs):
         
         super().__init__(
             context_template = "I {emotion} getting respected.",
             answer_template = "It is {intensifier} correct.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(pos, neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.pos, self.neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Narcissism",
                           "Ordinal":26,
@@ -452,19 +459,19 @@ class SD3Q26(QMNLI):
 
 #### Q3: I like to get revenge on authorities.
 
-emo_pos = ['satisfied', 'pleased', 'happy']
-emo_neg = ['unpleasant', 'awful', 'sad']
-
 class SD3Q3(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    emo_pos = ['satisfied', 'pleased', 'happy']
+    emo_neg = ['unpleasant', 'awful', 'sad']
 
     def __init__(self, **kwargs):
         super().__init__(
             context_template = "Getting revenge on authorities makes me feel {emotion}.",
             answer_template = "It is {intensifier} correct.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Psychopathy",
                           "Ordinal":3,
@@ -475,12 +482,12 @@ class SD3Q3(QMNLI):
 
 #### Q6: I avoid dangerous situations. (Reversed)
 
-
-emo_pos = ['satisfied', 'pleased', 'happy']
-emo_neg = ['unpleasant', 'awful', 'sad']
 class SD3Q6(QMNLI):
     index = ["emotion"] 
     scale = "intensifier" 
+
+    emo_pos = ['satisfied', 'pleased', 'happy']
+    emo_neg = ['unpleasant', 'awful', 'sad']
 
     def __init__(self, **kwargs):
         
@@ -488,7 +495,7 @@ class SD3Q6(QMNLI):
             context_template = "Getting into dangerous situations makes me feel {emotion}.",
             answer_template = "It is {intensifier} correct.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Psychopathy",
                           "Ordinal":6,
@@ -498,18 +505,19 @@ class SD3Q6(QMNLI):
             )
 #### Q9: Payback needs to be quick and nasty.
 
-emo_pos = ['needs to', 'must', 'have to']
-emo_neg = ["should not", "can't"]
 class SD3Q9(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    emo_pos = ['needs to', 'must', 'have to']
+    emo_neg = ["should not", "can't"]
 
     def __init__(self, **kwargs):        
         super().__init__(
             context_template = "Payback {emotion} be quick and nasty.",
             answer_template = "It is {intensifier} correct.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Psychopathy",
                           "Ordinal":9,
@@ -519,19 +527,13 @@ class SD3Q9(QMNLI):
             )
 
 #### Q12: People often say I'm out of control.
-
-emo_pos = [
-    'out of control', 
-    "crazy",
-    'insane'
-]
-emo_neg = ['calm', 
-          'relaxed',
-          ]
     
 class SD3Q12(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    emo_pos = ['out of control', "crazy", 'insane']
+    emo_neg = ['calm', 'relaxed']
 
     def __init__(self, **kwargs):
         
@@ -539,7 +541,7 @@ class SD3Q12(QMNLI):
             context_template = "People think I am {emotion}.",
             answer_template = "It is {intensifier} correct.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Psychopathy",
                           "Ordinal":12,
@@ -550,11 +552,12 @@ class SD3Q12(QMNLI):
 
 #### Q15: It's true that I can be mean to others.
 
-emo_pos = ['mean', 'hostil']
-emo_neg = ['good', 'kind']
 class SD3Q15(QMNLI):
-    index = ["emotion"] 
-    scale = "intensifier" 
+    index = ["emotion"]
+    scale = "intensifier"
+
+    emo_pos = ['mean', 'hostile']
+    emo_neg = ['good', 'kind']
 
     def __init__(self, **kwargs):
         
@@ -562,7 +565,7 @@ class SD3Q15(QMNLI):
             context_template = "It is true that I am {emotion} to others.",
             answer_template = "It is {intensifier} correct.",
             dimensions={ 'intensifier' : frequency_weights,
-                         'emotion' : dict_pos_neg(emo_pos, emo_neg, 1.0)},
+                         'emotion' : dict_pos_neg(self.emo_pos, self.emo_neg, 1.0)},
             descriptor = {"Questionnair":"SD3",
                           "Factor":"Psychopathy",
                           "Ordinal":15,
@@ -572,7 +575,6 @@ class SD3Q15(QMNLI):
             )
 
 #### Q18: People who mess with me always regret it.
-
 
 class SD3Q18(QMNLI):
     index = ["emotion"] 
@@ -618,7 +620,6 @@ class SD3Q21(QMNLI):
             )
             
 #### Q24: I enjoy having sex with people I hardly know.
-
 
 class SD3Q24(QMNLI):
     index = ["emotion"] 

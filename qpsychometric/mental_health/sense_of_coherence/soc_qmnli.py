@@ -11,15 +11,14 @@ frequency_weights:SCALE = {
     'always':4,    
 }
 
-kw_attitude_neg = ["meaningless", "dull", "aimless", 'boring']
-kw_attitude_pos = ["meaningful", "interesting", "fulfilling", 'fascinating']
-dict_attitude = dict_pos_neg(kw_attitude_pos,kw_attitude_neg, 1.0)
-
-
 class SOCQ4(QMNLI):
   
   index=["index"]
   scale="frequency"
+
+  kw_attitude_neg = ["meaningless", "dull", "aimless", 'boring']
+  kw_attitude_pos = ["meaningful", "interesting", "fulfilling", 'fascinating']
+  dict_attitude = dict_pos_neg(kw_attitude_pos,kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -27,7 +26,7 @@ class SOCQ4(QMNLI):
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
-            "index":dict_attitude,
+            "index":self.dict_attitude,
         },
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Meaningfulness",
@@ -37,15 +36,14 @@ class SOCQ4(QMNLI):
         **kwargs,
     )
 
-kw_attitude_neg = ['surprised by','puzzled by']
-kw_attitude_pos = ['expecting','anticipating']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
-
 class SOCQ5(QMNLI):
   
   index=["index"]
   scale="frequency"
+
+  kw_attitude_neg = ['surprised by','puzzled by']
+  kw_attitude_pos = ['expecting','anticipating']
+  dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -53,7 +51,7 @@ class SOCQ5(QMNLI):
         answer_template="True.",
         dimensions={
             "frequency":frequency_weights,
-            "index":dict_attitude,
+            "index":self.dict_attitude,
         },
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Comprehensibility",
@@ -63,14 +61,14 @@ class SOCQ5(QMNLI):
         **kwargs,
     )
 
-kw_attitude_neg = ["disappointed", 'failed']
-kw_attitude_pos = ["supported", "helped"]
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class SOCQ6(QMNLI):
   
   index=["index"]
   scale="frequency"
+
+  kw_attitude_neg = ["disappointed", 'failed']
+  kw_attitude_pos = ["supported", "helped"]
+  dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -78,7 +76,7 @@ class SOCQ6(QMNLI):
         answer_template="True.",
         dimensions={
             "frequency":frequency_weights,
-            "index":dict_attitude,
+            "index":self.dict_attitude,
         },
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Manageability",
@@ -88,14 +86,14 @@ class SOCQ6(QMNLI):
         **kwargs,
     )
 
-kw_attitude_neg = ["meaningless", "dull", "aimless", 'boring']
-kw_attitude_pos = ["meaningful", "interesting", "fulfilling", 'fascinating']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class SOCQ8(QMNLI):
   
   index=["index"]
   scale="frequency"
+
+  kw_attitude_neg = ["meaningless", "dull", "aimless", 'boring']
+  kw_attitude_pos = ["meaningful", "interesting", "fulfilling", 'fascinating']
+  dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -103,7 +101,7 @@ class SOCQ8(QMNLI):
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
-            "index":dict_attitude,
+            "index":self.dict_attitude,
         },
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Meaningfulness",
@@ -113,14 +111,14 @@ class SOCQ8(QMNLI):
         **kwargs,
     )
 
-kw_attitude_neg = ["unfairly", "unjustly", "with discrimination", "unequally"]
-kw_attitude_pos = ["fairly", "justly", "equally"]
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class SOCQ9(QMNLI):
   
   index=["index"]
   scale="frequency"
+
+  kw_attitude_neg = ["unfairly", "unjustly", "with discrimination", "unequally"]
+  kw_attitude_pos = ["fairly", "justly", "equally"]
+  dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -128,7 +126,7 @@ class SOCQ9(QMNLI):
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
-            "index":dict_attitude,
+            "index":self.dict_attitude,
         },
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Manageability",
@@ -138,14 +136,14 @@ class SOCQ9(QMNLI):
         **kwargs,
     )
 
-kw_attitude_neg = ["helpless", "hopeless", 'powerless']
-kw_attitude_pos = ["easy", "comfortable", "relaxed"]
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class SOCQ12(QMNLI):
   
   index=["index"]
   scale="frequency"
+
+  kw_attitude_neg = ["helpless", "hopeless", 'powerless']
+  kw_attitude_pos = ["easy", "comfortable", "relaxed"]
+  dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__( 
@@ -153,7 +151,7 @@ class SOCQ12(QMNLI):
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
-            "index":dict_attitude,
+            "index":self.dict_attitude,
         },
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Comprehensibility",
@@ -163,14 +161,14 @@ class SOCQ12(QMNLI):
         **kwargs,
     )
 
-kw_attitude_neg = ["meaningless", "dull", "aimless", 'boring']
-kw_attitude_pos = ["meaningful", "interesting", "fulfilling", 'fascinating']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class SOCQ16(QMNLI):
   
   index=["index"]
   scale="frequency"
+
+  kw_attitude_neg = ["meaningless", "dull", "aimless", 'boring']
+  kw_attitude_pos = ["meaningful", "interesting", "fulfilling", 'fascinating']
+  dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -178,7 +176,7 @@ class SOCQ16(QMNLI):
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
-            "index":dict_attitude,
+            "index":self.dict_attitude,
         },
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Meaningfulness",
@@ -188,14 +186,14 @@ class SOCQ16(QMNLI):
         **kwargs,
     )
 
-kw_attitude_pos = ["clear", "coherent", 'logical', 'comprehensible']
-kw_attitude_neg = ["mixed-up", "confounded"]
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class SOCQ19(QMNLI):
   
   index=["index"]
   scale="frequency"
+
+  kw_attitude_pos = ["clear", "coherent", 'logical', 'comprehensible']
+  kw_attitude_neg = ["mixed-up", "confounded"]
+  dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -203,7 +201,7 @@ class SOCQ19(QMNLI):
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
-            "index":dict_attitude,
+            "index":self.dict_attitude,
         },
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Comprehensibility",
@@ -213,14 +211,14 @@ class SOCQ19(QMNLI):
         **kwargs,
     )
 
-kw_attitude_neg = ["unwanted", 'undesired']
-kw_attitude_pos = ['joyful', 'good']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class SOCQ21(QMNLI):
   
   index=["index"]
   scale="frequency"
+
+  kw_attitude_neg = ["unwanted", 'undesired']
+  kw_attitude_pos = ['joyful', 'good']
+  dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -228,7 +226,7 @@ class SOCQ21(QMNLI):
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
-            "index":dict_attitude,
+            "index":self.dict_attitude,
         },
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Comprehensibility",
@@ -238,14 +236,14 @@ class SOCQ21(QMNLI):
         **kwargs,
     )
 
-kw_attitude_neg = ["loser", "sad sack"]
-kw_attitude_pos = ["winner", "success"]
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class SOCQ25(QMNLI):
   
   index=["index"]
   scale="frequency"
+
+  kw_attitude_neg = ["loser", "sad sack"]
+  kw_attitude_pos = ["winner", "success"]
+  dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -253,7 +251,7 @@ class SOCQ25(QMNLI):
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
-            "index":dict_attitude,
+            "index":self.dict_attitude,
         },
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Manageability",
@@ -263,14 +261,14 @@ class SOCQ25(QMNLI):
         **kwargs,
     )
 
-kw_attitude_pos = ["estimate in proportion", "judge in proportion"]
-kw_attitude_neg = ["overestimate","misjudge",'underestimate']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class SOCQ26(QMNLI):
   
   index=["index"]
   scale="frequency"
+
+  kw_attitude_pos = ["estimate in proportion", "judge in proportion"]
+  kw_attitude_neg = ["overestimate","misjudge",'underestimate']
+  dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -278,7 +276,7 @@ class SOCQ26(QMNLI):
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
-            "index":dict_attitude,
+            "index":self.dict_attitude,
         },
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Comprehensibility",
@@ -288,14 +286,14 @@ class SOCQ26(QMNLI):
         **kwargs,
     )
 
-kw_attitude_neg = ["meaningless", "dull", "aimless", 'boring']
-kw_attitude_pos = ["meaningful", "interesting", "fulfilling", 'fascinating']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class SOCQ28(QMNLI):
   
   index=["index"]
   scale="frequency"
+
+  kw_attitude_neg = ["meaningless", "dull", "aimless", 'boring']
+  kw_attitude_pos = ["meaningful", "interesting", "fulfilling", 'fascinating']
+  dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -303,7 +301,7 @@ class SOCQ28(QMNLI):
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
-            "index":dict_attitude,
+            "index":self.dict_attitude,
         },
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Meaningfulness",
@@ -313,14 +311,14 @@ class SOCQ28(QMNLI):
         **kwargs,
     )
 
-kw_attitude_neg = ["out of control", "uncontrollable", 'unmanageable']
-kw_attitude_pos = ["contained", "collected", 'controlled']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class SOCQ29(QMNLI):
   
   index=["index"]
   scale="frequency"
+
+  kw_attitude_neg = ["out of control", "uncontrollable", 'unmanageable']
+  kw_attitude_pos = ["contained", "collected", 'controlled']
+  dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
@@ -328,7 +326,7 @@ class SOCQ29(QMNLI):
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
-            "index":dict_attitude,
+            "index":self.dict_attitude,
         },
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Manageability",

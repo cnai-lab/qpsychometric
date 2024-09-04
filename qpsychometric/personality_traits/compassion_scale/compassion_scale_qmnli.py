@@ -11,24 +11,23 @@ frequency_weights:SCALE = {
     'always':4,    
 }
 
-kw_attitude_neg = ['incorrect', 'false', 'imprecise', 'invalid']
-kw_attitude_pos = ['correct', 'true', 'accurate', 'a fact']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ1(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
-    
+    kw_attitude_neg = ['incorrect', 'false', 'imprecise', 'invalid']
+    kw_attitude_pos = ['correct', 'true', 'accurate', 'a fact']
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
+
     def __init__(self, **kwargs):
         super().__init__(
             context_template="I {frequency} distant when people cry in front of me.",
             answer_template="This is {index}",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Disengagement",
@@ -38,16 +37,15 @@ class CSQ1(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['incorrect', 'false', 'imprecise', 'invalid']
-kw_attitude_pos = ['correct', 'true', 'accurate', 'a fact']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ7(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['incorrect', 'false', 'imprecise', 'invalid']
+    kw_attitude_pos = ['correct', 'true', 'accurate', 'a fact']
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -55,7 +53,7 @@ class CSQ7(QMNLI):
             answer_template="This is {index}",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Disengagement",
@@ -65,16 +63,15 @@ class CSQ7(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['correct', 'true', 'accurate', 'a fact']
-kw_attitude_pos = ['incorrect', 'false', 'imprecise', 'invalid']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ19(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['correct', 'true', 'accurate', 'a fact']
+    kw_attitude_pos = ['incorrect', 'false', 'imprecise', 'invalid']
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -82,7 +79,7 @@ class CSQ19(QMNLI):
             answer_template="This is {index}.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Disengagement",
@@ -92,9 +89,6 @@ class CSQ19(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['incorrect', 'false', 'imprecise', 'invalid']
-kw_attitude_pos = ['correct', 'true', 'accurate', 'a fact']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
 class CSQ23(QMNLI):
     """
@@ -102,6 +96,9 @@ class CSQ23(QMNLI):
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['incorrect', 'false', 'imprecise', 'invalid']
+    kw_attitude_pos = ['correct', 'true', 'accurate', 'a fact']
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -109,7 +106,7 @@ class CSQ23(QMNLI):
             answer_template="This sentence is {index}.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Disengagement",
@@ -119,10 +116,6 @@ class CSQ23(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['incorrect', 'false', 'imprecise']
-kw_attitude_pos = ['correct', 'true', 'accurate',]
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 
 class CSQ2(QMNLI):
     """
@@ -130,6 +123,9 @@ class CSQ2(QMNLI):
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['incorrect', 'false', 'imprecise']
+    kw_attitude_pos = ['correct', 'true', 'accurate',]
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -137,7 +133,7 @@ class CSQ2(QMNLI):
             answer_template="It is {frequency} {index}.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Indifference",
@@ -147,16 +143,15 @@ class CSQ2(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['incorrect', 'false', 'imprecise',]
-kw_attitude_pos = ['correct', 'true', 'accurate',]
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ12(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['incorrect', 'false', 'imprecise',]
+    kw_attitude_pos = ['correct', 'true', 'accurate',]
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -164,7 +159,7 @@ class CSQ12(QMNLI):
             answer_template= "It is {frequency} {index}.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Indifference",
@@ -174,16 +169,15 @@ class CSQ12(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['incorrect', 'false', 'imprecise',]
-kw_attitude_pos = ['correct', 'true', 'accurate',]
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ14(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['incorrect', 'false', 'imprecise',]
+    kw_attitude_pos = ['correct', 'true', 'accurate',]
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -191,7 +185,7 @@ class CSQ14(QMNLI):
             answer_template= "It is {frequency} {index}.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Indifference",
@@ -201,16 +195,15 @@ class CSQ14(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['incorrect', 'false', 'imprecise',]
-kw_attitude_pos = ['correct', 'true', 'accurate',]
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ18(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['incorrect', 'false', 'imprecise',]
+    kw_attitude_pos = ['correct', 'true', 'accurate',]
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -218,7 +211,7 @@ class CSQ18(QMNLI):
             answer_template= "It is {index}.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Indifference",
@@ -228,16 +221,15 @@ class CSQ18(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['incorrect', 'false']
-kw_attitude_pos = ['correct', 'true']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ3(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['incorrect', 'false']
+    kw_attitude_pos = ['correct', 'true']
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -245,7 +237,7 @@ class CSQ3(QMNLI):
             answer_template="It is {index}.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Separation",
@@ -254,10 +246,6 @@ class CSQ3(QMNLI):
             },
             **kwargs,
         )
-    
-kw_attitude_neg = ['incorrect', 'false']
-kw_attitude_pos = ['correct', 'true']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
 class CSQ5(QMNLI):
     """
@@ -265,6 +253,9 @@ class CSQ5(QMNLI):
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['incorrect', 'false']
+    kw_attitude_pos = ['correct', 'true']
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -272,7 +263,7 @@ class CSQ5(QMNLI):
             answer_template="It is {frequency} {index}.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Separation",
@@ -282,16 +273,15 @@ class CSQ5(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['incorrect', 'false']
-kw_attitude_pos = ['correct', 'true']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ10(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['incorrect', 'false']
+    kw_attitude_pos = ['correct', 'true']
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -299,7 +289,7 @@ class CSQ10(QMNLI):
             answer_template="It is {frequency} {index}.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Separation",
@@ -309,24 +299,23 @@ class CSQ10(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['incorrect', 'false']
-kw_attitude_pos = ['correct', 'true']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ22(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
-    
+    kw_attitude_neg = ['incorrect', 'false']
+    kw_attitude_pos = ['correct', 'true']
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
+
     def __init__(self, **kwargs):
         super().__init__(
             context_template="I can’t really connect with other people when they’re suffering.",
             answer_template="It is {frequency} {index}.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Separation",
@@ -336,16 +325,15 @@ class CSQ22(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['incorrect', 'false', 'imprecise', 'invalid']
-kw_attitude_pos = ['correct', 'true', 'accurate', 'a fact']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ4(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['incorrect', 'false', 'imprecise', 'invalid']
+    kw_attitude_pos = ['correct', 'true', 'accurate', 'a fact']
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -353,7 +341,7 @@ class CSQ4(QMNLI):
             answer_template="This sentence is {frequency} {index}.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Mindfulness",
@@ -363,16 +351,15 @@ class CSQ4(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['incorrect', 'false', 'imprecise', 'invalid']
-kw_attitude_pos = ['correct', 'true', 'accurate', 'a fact']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ9(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['incorrect', 'false', 'imprecise', 'invalid']
+    kw_attitude_pos = ['correct', 'true', 'accurate', 'a fact']
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -380,7 +367,7 @@ class CSQ9(QMNLI):
             answer_template="It is {frequency} correct.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Mindfulness",
@@ -390,16 +377,15 @@ class CSQ9(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['incorrect', 'false', 'imprecise', 'invalid']
-kw_attitude_pos = ['correct', 'true', 'accurate', 'a fact']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ13(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['incorrect', 'false', 'imprecise', 'invalid']
+    kw_attitude_pos = ['correct', 'true', 'accurate', 'a fact']
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -407,7 +393,7 @@ class CSQ13(QMNLI):
             answer_template="It is {frequency} {index}.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Mindfulness",
@@ -417,16 +403,15 @@ class CSQ13(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['biased', 'unbalanced', 'disproportioned', 'skewed']
-kw_attitude_pos = ['balanced', 'reasonable', 'sensible', 'impartial']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ21(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['biased', 'unbalanced', 'disproportioned', 'skewed']
+    kw_attitude_pos = ['balanced', 'reasonable', 'sensible', 'impartial']
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -434,7 +419,7 @@ class CSQ21(QMNLI):
             answer_template="It is {frequency} correct.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Mindfulness",
@@ -444,16 +429,15 @@ class CSQ21(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['indifferent to', 'ignore', 'cold to', 'avoid']
-kw_attitude_pos = ['caring toward', 'kind to', 'sympathize with']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ6(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['indifferent to', 'ignore', 'cold to', 'avoid']
+    kw_attitude_pos = ['caring toward', 'kind to', 'sympathize with']
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -461,7 +445,7 @@ class CSQ6(QMNLI):
             answer_template="It is correct.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Kindness",
@@ -471,16 +455,15 @@ class CSQ6(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['indifferent to', 'ignore', 'cold to', 'avoid']
-kw_attitude_pos = ['caring toward', 'kind to']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ8(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['indifferent to', 'ignore', 'cold to', 'avoid']
+    kw_attitude_pos = ['caring toward', 'kind to']
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -488,7 +471,7 @@ class CSQ8(QMNLI):
             answer_template="It is correct.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Kindness",
@@ -498,16 +481,15 @@ class CSQ8(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['indifferent to', 'ignore', 'cold to', 'avoid']
-kw_attitude_pos = ['caring toward', 'kind to', 'sympathize with']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ16(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['indifferent to', 'ignore', 'cold to', 'avoid']
+    kw_attitude_pos = ['caring toward', 'kind to', 'sympathize with']
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -515,7 +497,7 @@ class CSQ16(QMNLI):
             answer_template="It is correct.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Kindness",
@@ -525,16 +507,15 @@ class CSQ16(QMNLI):
             **kwargs,
         )
 
-kw_attitude_neg = ['indifferent to', 'ignore', 'cold to', 'avoid']
-kw_attitude_pos = ['caring toward', 'kind to', 'sympathize with']
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ24(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_neg = ['indifferent to', 'ignore', 'cold to', 'avoid']
+    kw_attitude_pos = ['caring toward', 'kind to', 'sympathize with']
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -542,7 +523,7 @@ class CSQ24(QMNLI):
             answer_template="It is correct.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Kindness",
@@ -552,16 +533,15 @@ class CSQ24(QMNLI):
             **kwargs,
         )
 
-kw_attitude_pos = ['an important', 'an essential', 'a significant', 'a critical',]
-kw_attitude_neg = ['an insignificant', 'an unimportant', 'an irrelevant', 'a minor',]
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ11(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_pos = ['an important', 'an essential', 'a significant', 'a critical',]
+    kw_attitude_neg = ['an insignificant', 'an unimportant', 'an irrelevant', 'a minor',]
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -569,7 +549,7 @@ class CSQ11(QMNLI):
             answer_template="It is {frequency} correct.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Common Humanity",
@@ -579,16 +559,15 @@ class CSQ11(QMNLI):
             **kwargs,
         )
 
-kw_attitude_pos = ['an important', 'an essential', 'a significant', 'a critical',]
-kw_attitude_neg = ['an insignificant', 'an unimportant', 'an irrelevant', 'a minor',]
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ15(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_pos = ['an important', 'an essential', 'a significant', 'a critical',]
+    kw_attitude_neg = ['an insignificant', 'an unimportant', 'an irrelevant', 'a minor',]
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -596,7 +575,7 @@ class CSQ15(QMNLI):
             answer_template="It is {frequency} correct.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Common Humanity",
@@ -606,16 +585,15 @@ class CSQ15(QMNLI):
             **kwargs,
         )
 
-kw_attitude_pos = ['an important', 'an essential', 'a significant', 'a critical',]
-kw_attitude_neg = ['an insignificant', 'an unimportant', 'an irrelevant', 'a minor',]
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ17(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_pos = ['an important', 'an essential', 'a significant', 'a critical',]
+    kw_attitude_neg = ['an insignificant', 'an unimportant', 'an irrelevant', 'a minor',]
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -623,7 +601,7 @@ class CSQ17(QMNLI):
             answer_template="It is {frequency} correct.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Common Humanity",
@@ -633,16 +611,15 @@ class CSQ17(QMNLI):
             **kwargs,
         )
 
-kw_attitude_pos = ['an important','a crucial', 'an essential', 'a significant', 'a critical',]
-kw_attitude_neg = ['an insignificant', 'an unimportant', 'an irrelevant', 'a minor',]
-dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
 class CSQ20(QMNLI):
     """
     """
     index = ["index"] 
     scale = "frequency"
 
+    kw_attitude_pos = ['an important','a crucial', 'an essential', 'a significant', 'a critical',]
+    kw_attitude_neg = ['an insignificant', 'an unimportant', 'an irrelevant', 'a minor',]
+    dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
@@ -650,7 +627,7 @@ class CSQ20(QMNLI):
             answer_template="It is {frequency} correct.",
             dimensions={
                 "frequency":frequency_weights,
-                "index":dict_attitude,
+                "index":self.dict_attitude,
             },
             descriptor = {"Questionnair":"CS",
                           "Factor":"Common Humanity",
