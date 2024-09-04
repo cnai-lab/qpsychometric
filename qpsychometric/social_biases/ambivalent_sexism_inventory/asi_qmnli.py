@@ -25,7 +25,11 @@ class ASIQ2(QMNLI):
   scale = "frequency"
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
+<<<<<<< HEAD
   kw_favors   = ['legitimate', 'rightful', 'reasonable']
+=======
+  kw_favors   = ['legitimate','rightful', 'reasonable']
+>>>>>>> bde75ad7f63f293bb7420be20f24a098f35cee80
   dict_objective = dict_pos_neg(kw_favors, kw_fairness,1)
   
   def __init__(self, **kwargs):
@@ -57,7 +61,11 @@ class ASIQ4(QMNLI):
   scale = "frequency"
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
+<<<<<<< HEAD
   kw_favors   = ['legitimate', 'rightful', 'reasonable']
+=======
+  kw_favors   = ['legitimate','rightful', 'reasonable']
+>>>>>>> bde75ad7f63f293bb7420be20f24a098f35cee80
   dict_objective = dict_pos_neg(kw_favors, kw_fairness,1)
   
   def __init__(self, **kwargs):
