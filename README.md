@@ -1,4 +1,4 @@
-# The "qpsychometric" Package
+# The `qpsychometric` Package
 
 This package contains several psychometric questionnaires from the following categories:
 - Mental health
