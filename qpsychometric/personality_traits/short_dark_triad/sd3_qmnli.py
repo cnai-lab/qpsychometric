@@ -666,4 +666,4 @@ class SD3Q27(QMNLI):
 sd3_machiavellianism_qmnli = [SD3Q1, SD3Q4, SD3Q7, SD3Q10, SD3Q13, SD3Q16, SD3Q19, SD3Q22, SD3Q25]
 sd3_narcissism_qmnli       = [SD3Q2, SD3Q5, SD3Q8, SD3Q11, SD3Q14, SD3Q17, SD3Q20, SD3Q23, SD3Q26]
 sd3_psychopathy_qmnli      = [SD3Q3, SD3Q6, SD3Q9, SD3Q12, SD3Q15, SD3Q18, SD3Q21, SD3Q24, SD3Q27]
-sd3_qmnli = sd3_machiavellianism_qmnli + sd3_narcissism_qmnli + sd3_psychopathy_qmnli
+sd3_qmnli_list = sd3_machiavellianism_qmnli + sd3_narcissism_qmnli + sd3_psychopathy_qmnli

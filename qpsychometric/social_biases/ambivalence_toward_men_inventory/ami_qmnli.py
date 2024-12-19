@@ -10,3 +10,5 @@ frequency_weights:SCALE = {
     'very frequently':3,
     'always':4,    
 }
+
+ami_qmnli_list=[]

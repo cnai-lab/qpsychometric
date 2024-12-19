@@ -25,11 +25,11 @@ class ASIQ2(QMNLI):
   scale = "frequency"
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
-<<<<<<< HEAD
+
   kw_favors   = ['legitimate', 'rightful', 'reasonable']
-=======
+
   kw_favors   = ['legitimate','rightful', 'reasonable']
->>>>>>> bde75ad7f63f293bb7420be20f24a098f35cee80
+
   dict_objective = dict_pos_neg(kw_favors, kw_fairness,1)
   
   def __init__(self, **kwargs):
@@ -61,11 +61,11 @@ class ASIQ4(QMNLI):
   scale = "frequency"
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
-<<<<<<< HEAD
+
   kw_favors   = ['legitimate', 'rightful', 'reasonable']
-=======
+
   kw_favors   = ['legitimate','rightful', 'reasonable']
->>>>>>> bde75ad7f63f293bb7420be20f24a098f35cee80
+
   dict_objective = dict_pos_neg(kw_favors, kw_fairness,1)
   
   def __init__(self, **kwargs):
@@ -774,8 +774,8 @@ class ASIQ22(QMNLI):
         **kwargs,
     )
 
-asi_qmnli = [ASIQ1, ASIQ2, ASIQ3, ASIQ4, ASIQ5, ASIQ6, ASIQ7, ASIQ8, ASIQ9, ASIQ10, ASIQ11, ASIQ12, ASIQ13, ASIQ14, ASIQ15, ASIQ16, ASIQ17, ASIQ18, ASIQ19, ASIQ20, ASIQ21, ASIQ22]
-asi_bg_qmnli = [question for question in asi_qmnli if "B(G)" in question.__doc__]
-asi_bi_qmnli = [question for question in asi_qmnli if "B(I)" in question.__doc__]
-asi_bp_qmnli = [question for question in asi_qmnli if "B(P)" in question.__doc__]
-asi_h_qmnli = [question for question in asi_qmnli if "H" in question.__doc__]
+asi_qmnli_list = [ASIQ1, ASIQ2, ASIQ3, ASIQ4, ASIQ5, ASIQ6, ASIQ7, ASIQ8, ASIQ9, ASIQ10, ASIQ11, ASIQ12, ASIQ13, ASIQ14, ASIQ15, ASIQ16, ASIQ17, ASIQ18, ASIQ19, ASIQ20, ASIQ21, ASIQ22]
+asi_bg_qmnli = [question for question in asi_qmnli_list if "B(G)" in question.__doc__]
+asi_bi_qmnli = [question for question in asi_qmnli_list if "B(I)" in question.__doc__]
+asi_bp_qmnli = [question for question in asi_qmnli_list if "B(P)" in question.__doc__]
+asi_h_qmnli = [question for question in asi_qmnli_list if "H" in question.__doc__]
