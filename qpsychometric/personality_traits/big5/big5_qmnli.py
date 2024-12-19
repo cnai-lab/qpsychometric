@@ -1,4 +1,4 @@
-from qlatent.qmnli.qmnli import _QMNLI, SCALE
+from qlatent.qmnli.qmnli import QMNLI, SCALE, dict_pos_neg
 
 frequency_weights:SCALE = {
     'never':-4,
@@ -11,14 +11,43 @@ frequency_weights:SCALE = {
     'always':4,    
 }
 
-class BIG5Q1(_QMNLI):
+class SOCQ9(QMNLI):
+  
+  index=["index"]
+  scale="frequency"
+
+  kw_attitude_neg = ["unfairly", "unjustly", "with discrimination", "unequally"]
+  kw_attitude_pos = ["fairly", "justly", "equally"]
+  dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
+
+  def __init__(self, **kwargs):
+    super().__init__(
+        context_template="I feel that I am being treated {index}.",
+        answer_template="It is {frequency} correct.",
+        dimensions={
+            "frequency":frequency_weights,
+            "index":self.dict_attitude,
+        },
+        descriptor = {"Questionnair":"SOC",
+                      "Factor":"Manageability",
+                      "Ordinal":9,
+                      "Original":"Do you have the feeling that you’re being treated unfairly? "
+        },
+        **kwargs,
+    )
+    
+class BIG5Q1(QMNLI):
+    emo_pos=['am open to', 'enjoy', 'like']
+    emo_neg=['avoid', 'reject', 'dislike']
+    dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
-            context="I {intensifier} {emotion} new experiences and trying new things.",
-            template="It is correct.",
-            emo_pos=['am open to', 'enjoy', 'like'],
-            emo_neg=['avoid', 'reject', 'dislike'],
-            intensifiers=frequency_weights,
+            context_template="I {intensifier} {emotion} new experiences and trying new things.",
+            answer_template="It is correct.",
+            dimensions={
+            "frequency":frequency_weights,
+            "index": self.dict_attitude ,
+            },
             descriptor = {"Questionnair":"BIG5",
               "Factor":"Openness to Experience",
               "Ordinal":1,
@@ -27,11 +56,12 @@ class BIG5Q1(_QMNLI):
             **kwargs
         )
 
+
 class BIG5Q2(_QMNLI):
     def __init__(self, **kwargs):
         super().__init__(
-            context="I am {intensifier} {emotion}.",
-            template="It is correct.",
+            context_template="I am {intensifier} {emotion}.",
+            answer_template="It is correct.",
             emo_pos=['inventive', 'imaginative', 'creative'],
             emo_neg=['lacking imagination', 'boring'],
             intensifiers=frequency_weights,
@@ -46,8 +76,8 @@ class BIG5Q2(_QMNLI):
 class BIG5Q3(_QMNLI):
     def __init__(self, **kwargs):
         super().__init__(
-            context="I {intensifier} {emotion} new experiences.",
-            template="It is correct.", 
+            context_template="I {intensifier} {emotion} new experiences.",
+            answer_template="It is correct.", 
             emo_pos=['seek out', 'look for', 'want to have'],
             emo_neg=['decline', 'dislike', 'give up on'],
             intensifiers=frequency_weights,
@@ -62,8 +92,8 @@ class BIG5Q3(_QMNLI):
 class BIG5Q4(_QMNLI):
     def __init__(self, **kwargs):
         super().__init__(
-            context="I {intensifier} {emotion} the details.",
-            template="It is correct.",
+            context_template="I {intensifier} {emotion} the details.",
+            answer_template="It is correct.",
             emo_pos=['closely inspect', 'pay attention to', 'am thorough in'],
             emo_neg=['overlook', 'miss out on', 'tend to neglect'],
             intensifiers=frequency_weights,
@@ -78,8 +108,8 @@ class BIG5Q4(_QMNLI):
 class BIG5Q5(_QMNLI):
     def __init__(self, **kwargs):
         super().__init__(
-            context="I am {intensifier} {emotion}.",
-            template="It is correct.",
+            context_template="I am {intensifier} {emotion}.",
+            answer_template="It is correct.",
             emo_pos=['responsible', 'dependable', 'trustworthy'],
             emo_neg=['unreliable', 'reckless', 'unaccountable'],
             intensifiers=frequency_weights,
@@ -94,8 +124,8 @@ class BIG5Q5(_QMNLI):
 class BIG5Q6(_QMNLI):
     def __init__(self, **kwargs):
         super().__init__(
-            context="I {intensifier} like to be {emotion}.",
-            template="It is correct.",
+            context_template="I {intensifier} like to be {emotion}.",
+            answer_template="It is correct.",
             emo_pos=['organized', 'arranged'],
             emo_neg=['messy', 'disordered'],
             intensifiers=frequency_weights,
@@ -110,8 +140,8 @@ class BIG5Q6(_QMNLI):
 class BIG5Q7(_QMNLI):
     def __init__(self, **kwargs):
         super().__init__(
-            context="I am {intensifier} {emotion} around other people.",
-            template="It is correct.",
+            context_template="I am {intensifier} {emotion} around other people.",
+            answer_template="It is correct.",
             emo_pos=['talkative', 'chatty', 'amiable'],
             emo_neg=['quiet', 'silent', 'withdrawn', 'shy'],
             intensifiers=frequency_weights,
@@ -126,8 +156,8 @@ class BIG5Q7(_QMNLI):
 class BIG5Q8(_QMNLI):
     def __init__(self, **kwargs):
         super().__init__(
-            context="I am {intensifier} {emotion}.",
-            template="It is correct.",
+            context_template="I am {intensifier} {emotion}.",
+            answer_template="It is correct.",
             emo_pos=['sociable', 'in the center of attention'],
             emo_neg=['quiet', 'reserved', 'shy'],
             intensifiers=frequency_weights,
@@ -142,8 +172,8 @@ class BIG5Q8(_QMNLI):
 class BIG5Q9(_QMNLI):
     def __init__(self, **kwargs):
         super().__init__(
-            context="I am {intensifier} {emotion}.",
-            template="It is correct.",
+            context_template="I am {intensifier} {emotion}.",
+            answer_template="It is correct.",
             emo_pos=['sociable', 'friendly', 'approachable'],
             emo_neg=['distant','unfriendly', 'unsociable'],
             intensifiers=frequency_weights,
@@ -158,8 +188,8 @@ class BIG5Q9(_QMNLI):
 class BIG5Q10(_QMNLI):
     def __init__(self, **kwargs):
         super().__init__(
-            context="I am {intensifier} {emotion} other people's feelings.",
-            template="It is correct.",
+            context_template="I am {intensifier} {emotion} other people's feelings.",
+            answer_template="It is correct.",
             emo_pos=['considerate towards', 'respectful towards', 'care about'],
             emo_neg=['indifferent towards', 'emotionally distant towards', 'insensitive towards'],
             intensifiers=frequency_weights,
@@ -174,8 +204,8 @@ class BIG5Q10(_QMNLI):
 class BIG5Q11(_QMNLI):
     def __init__(self, **kwargs):
         super().__init__(
-            context="I am {intensifier} {emotion} towards others.",
-            template="It is correct.",
+            context_template="I am {intensifier} {emotion} towards others.",
+            answer_template="It is correct.",
             emo_pos=['compassionate', 'empathetic', 'sympathetic'],
             emo_neg=['indifferent', 'careless', 'apathetic'],
             intensifiers=frequency_weights,
@@ -190,8 +220,8 @@ class BIG5Q11(_QMNLI):
 class BIG5Q12(_QMNLI):
     def __init__(self, **kwargs):
         super().__init__(
-            context="I {intensifier} {emotion} with others.",
-            template="It is correct.",
+            context_template="I {intensifier} {emotion} with others.",
+            answer_template="It is correct.",
             emo_pos=['cooperate', 'work well', 'helpful'],
             emo_neg=['disobliging', 'unsupportive'],
             intensifiers=frequency_weights,
@@ -206,8 +236,8 @@ class BIG5Q12(_QMNLI):
 class BIG5Q13(_QMNLI):
     def __init__(self, **kwargs):
         super().__init__(
-            context="I am {intensifier} easily {emotion} about things.",
-            template="It is correct.",
+            context_template="I am {intensifier} easily {emotion} about things.",
+            answer_template="It is correct.",
             emo_pos=['stressed', 'worry', 'concern'],
             emo_neg=['calmed', 'collected', 'composed'],
             intensifiers=frequency_weights,
@@ -222,8 +252,8 @@ class BIG5Q13(_QMNLI):
 class BIG5Q14(_QMNLI):
     def __init__(self, **kwargs):
         super().__init__(
-            context="I am {intensifier} easily {emotion}.",
-            template="It is correct.",
+            context_template="I am {intensifier} easily {emotion}.",
+            answer_template="It is correct.",
             emo_pos=['upset', 'prone to mood swings', 'agitated'],
             emo_neg=['calmed', 'relaxed'],
             intensifiers=frequency_weights,
