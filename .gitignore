@@ -1,4 +1,5 @@
 .ipynb_checkpoints
 import_tests.ipynb
 import_tests.py
-qpsychometric/run_PALM_experiments_CS.ipynb
+qpsychometric/run_*
+qpsychometric/gradient_*

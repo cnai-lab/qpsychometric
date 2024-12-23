@@ -42,25 +42,26 @@ qpsychometric<br>
 ## Commands and steps for running a questionnaire:
 
 * How to install the qlatent package:
-  ```
+  ```python
   %pip install qlatent
   ```
 * How to import the classes of the questionnaires:
-  ```
+  ```python
   from qlatent.qmnli.qmnli import *
   ```
 * How to load an NLI model from huggingface.com into a pipeline a few simple steps:
-  ```
+  ```python
   device = 0 if torch.cuda.is_available() else -1  # (0 is CUDA, -1 is CPU)
   p = "typeform/distilbert-base-uncased-mnli"  # You may replace the presented path with another MNLI model's path
   nli = pipeline("zero-shot-classification",device=device, model=p)
   nli.model_identifier = p
   ```
 * How to load a questionnaire:
-  ```
+  ```python
   """
   The format for importing a questionnaire is the following:
    from qpsychometric.<category_with_underscores>.<full_questionnaire_name_with_underscores> import <questionnaire_name>
+   Each questionnaire is a dictionary with "QMNLI" & "QMLM" keys with list value consisting of the questions.
   For example:
   """
   
@@ -68,14 +69,36 @@ qpsychometric<br>
   from qpsychometric.personality_traits.compassion_scale import compassion_scale_questionnaire
   from qpsychometric.social_biases.ambivalent_sexism_inventory import asi_questionnaire
   ```
+* How to load category questionnaires:
+  ```python
+  """
+  The format for importing category questionnaires is the following:
+   from qpsychometric.<category_with_underscores> import *
+  For example:
+  """
+  # Gets stored in `mental_health_questionnaires` as a dictionary of questionnaires.
+  from qpsychometric.mental_health import *
+  # Gets stored in `personality_traits_questionnaires` as a dictionary of questionnaires.
+  from qpsychometric.personality_traits import *
+  # Gets stored in `social_biases_questionnaires` as a dictionary of questionnaires.
+  from qpsychometric.social_biases import *
+  ```
+* How to load all categories:
+  ```python
+  """
+  To import all categories you need to do:
+  """
+  # Gets stored in `all_psychometrics` as a dictionary of categories.
+  from qpsychometric import *
+
+  ```
 * How to run a question from a questionnaire through an MNLI pipeline:<br>
    This package includes (as it relies on) the package qlatent.<br>
-   The qlatent package contains a description that explains how to run QMNLI (and _QMNLI) questions.<br>
+   The qlatent package contains a description that explains how to run QMNLI questions.<br>
    Look at these descriptions for the info you need.<br>
 * How to run a questionnaire:
-  ```
+  ```python
   """
-  Each questionnaire is a dictionary with QMNLI & QMLM keys with list value consisting of the questions.
   Simply iterate through the questionnaire (as it is a list of questions),
   and apply the code for running a question on each question individually.
   """
@@ -90,7 +113,7 @@ qpsychometric<br>
                                 },
                         )
     print(Qs[0]._descriptor['Ordinal'])
-    Qs[0].run(mnli)  # you may add .mean_score() or .report() after the run() function
+    Qs[0].run(mnli)  # you may add .mean_score() or .report() after the run() function.
   ```
 
 Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
