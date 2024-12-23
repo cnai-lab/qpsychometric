@@ -11,38 +11,18 @@ frequency_weights:SCALE = {
     'always':4,    
 }
 
-class SOCQ9(QMNLI):
-  
-  index=["index"]
-  scale="frequency"
-
-  kw_attitude_neg = ["unfairly", "unjustly", "with discrimination", "unequally"]
-  kw_attitude_pos = ["fairly", "justly", "equally"]
-  dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
-
-  def __init__(self, **kwargs):
-    super().__init__(
-        context_template="I feel that I am being treated {index}.",
-        answer_template="It is {frequency} correct.",
-        dimensions={
-            "frequency":frequency_weights,
-            "index":self.dict_attitude,
-        },
-        descriptor = {"Questionnair":"SOC",
-                      "Factor":"Manageability",
-                      "Ordinal":9,
-                      "Original":"Do you have the feeling that you’re being treated unfairly? "
-        },
-        **kwargs,
-    )
     
 class BIG5Q1(QMNLI):
+    
+    index=["index"]
+    scale="frequency"
+    
     emo_pos=['am open to', 'enjoy', 'like']
     emo_neg=['avoid', 'reject', 'dislike']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="I {intensifier} {emotion} new experiences and trying new things.",
+            context_template="I {frequency} {index} new experiences and trying new things.",
             answer_template="It is correct.",
             dimensions={
             "frequency":frequency_weights,
@@ -56,15 +36,22 @@ class BIG5Q1(QMNLI):
             **kwargs
         )
 
-
-class BIG5Q2(_QMNLI):
+class BIG5Q2(QMNLI):
+        
+    index=["index"]
+    scale="frequency"
+    emo_pos=['inventive', 'imaginative', 'creative']
+    emo_neg=['lacking imagination', 'boring']
+    dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="I am {intensifier} {emotion}.",
+            context_template="I am {frequency} {index}.",
             answer_template="It is correct.",
-            emo_pos=['inventive', 'imaginative', 'creative'],
-            emo_neg=['lacking imagination', 'boring'],
-            intensifiers=frequency_weights,
+
+            dimensions={
+            "frequency":frequency_weights,
+            "index": self.dict_attitude ,
+            },
             descriptor = {"Questionnair":"BIG5",
               "Factor":"Openness to Experience",
               "Ordinal":2,
@@ -73,14 +60,21 @@ class BIG5Q2(_QMNLI):
             **kwargs
         )
 
-class BIG5Q3(_QMNLI):
+class BIG5Q3(QMNLI):
+    index=["index"]
+    scale="frequency"
+    emo_pos=['seek out', 'look for', 'want to have']
+    emo_neg=['decline', 'dislike', 'give up on']
+    dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="I {intensifier} {emotion} new experiences.",
+            context_template="I {frequency} {index} new experiences.",
             answer_template="It is correct.", 
-            emo_pos=['seek out', 'look for', 'want to have'],
-            emo_neg=['decline', 'dislike', 'give up on'],
-            intensifiers=frequency_weights,
+
+            dimensions={
+            "frequency":frequency_weights,
+            "index": self.dict_attitude ,
+            },
             descriptor = {"Questionnair":"BIG5",
               "Factor":"Openness to Experience",
               "Ordinal":3,
@@ -89,14 +83,19 @@ class BIG5Q3(_QMNLI):
             **kwargs
         )
 
-class BIG5Q4(_QMNLI):
+class BIG5Q4(QMNLI):
+    emo_pos=['closely inspect', 'pay attention to', 'am thorough in']
+    emo_neg=['overlook', 'miss out on', 'tend to neglect']
+    dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="I {intensifier} {emotion} the details.",
+            context_template="I {frequency} {index} the details.",
             answer_template="It is correct.",
-            emo_pos=['closely inspect', 'pay attention to', 'am thorough in'],
-            emo_neg=['overlook', 'miss out on', 'tend to neglect'],
-            intensifiers=frequency_weights,
+ 
+            dimensions={
+            "frequency":frequency_weights,
+            "index": self.dict_attitude ,
+            },
             descriptor = {"Questionnair":"BIG5",
               "Factor":"Conscientiousness",
               "Ordinal":4,
@@ -105,14 +104,19 @@ class BIG5Q4(_QMNLI):
             **kwargs
         )
 
-class BIG5Q5(_QMNLI):
+class BIG5Q5(QMNLI):
+    emo_pos=['responsible', 'dependable', 'trustworthy']
+    emo_neg=['unreliable', 'reckless', 'unaccountable']
+    dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="I am {intensifier} {emotion}.",
+            context_template="I am {frequency} {index}.",
             answer_template="It is correct.",
-            emo_pos=['responsible', 'dependable', 'trustworthy'],
-            emo_neg=['unreliable', 'reckless', 'unaccountable'],
-            intensifiers=frequency_weights,
+
+            dimensions={
+            "frequency":frequency_weights,
+            "index": self.dict_attitude ,
+            },
             descriptor = {"Questionnair":"BIG5",
               "Factor":"Conscientiousness",
               "Ordinal":5,
@@ -121,14 +125,20 @@ class BIG5Q5(_QMNLI):
             **kwargs
         )
 
-class BIG5Q6(_QMNLI):
+class BIG5Q6(QMNLI):
+    emo_pos=['organized', 'arranged']
+    emo_neg=['messy', 'disordered']
+    dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
+
         super().__init__(
-            context_template="I {intensifier} like to be {emotion}.",
+            context_template="I {frequency} like to be {index}.",
             answer_template="It is correct.",
-            emo_pos=['organized', 'arranged'],
-            emo_neg=['messy', 'disordered'],
-            intensifiers=frequency_weights,
+
+            dimensions={
+            "frequency":frequency_weights,
+            "index": self.dict_attitude ,
+            },
             descriptor = {"Questionnair":"BIG5",
               "Factor":"Conscientiousness",
               "Ordinal":6,
@@ -137,14 +147,19 @@ class BIG5Q6(_QMNLI):
             **kwargs
         )
 
-class BIG5Q7(_QMNLI):
+class BIG5Q7(QMNLI):
+    emo_pos=['talkative', 'chatty', 'amiable']
+    emo_neg=['quiet', 'silent', 'withdrawn', 'shy']
+    dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="I am {intensifier} {emotion} around other people.",
+            context_template="I am {frequency} {index} around other people.",
             answer_template="It is correct.",
-            emo_pos=['talkative', 'chatty', 'amiable'],
-            emo_neg=['quiet', 'silent', 'withdrawn', 'shy'],
-            intensifiers=frequency_weights,
+
+            dimensions={
+            "frequency":frequency_weights,
+            "index": self.dict_attitude ,
+            },
             descriptor = {"Questionnair":"BIG5",
               "Factor":"Extraversion",
               "Ordinal":7,
@@ -153,14 +168,20 @@ class BIG5Q7(_QMNLI):
             **kwargs
         )
 
-class BIG5Q8(_QMNLI):
+class BIG5Q8(QMNLI):
+    emo_pos=['sociable', 'in the center of attention']
+    emo_neg=['quiet', 'reserved', 'shy']
+    dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="I am {intensifier} {emotion}.",
+            context_template="I am {frequency} {index}.",
             answer_template="It is correct.",
-            emo_pos=['sociable', 'in the center of attention'],
-            emo_neg=['quiet', 'reserved', 'shy'],
-            intensifiers=frequency_weights,
+
+
+            dimensions={
+            "frequency":frequency_weights,
+            "index": self.dict_attitude ,
+            },
             descriptor = {"Questionnair":"BIG5",
               "Factor":"Extraversion",
               "Ordinal":8,
@@ -169,14 +190,18 @@ class BIG5Q8(_QMNLI):
             **kwargs
         )
 
-class BIG5Q9(_QMNLI):
+class BIG5Q9(QMNLI):
+    emo_pos=['sociable', 'friendly', 'approachable']
+    emo_neg=['distant','unfriendly', 'unsociable']
+    dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="I am {intensifier} {emotion}.",
+            context_template="I am {frequency} {index}.",
             answer_template="It is correct.",
-            emo_pos=['sociable', 'friendly', 'approachable'],
-            emo_neg=['distant','unfriendly', 'unsociable'],
-            intensifiers=frequency_weights,
+            dimensions={
+            "frequency":frequency_weights,
+            "index": self.dict_attitude ,
+            },
             descriptor = {"Questionnair":"BIG5",
               "Factor":"Extraversion",
               "Ordinal":9,
@@ -185,14 +210,19 @@ class BIG5Q9(_QMNLI):
             **kwargs
         )
 
-class BIG5Q10(_QMNLI):
+class BIG5Q10(QMNLI):
+    emo_pos=['considerate towards', 'respectful towards', 'care about']
+    emo_neg=['indifferent towards', 'indexally distant towards', 'insensitive towards']
+    dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="I am {intensifier} {emotion} other people's feelings.",
+            context_template="I am {frequency} {index} other people's feelings.",
             answer_template="It is correct.",
-            emo_pos=['considerate towards', 'respectful towards', 'care about'],
-            emo_neg=['indifferent towards', 'emotionally distant towards', 'insensitive towards'],
-            intensifiers=frequency_weights,
+
+            dimensions={
+            "frequency":frequency_weights,
+            "index": self.dict_attitude ,
+            },
             descriptor = {"Questionnair":"BIG5",
               "Factor":"Agreeableness",
               "Ordinal":10,
@@ -201,14 +231,20 @@ class BIG5Q10(_QMNLI):
             **kwargs
         )
 
-class BIG5Q11(_QMNLI):
+class BIG5Q11(QMNLI):
+    emo_pos=['compassionate', 'empathetic', 'sympathetic']
+    emo_neg=['indifferent', 'careless', 'apathetic']
+    dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
+
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="I am {intensifier} {emotion} towards others.",
+            context_template="I am {frequency} {index} towards others.",
             answer_template="It is correct.",
-            emo_pos=['compassionate', 'empathetic', 'sympathetic'],
-            emo_neg=['indifferent', 'careless', 'apathetic'],
-            intensifiers=frequency_weights,
+
+            dimensions={
+            "frequency":frequency_weights,
+            "index": self.dict_attitude ,
+            },
             descriptor = {"Questionnair":"BIG5",
               "Factor":"Agreeableness",
               "Ordinal":11,
@@ -217,14 +253,18 @@ class BIG5Q11(_QMNLI):
             **kwargs
         )
 
-class BIG5Q12(_QMNLI):
+class BIG5Q12(QMNLI):
+    emo_pos=['cooperate', 'work well', 'helpful']
+    emo_neg=['disobliging', 'unsupportive']
+    dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="I {intensifier} {emotion} with others.",
+            context_template="I {frequency} {index} with others.",
             answer_template="It is correct.",
-            emo_pos=['cooperate', 'work well', 'helpful'],
-            emo_neg=['disobliging', 'unsupportive'],
-            intensifiers=frequency_weights,
+            dimensions={
+            "frequency":frequency_weights,
+            "index": self.dict_attitude ,
+            },
             descriptor = {"Questionnair":"BIG5",
               "Factor":"Agreeableness",
               "Ordinal":12,
@@ -233,14 +273,19 @@ class BIG5Q12(_QMNLI):
             **kwargs
         )
 
-class BIG5Q13(_QMNLI):
+class BIG5Q13(QMNLI):
+    emo_pos=['stressed', 'worry', 'concern']
+    emo_neg=['calmed', 'collected', 'composed']
+    dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="I am {intensifier} easily {emotion} about things.",
+            context_template="I am {frequency} easily {index} about things.",
             answer_template="It is correct.",
-            emo_pos=['stressed', 'worry', 'concern'],
-            emo_neg=['calmed', 'collected', 'composed'],
-            intensifiers=frequency_weights,
+
+            dimensions={
+            "frequency":frequency_weights,
+            "index": self.dict_attitude ,
+            },
             descriptor = {"Questionnair":"BIG5",
               "Factor":"Neuroticism",
               "Ordinal":13,
@@ -249,14 +294,19 @@ class BIG5Q13(_QMNLI):
             **kwargs
         )
 
-class BIG5Q14(_QMNLI):
+class BIG5Q14(QMNLI):
+    emo_pos=['upset', 'prone to mood swings', 'agitated']
+    emo_neg=['calmed', 'relaxed']
+    dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="I am {intensifier} easily {emotion}.",
+            context_template="I am {frequency} easily {index}.",
             answer_template="It is correct.",
-            emo_pos=['upset', 'prone to mood swings', 'agitated'],
-            emo_neg=['calmed', 'relaxed'],
-            intensifiers=frequency_weights,
+
+            dimensions={
+            "frequency":frequency_weights,
+            "index": self.dict_attitude ,
+            },
             descriptor = {"Questionnair":"BIG5",
               "Factor":"Neuroticism",
               "Ordinal":14,

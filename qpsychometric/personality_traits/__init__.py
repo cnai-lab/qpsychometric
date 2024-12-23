@@ -1,22 +1,25 @@
-import pkgutil
+import os
 import importlib
 
-__all__ = ['personality_traits_questions']  # Start with an empty export list
-personality_traits_questions=[]
-# Relative imports for intra-package imports, adjust as necessary
+__all__ = ['personality_traits_questionnaires']  # Start with an empty export list
+personality_traits_questionnaires={}
+
+package_directory = os.path.dirname(__file__)  # Get the directory of the current package
 package_name = __name__
 
-# Dynamically import all subpackages and modules
-for loader, module_name, is_pkg in pkgutil.walk_packages(__path__, package_name + '.'):
-    # Import the module
-    module = importlib.import_module(module_name)
-
-    # Add all names defined in the module's __all__ to the current module's __all__
-    if hasattr(module, '__all__'):
-        #__all__.extend(module.__all__)  # Import specific names to be exposed
-
-        # Dynamically add imported names to globals() for 'from package import *' behavior
-        for name in module.__all__:
-            module_questions = getattr(module, name)
-            #globals()[name] = module_questions
-            personality_traits_questions.append(module_questions)
+# List only the top-level directories (modules) directly under the package directory
+for entry in os.listdir(package_directory):
+    if os.path.isdir(os.path.join(package_directory, entry)) and not entry.startswith('_'):
+        # Construct the module name
+        module_name = f"{package_name}.{entry}"
+        # Import the module
+        module = importlib.import_module(module_name)
+        # Some modules don't have the __all__ global var, only packages.
+        if hasattr(module, "__all__"):
+            # Get the module global variable defined in `__all__`
+            module_wild_card_var = module.__all__[0]
+            module_questions = getattr(module, module_wild_card_var)
+            # Get the questionnaire name
+            questionnaire_name = module_questions['QMNLI'][0]()._descriptor['Questionnair']
+            # Set the questionnaire as key and its global variables as the value.
+            personality_traits_questionnaires[questionnaire_name] = module_questions

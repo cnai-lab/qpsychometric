@@ -10,21 +10,28 @@ Currently contains the following questionnaires: ASI, BIG5, CS, GAD, PHQ, SD3, S
 
 ## List of questionnaires are available for running
 * ASI:
-  * asi_questionnaire (all questions of ASI in QMNLI & QMLM format)
+  * asi_qmnli (all questions of ASI)
+  * asi_bg_qmnli (questions from the benevolent sexism - complementary gender differentiation category of ASI)
+  * asi_bi_qmnli (questions from the benevolent sexism - heterosexual intimacy category of ASI)
+  * asi_bp_qmnli (questions from the benevolent sexism - protective paternalism category of ASI)
+  * asi_h_qmnli (questions from the hostile sexism category of ASI)
 * BIG5:
-  * big5_questionnaire (all questions of BIG5 in QMNLI & QMLM format)
+  * big5_qmnli (all questions of BIG5)
 * CS:
   * compassion_scale_qmnli (all questions of CS)
 * GAD:
-  * gad_questionnaire (all questions of GAD in QMNLI & QMLM format)
+  * gad2_qmnli (first 2 questions of GAD)
+  * gad7_qmnli (all questions of GAD)
 * PHQ:
-  * phq_questionnaire (all questions of PHQ in QMNLI & QMLM format)
-* CS:
-  * compassion_scale_questionnaire (all questions of CS in QMNLI format)
-* SD3 (not validated):
-  * sd3_questionnaire (all questions of SD3 in QMNLI format)
+  * phq2_qmnli (first 2 questions of PHQ)
+  * phq7_qmnli (all questions of PHQ)
+* SD3:
+  * sd3_qmnli (all questions of SD3)
+  * sd3_machiavellianism_qmnli (questions from the machiavellianism category of SD3)
+  * sd3_narcissism_qmnli (questions from the narcissism category of SD3)
+  * sd3_psychopathy_qmnli (questions from the psychopathy category of SD3)
 * SOC:
-  * soc_questionnaire (all questions of SOC in QMNLI & QMLM format)
+  * soc_qmnli (all questions of SOC)
 
 ## Structure of the qpsychometric package:
 qpsychometric<br>
@@ -37,7 +44,7 @@ qpsychometric<br>
 | |-compassion_scale (Compassion Scale)<br>
 | |-sd3 (SD3)<br>
 |-social_biases<br>
-| |-ambivalent_sexism_inventory (ASI)<br>
+| |-ambivalent_sex_inventory (ASI)<br>
 
 ## Commands and steps for running a questionnaire:
 
@@ -56,17 +63,29 @@ qpsychometric<br>
   nli = pipeline("zero-shot-classification",device=device, model=p)
   nli.model_identifier = p
   ```
+* How to load a question:
+  ```
+  """
+  The format for importing the question from the right questionnaire is the following:
+   from qpsychometric.<category_underscored>.<full_questionnaire_name_underscored>.<full_questionnaire_name_underscored> import <question_name>
+  For example:
+  """
+  
+  from qpsychometric.social_biases.ambivalent_sexism_inventory.ambivalent_sexism_inventory import ASIQ2
+  from qpsychometric.personality_traits.compassion_scale.compassion_scale import CSQ10
+  from qpsychometric.mental_health.sense_of_coherence.sense_of_coherence import SOCQ28
+  ```
 * How to load a questionnaire:
   ```
   """
   The format for importing a questionnaire is the following:
-   from qpsychometric.<category_with_underscores>.<full_questionnaire_name_with_underscores> import <questionnaire_name>
+   from qpsychometric.<category_with_underscores>.<full_questionnaire_name_with_underscores>.<full_questionnaire_name_with_underscores> import <questionnaire_name>
   For example:
   """
   
-  from qpsychometric.mental_health.generalized_anxiety_disorder import gad_questionnaire
-  from qpsychometric.personality_traits.compassion_scale import compassion_scale_questionnaire
-  from qpsychometric.social_biases.ambivalent_sexism_inventory import asi_questionnaire
+  from qpsychometric.social_biases.ambivalent_sexism_inventory.ambivalent_sexism_inventory import asi_h_qmnli
+  from qpsychometric.personality_traits.compassion_scale.compassion_scale import compassion_scale_qmnli
+  from qpsychometric.mental_health.sense_of_coherence.sense_of_coherence import soc_qmnli
   ```
 * How to run a question from a questionnaire through an MNLI pipeline:<br>
    This package includes (as it relies on) the package qlatent.<br>
@@ -75,12 +94,11 @@ qpsychometric<br>
 * How to run a questionnaire:
   ```
   """
-  Each questionnaire is a dictionary with QMNLI & QMLM keys with list value consisting of the questions.
   Simply iterate through the questionnaire (as it is a list of questions),
   and apply the code for running a question on each question individually.
   """
-  asi_qmnli = asi_questionnaire['QMNLI']
-  for Q in tqdm(asi_qmnli):
+
+  for Q in tqdm(asi_h_qmnli):
     Qs = split_question(Q,
                         index=Q.q_index,
                         scales=[Q.q_scale],

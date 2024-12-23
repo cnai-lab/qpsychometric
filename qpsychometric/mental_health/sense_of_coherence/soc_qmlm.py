@@ -356,3 +356,6 @@ class SOCQ29(QMLM):
             },
             **kwargs,
         )
+        
+        
+soc_qmlm_list = [SOCQ4, SOCQ5, SOCQ6, SOCQ8, SOCQ12, SOCQ16, SOCQ19, SOCQ21, SOCQ25, SOCQ26, SOCQ28, SOCQ29]
