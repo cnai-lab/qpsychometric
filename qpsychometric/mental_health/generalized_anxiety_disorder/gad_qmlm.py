@@ -41,6 +41,8 @@ class GAD7Q1(QMLM):
 class GAD7Q2(QMLM):
     emo_pos = ['worried', 'troubled', 'disturbed']
     emo_neg = ['peaceful','calm', 'relaxed']
+    index=["index"]
+    scale="frequency"
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
@@ -67,6 +69,8 @@ class GAD7Q3(QMLM):
     emo_pos=['worried', 'stressed', 'nervous']
     emo_neg=['confident', 'tranquil']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
+    index=["index"]
+    scale="frequency"
     def __init__(self, **kwargs):
         super().__init__(
 #             context_template="Over the last 2 weeks, I felt {index} about different things.",
@@ -91,6 +95,8 @@ class GAD7Q4(QMLM):
     emo_pos=['trouble', 'difficulty', ]
     emo_neg=['an effortless time', 'an easy time']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
+    index=["index"]
+    scale="frequency"
     def __init__(self, **kwargs):
         super().__init__(
 #             context_template="Over the last 2 weeks, I've been having {index} relaxing.",
@@ -114,6 +120,8 @@ class GAD7Q5(QMLM):
     emo_pos=['restless', 'agitated', 'nervous']
     emo_neg=['calm', 'peaceful', 'relaxed']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
+    index=["index"]
+    scale="frequency"
     def __init__(self, **kwargs):
         super().__init__(
 #             context_template="Over the last 2 weeks, I felt {index}.",
@@ -138,6 +146,8 @@ class GAD7Q6(QMLM):
     emo_pos=['annoyed', 'irritated', 'frustrated', 'bothered']
     emo_neg=['calm', 'tranquil', 'peaceful', 'relaxed']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
+    index=["index"]
+    scale="frequency"
     def __init__(self, **kwargs):
         super().__init__(
 #             context_template="Over the last 2 weeks, I became {index}.",
@@ -160,6 +170,8 @@ class GAD7Q6(QMLM):
 class GAD7Q7(QMLM):
     emo_pos=['afraid of', 'scared of']
     emo_neg=['calm about', 'tranquil about', 'relaxed about']
+    index=["index"]
+    scale="frequency"
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(

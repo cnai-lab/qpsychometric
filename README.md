@@ -13,8 +13,6 @@ Currently contains the following questionnaires: ASI, BIG5, CS, GAD, PHQ, SD3, S
   * asi_questionnaire (all questions of ASI in QMNLI & QMLM format)
 * BIG5:
   * big5_questionnaire (all questions of BIG5 in QMNLI & QMLM format)
-* CS:
-  * compassion_scale_qmnli (all questions of CS)
 * GAD:
   * gad_questionnaire (all questions of GAD in QMNLI & QMLM format)
 * PHQ:
