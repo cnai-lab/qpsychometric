@@ -84,6 +84,8 @@ class BIG5Q3(QMNLI):
         )
 
 class BIG5Q4(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_pos=['closely inspect', 'pay attention to', 'am thorough in']
     emo_neg=['overlook', 'miss out on', 'tend to neglect']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
@@ -105,6 +107,8 @@ class BIG5Q4(QMNLI):
         )
 
 class BIG5Q5(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_pos=['responsible', 'dependable', 'trustworthy']
     emo_neg=['unreliable', 'reckless', 'unaccountable']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
@@ -126,6 +130,8 @@ class BIG5Q5(QMNLI):
         )
 
 class BIG5Q6(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_pos=['organized', 'arranged']
     emo_neg=['messy', 'disordered']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
@@ -148,6 +154,8 @@ class BIG5Q6(QMNLI):
         )
 
 class BIG5Q7(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_pos=['talkative', 'chatty', 'amiable']
     emo_neg=['quiet', 'silent', 'withdrawn', 'shy']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
@@ -169,6 +177,8 @@ class BIG5Q7(QMNLI):
         )
 
 class BIG5Q8(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_pos=['sociable', 'in the center of attention']
     emo_neg=['quiet', 'reserved', 'shy']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
@@ -191,6 +201,8 @@ class BIG5Q8(QMNLI):
         )
 
 class BIG5Q9(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_pos=['sociable', 'friendly', 'approachable']
     emo_neg=['distant','unfriendly', 'unsociable']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
@@ -211,6 +223,8 @@ class BIG5Q9(QMNLI):
         )
 
 class BIG5Q10(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_pos=['considerate towards', 'respectful towards', 'care about']
     emo_neg=['indifferent towards', 'indexally distant towards', 'insensitive towards']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
@@ -232,6 +246,8 @@ class BIG5Q10(QMNLI):
         )
 
 class BIG5Q11(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_pos=['compassionate', 'empathetic', 'sympathetic']
     emo_neg=['indifferent', 'careless', 'apathetic']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
@@ -254,6 +270,8 @@ class BIG5Q11(QMNLI):
         )
 
 class BIG5Q12(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_pos=['cooperate', 'work well', 'helpful']
     emo_neg=['disobliging', 'unsupportive']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
@@ -274,6 +292,8 @@ class BIG5Q12(QMNLI):
         )
 
 class BIG5Q13(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_pos=['stressed', 'worry', 'concern']
     emo_neg=['calmed', 'collected', 'composed']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
@@ -295,6 +315,8 @@ class BIG5Q13(QMNLI):
         )
 
 class BIG5Q14(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_pos=['upset', 'prone to mood swings', 'agitated']
     emo_neg=['calmed', 'relaxed']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)

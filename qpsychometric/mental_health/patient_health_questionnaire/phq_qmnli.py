@@ -14,6 +14,8 @@ frequency_weights:SCALE = {
 
 
 class PHQ9Q1(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_pos=['little interest', 'no pleasure', 'displeasure', 'dissatisfaction']
     emo_neg=['pleasure', 'satisfaction']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
@@ -36,6 +38,8 @@ class PHQ9Q1(QMNLI):
 
 
 class PHQ9Q2(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_pos=['down', 'depressed', 'hopeless']
     emo_neg=['happy', 'hopeful', 'cheerful']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
@@ -58,6 +62,8 @@ class PHQ9Q2(QMNLI):
 
 
 class PHQ9Q3(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_neg=['depressive', 'sad', 'gloom']
     emo_pos=["benign", 'legitimate',]
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
@@ -80,6 +86,8 @@ class PHQ9Q3(QMNLI):
 
 
 class PHQ9Q4(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_pos=['tired', 'drained', 'fatigued']
     emo_neg=['energized', 'refreshed', 'lively']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
@@ -102,6 +110,8 @@ class PHQ9Q4(QMNLI):
 
 
 class PHQ9Q5(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_pos=['poor appetite', 'been overeating']
     emo_neg=['healthy appetite', 'satisfying appetite']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
@@ -124,7 +134,8 @@ class PHQ9Q5(QMNLI):
 
 
 class PHQ9Q6(QMNLI):
-        
+    index=["index"]
+    scale="frequency"    
     emo_pos=['I am a failure', 'I am a disappointment', 'I am underachieving', 'I let myself down', 'I let my family down']
     emo_neg=['successful ', 'lucky', 'confident']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
@@ -148,6 +159,8 @@ class PHQ9Q6(QMNLI):
 
 
 class PHQ9Q7(QMNLI):
+    index=["index"]
+    scale="frequency"
     emo_pos=["happy", 'joyful',]
     emo_neg=['depressive', 'sad', 'gloom']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
