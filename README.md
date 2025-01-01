@@ -59,37 +59,83 @@ qpsychometric<br>
   """
   The format for importing a questionnaire is the following:
    from qpsychometric.<category_with_underscores>.<full_questionnaire_name_with_underscores> import <questionnaire_name>
-   Each questionnaire is a dictionary with "QMNLI" & "QMLM" keys with list value consisting of the questions.
+   Each questionnaire is a Data Frame (df) containing the columns: [category_name, questionnaire_name, questionnaire_task, question].
   For example:
   """
   
   from qpsychometric.mental_health.generalized_anxiety_disorder import gad_questionnaire
   from qpsychometric.personality_traits.compassion_scale import compassion_scale_questionnaire
   from qpsychometric.social_biases.ambivalent_sexism_inventory import asi_questionnaire
+
+  # to view the questionnaire df
+  print(gad_questionnaire)
   ```
 * How to load category questionnaires:
   ```python
   """
   The format for importing category questionnaires is the following:
    from qpsychometric.<category_with_underscores> import *
+   All the questionnaires within the same categoery get stored in the same df.
   For example:
   """
-  # Gets stored in `mental_health_questionnaires` as a dictionary of questionnaires.
+  # Gets stored in `mental_health_questionnaires` as a df.
   from qpsychometric.mental_health import *
-  # Gets stored in `personality_traits_questionnaires` as a dictionary of questionnaires.
+  # Gets stored in `personality_traits_questionnaires` as a df.
   from qpsychometric.personality_traits import *
-  # Gets stored in `social_biases_questionnaires` as a dictionary of questionnaires.
+  # Gets stored in `social_biases_questionnaires` as a df.
   from qpsychometric.social_biases import *
   ```
 * How to load all categories:
   ```python
   """
   To import all categories you need to do:
+  All Data Frames from all categories get stored in the same df.
   """
-  # Gets stored in `all_psychometrics` as a dictionary of categories.
+  # Gets stored in `all_psychometrics` as a df.
   from qpsychometric import *
 
   ```
+* How to filter questionnaires:<br>
+  ```python
+  """
+  To filter specific questionnaires you can use indexing valid values from the columns.
+  If you wish to filter 2 or more values from a column, it must be in a nested list: [['value1_to_filter','value2_to_filter','value3_to_filter'...]]
+  For example:
+  """
+  from qpsychometric.mental_health.generalized_anxiety_disorder import gad_questionnaire
+  # filter by 'QMLM' task
+  filtered_gad_questionnaire = gad_questionnaire['QMLM']
+
+  from qpsychometric.mental_health import *
+  # filter 2 questionnaires from the category by 'QMNLI' task.
+  filtered_mental_health_questionnaires = mental_health_questionnaires[['GAD7','SOC']]['QMNLI']
+
+  # filter 2 questionnaires from 2 categories by 'QMLM' task.
+  from qpsychometric import *
+  filtered_all_psychometrics = all_psychometrics[['mental_health','personality_traits']][['SOC','BIG5']]['QMLM']
+  ``` 
+* How to get the questionnaires questions:<br>
+  ```python
+  """
+  To get the questions in a list you can use the method `get_questions()`
+  Returns a list of questions from the filtered DataFrame.
+  The df is grouped by ["questionnaire_name", "questionnaire_task"] so each unique group is a pair of questionnaire with its task.
+    - If grouped by multiple tasks, returns a nested list (one list per group).
+    - Otherwise, returns a flat list of questions.
+  For example:
+  """
+  from qpsychometric.mental_health.generalized_anxiety_disorder import gad_questionnaire
+  filtered_gad_questionnaire = gad_questionnaire['QMLM']
+  # 1D list containing the GAD QMLM questions.
+  gad_questions_qmlm = filtered_gad_questionnaire.get_questions()
+
+  from qpsychometric.mental_health import *
+  # filter 2 questionnaires from the category by 'QMNLI' task.
+  filtered_mental_health_questionnaires = mental_health_questionnaires[['GAD7','SOC']]['QMNLI']
+  # 2D list where each list contains the QMNLI questions of the questionnaire.
+  soc_gad_questions_qmnli = filtered_mental_health_questionnaires.get_questions()
+
+  ``` 
 * How to run a question from a questionnaire through an MNLI pipeline:<br>
    This package includes (as it relies on) the package qlatent.<br>
    The qlatent package contains a description that explains how to run QMNLI questions.<br>
@@ -100,7 +146,8 @@ qpsychometric<br>
   Simply iterate through the questionnaire (as it is a list of questions),
   and apply the code for running a question on each question individually.
   """
-  asi_qmnli = asi_questionnaire['QMNLI']
+  from qpsychometric.social_biases.ambivalent_sexism_inventory import asi_questionnaire
+  asi_qmnli = asi_questionnaire['QMNLI'].get_questions()
   for Q in tqdm(asi_qmnli):
     Qs = split_question(Q,
                         index=Q.q_index,

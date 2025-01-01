@@ -1,44 +1,62 @@
-from pathlib import Path
-import importlib
-import os
-import importlib.util
+import pandas as pd
 
-def load_questions(pattern='_qmnli.py'):
-    base_path = Path('')
-    questions = []
-    for questionnaire_path in list(base_path.glob(f'**/*{pattern}')):
-        # questionnaire_path = questionnaire_path.relative_to(base_path.__path__[0])
-        name = questionnaire_path.name.replace(".py", "")
-        file = questionnaire_path
-        module_path = str(questionnaire_path.parent).replace('/', '.') + f'.{name}'
-        module = importlib.import_module(module_path)
-        if hasattr(module, name):
-            print('load:', name)
-            questions += getattr(module, name)
-            
-    return questions
+class QuestionnaireData:
+    def __init__(self, df):
+        """
+        Initialize the QuestionnaireData object.
+        """
+        if isinstance(df, pd.DataFrame):
+            self.df = df
+        else:
+            raise ValueError("Data must be a pandas DataFrame.")
 
+    def __getitem__(self, key):
+        """
+        Custom indexing to filter by a column value or multiple column values.
+        Supports filtering with both single values and lists of values.
+        Examples:
+        - obj['mental_health_questionnaires'] -> filters by category_name='mental_health_questionnaires'
+        - obj[['SOC', 'PHQ9']] -> filters by multiple questionnaire_name values
+        - obj['mental_health_questionnaires']['PHQ9']['QMLM'] -> filters by multiple columns
+        """
+        if isinstance(key, list):  # If key is a list, check all columns for matches
+            key_set = set(key)  # Convert the list to a set to use issubset
+            if key_set.issubset(self.df['category_name'].values):
+                filtered_df = self.df[self.df['category_name'].isin(key)]
+            elif key_set.issubset(self.df['questionnaire_name'].values):
+                filtered_df = self.df[self.df['questionnaire_name'].isin(key)]
+            elif key_set.issubset(self.df['questionnaire_task'].values):
+                filtered_df = self.df[self.df['questionnaire_task'].isin(key)]
+            else:
+                raise KeyError(f"Keys '{key}' not found in any column.")
+        else:  # If key is a single value, check each column for matches
+            if key in self.df['category_name'].values:
+                filtered_df = self.df[self.df['category_name'] == key]
+            elif key in self.df['questionnaire_name'].values:
+                filtered_df = self.df[self.df['questionnaire_name'] == key]
+            elif key in self.df['questionnaire_task'].values:
+                filtered_df = self.df[self.df['questionnaire_task'] == key]
+            else:
+                raise KeyError(f"Key '{key}' not found in any column.")
 
-def extract_all_questions(root_dir):
-    all_questions = []
+        # Return a new instance of QuestionnaireData with the filtered DataFrame
+        return QuestionnaireData(filtered_df)
 
-    # Walk through the directory structure
-    for dirpath, dirnames, filenames in os.walk(root_dir):
-        for filename in filenames:
-            if filename.endswith('_qmnli.py'):
-                # Construct the file path
-                file_path = os.path.join(dirpath, filename)
+    def __str__(self):
+        """String representation of the DataFrame."""
+        return self.df.to_string()
 
-                # Dynamically import the file as a module
-                module_name = filename.replace('.py', '')
-                spec = importlib.util.spec_from_file_location(module_name, file_path)
-                module = importlib.util.module_from_spec(spec)
-                spec.loader.exec_module(module)
-
-                # Access the global variable 'all_questions' if it exists
-                if hasattr(module, 'all_questions'):
-                    all_questions.extend(module.all_questions)
-
-    return all_questions
-
-    
+    def get_questions(self):
+        """
+        Returns a list of questions from the filtered DataFrame.
+        - If grouped by multiple tasks, returns a nested list (one list per group).
+        - Otherwise, returns a flat list of questions.
+        """
+        if self.df.empty:
+            return []  # No results found
+        
+        grouped_filter_df = self.df.groupby(["questionnaire_name", "questionnaire_task"])
+        list_of_questions = [
+            list(group['question']) for _, group in grouped_filter_df
+        ]
+        return list_of_questions if len(list_of_questions) > 1 else list_of_questions[0]

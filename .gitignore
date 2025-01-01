@@ -3,4 +3,4 @@ import_tests.ipynb
 import_tests.py
 qpsychometric/run_*
 qpsychometric/gradient_*
-qpsychometric/__pycache__
+__pycache__/

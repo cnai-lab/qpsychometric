@@ -190,4 +190,4 @@ class GAD7Q7(QMLM):
             **kwargs
         )
 gad7_qmmlm = [GAD7Q1, GAD7Q2, GAD7Q3, GAD7Q4, GAD7Q5, GAD7Q6, GAD7Q7]
-gad_qmmlm_list = gad7_qmmlm
+gad_qmlm_list = gad7_qmmlm
