@@ -1,4 +1,10 @@
 from setuptools import setup, find_packages
+from pkg_resources import parse_requirements
+
+
+# Read requirements.txt and store contents in a list
+with open('./qpsychometric/requirements.txt') as f:
+    required = f.read().splitlines()
 
 setup(
 name="qpsychometric",
@@ -15,13 +21,5 @@ classifiers=[
 ],
 include_package_data=True,
 python_requires=">=3.8",
-<<<<<<< HEAD
-install_requires=parse_requirements('requirements.txt'),
-=======
-install_requires=[
-    "qlatent>=1.0.5",
-    "unittest",
-    "tqdm",
-]
->>>>>>> bde75ad7f63f293bb7420be20f24a098f35cee80
+install_requires=required
 )

@@ -19,7 +19,7 @@ Currently contains the following questionnaires: ASI, BIG5, CS, GAD, PHQ, SD3, S
   * phq_questionnaire (all questions of PHQ in QMNLI & QMLM format)
 * CS:
   * compassion_scale_questionnaire (all questions of CS in QMNLI format)
-* SD3 (not validated):
+* SD3:
   * sd3_questionnaire (all questions of SD3 in QMNLI format)
 * SOC:
   * soc_questionnaire (all questions of SOC in QMNLI & QMLM format)
@@ -110,9 +110,9 @@ qpsychometric<br>
   # filter 2 questionnaires from the category by 'QMNLI' task.
   filtered_mental_health_questionnaires = mental_health_questionnaires[['GAD7','SOC']]['QMNLI']
 
-  # filter 2 questionnaires from 2 categories by 'QMLM' task.
+  # filter 2 categories by 'QMLM' task.
   from qpsychometric import *
-  filtered_all_psychometrics = all_psychometrics[['mental_health','personality_traits']][['SOC','BIG5']]['QMLM']
+  filtered_all_psychometrics = all_psychometrics[['mental_health','personality_traits']]['QMLM']
   ``` 
 * How to get the questionnaires questions:<br>
   ```python
