@@ -64,7 +64,8 @@ class QuestionnaireData:
                 raise KeyError(f"Key '{key}' not found in any column.")
 
         # Return a new instance of QuestionnaireData with the filtered DataFrame
-        return QuestionnaireData(filtered_df.reset_index(drop=True, inplace=True))
+        filtered_df.reset_index(drop=True, inplace=True)
+        return QuestionnaireData(filtered_df)
 
     def __str__(self):
         """String representation of the DataFrame."""
