@@ -3,8 +3,7 @@ import importlib
 import pandas as pd
 from ..utils import QuestionnaireData
 
-__all__ = ['mental_health_questionnaires']  # Start with an empty export list
-# mental_health_questionnaires={}
+__all__ = ['mental_health_questionnaires'] 
 
 package_directory = os.path.dirname(__file__)  # Get the directory of the current package
 package_name = __name__
@@ -24,11 +23,6 @@ for entry in os.listdir(package_directory):
             # Get the module global variable defined in `__all__`
             module_wild_card_var = module.__all__[0]
             wrapped_module_questions = getattr(module, module_wild_card_var)
-            # Get the questionnaire name
-            #questionnaire_name = module_questions['QMNLI'][0]()._descriptor['Questionnair']
-            # Set the questionnaire as key and its global variables as the value.
-            
-            # mental_health_questionnaires[questionnaire_name] = module_questions
             mental_health_questionnaires = pd.concat([mental_health_questionnaires, wrapped_module_questions.df], ignore_index=True)
             pass
         

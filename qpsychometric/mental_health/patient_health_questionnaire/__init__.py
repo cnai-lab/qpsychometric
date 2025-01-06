@@ -4,10 +4,6 @@ import os
 import pandas as pd
 from ...utils import QuestionnaireData
 
-
-
-# phq_questionnaire = {'QMNLI':phq_qmnli_list, 'QMLM':phq_qmlm_list}
-
 data = []
 
 # Get the name of the parent directory of the current file directory

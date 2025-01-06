@@ -5,9 +5,6 @@ import pandas as pd
 from ...utils import QuestionnaireData
 
 
-# asi_questionnaire = {'QMNLI':asi_qmnli_list, 'QMLM':asi_qmlm_list}
-
-
 data = []
 
 # Get the name of the parent directory of the current file directory

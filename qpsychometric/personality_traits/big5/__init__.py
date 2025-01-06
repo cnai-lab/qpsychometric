@@ -4,9 +4,6 @@ import os
 import pandas as pd
 from ...utils import QuestionnaireData
 
-# big5_questionnaire = {'QMNLI':big5_qmnli_list, 'QMLM':big5_qmlm_list}
-
-
 
 data = []
 

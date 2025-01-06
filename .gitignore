@@ -4,3 +4,5 @@ import_tests.py
 qpsychometric/run_*
 qpsychometric/gradient_*
 __pycache__/
+qpsychometric.egg-info
+dist

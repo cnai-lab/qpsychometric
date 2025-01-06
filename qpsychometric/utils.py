@@ -1,14 +1,38 @@
 import pandas as pd
 
+
+
+def verify_df_intergrity(df):
+    """
+    Verify that the DataFrame has no common elements between columns.
+    """
+    # Extract the columns as a list for iteration
+    columns = df.columns.tolist()
+    
+    # Check each column against every other column
+    for i in range(len(columns)):
+        for j in range(i + 1, len(columns)):
+            # Use sets to find common elements
+            if set(df[columns[i]]) & set(df[columns[j]]):
+                # Return False if any common elements are found
+                return False
+    # If no common elements are found in any columns, return True
+    return True
+
+
+
 class QuestionnaireData:
     def __init__(self, df):
         """
         Initialize the QuestionnaireData object.
         """
         if isinstance(df, pd.DataFrame):
-            self.df = df
+            self.df = df.reset_index(drop=True, inplace=False)
         else:
             raise ValueError("Data must be a pandas DataFrame.")
+
+        if not verify_df_intergrity(self.df):
+            raise ValueError("The 'Questionnaire Category', 'Questionnair Name', 'Questionnaire Task', and 'Question Class' must not have any common values.")
 
     def __getitem__(self, key):
         """
@@ -40,11 +64,14 @@ class QuestionnaireData:
                 raise KeyError(f"Key '{key}' not found in any column.")
 
         # Return a new instance of QuestionnaireData with the filtered DataFrame
-        return QuestionnaireData(filtered_df)
+        return QuestionnaireData(filtered_df.reset_index(drop=True, inplace=True))
 
     def __str__(self):
         """String representation of the DataFrame."""
         return self.df.to_string()
+    
+    def __len__(self):
+        return len(self.df)
 
     def get_questions(self):
         """

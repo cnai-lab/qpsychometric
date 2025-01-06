@@ -2,7 +2,7 @@ from .gad_qmnli import gad_qmnli_list
 from .gad_qmlm import gad_qmlm_list
 import pandas as pd
 import os
-from ...utils import QuestionnaireData
+from ...utils import QuestionnaireData, verify_df_intergrity
 
 
 

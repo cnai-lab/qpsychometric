@@ -1,9 +1,10 @@
 from setuptools import setup, find_packages
 from pkg_resources import parse_requirements
+import importlib.metadata as importlib_metadata
 
 
 # Read requirements.txt and store contents in a list
-with open('./qpsychometric/requirements.txt') as f:
+with open('/home/amonfadi/thesis/qpsychometric/requirements.txt') as f:
     required = f.read().splitlines()
 
 setup(

@@ -4,11 +4,6 @@ import pandas as pd
 import os
 from ...utils import QuestionnaireData
 
-# sd3_questionnaire = {
-#                      'QMNLI':sd3_qmnli_list,
-#                     # 'QMLM':sd3_qmlm_list
-#                     }
-
 
 data = []
 
