@@ -6,3 +6,5 @@ qpsychometric/gradient_*
 __pycache__/
 qpsychometric.egg-info
 dist
+build/
+test_imports.py
