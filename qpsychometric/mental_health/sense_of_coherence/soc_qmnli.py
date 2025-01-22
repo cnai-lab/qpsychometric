@@ -13,8 +13,7 @@ frequency_weights:SCALE = {
 
 class SOCQ4(QMNLI):
   
-  index=["index"]
-  scale="frequency"
+
 
   kw_attitude_neg = ["meaningless", "dull", "aimless", 'boring']
   kw_attitude_pos = ["meaningful", "interesting", "fulfilling", 'fascinating']
@@ -22,6 +21,8 @@ class SOCQ4(QMNLI):
 
   def __init__(self, **kwargs):
     super().__init__(
+        index=["index"],
+        scale="frequency",
         context_template="What goes around me is {index} to me.",
         answer_template="It is {frequency} correct.",
         dimensions={
@@ -38,8 +39,7 @@ class SOCQ4(QMNLI):
 
 class SOCQ5(QMNLI):
   
-  index=["index"]
-  scale="frequency"
+
 
   kw_attitude_neg = ['surprised by','puzzled by']
   kw_attitude_pos = ['expecting','anticipating']
@@ -47,6 +47,8 @@ class SOCQ5(QMNLI):
 
   def __init__(self, **kwargs):
     super().__init__(
+        index=["index"],
+        scale="frequency",
         context_template="I am {frequency} {index} the behavior of people I thought I knew well.",
         answer_template="True.",
         dimensions={
@@ -63,8 +65,7 @@ class SOCQ5(QMNLI):
 
 class SOCQ6(QMNLI):
   
-  index=["index"]
-  scale="frequency"
+
 
   kw_attitude_neg = ["disappointed", 'failed']
   kw_attitude_pos = ["supported", "helped"]
@@ -72,6 +73,8 @@ class SOCQ6(QMNLI):
 
   def __init__(self, **kwargs):
     super().__init__(
+        index=["index"],
+        scale="frequency",
         context_template="People whom I counted on {frequency} {index} me.",
         answer_template="True.",
         dimensions={
@@ -87,9 +90,7 @@ class SOCQ6(QMNLI):
     )
 
 class SOCQ8(QMNLI):
-  
-  index=["index"]
-  scale="frequency"
+
 
   kw_attitude_neg = ["meaningless", "dull", "aimless", 'boring']
   kw_attitude_pos = ["meaningful", "interesting", "fulfilling", 'fascinating']
@@ -97,6 +98,8 @@ class SOCQ8(QMNLI):
 
   def __init__(self, **kwargs):
     super().__init__(
+        index=["index"],
+        scale="frequency",
         context_template="My life are {index}.",
         answer_template="It is {frequency} correct.",
         dimensions={
@@ -112,9 +115,7 @@ class SOCQ8(QMNLI):
     )
 
 class SOCQ9(QMNLI):
-  
-  index=["index"]
-  scale="frequency"
+
 
   kw_attitude_neg = ["unfairly", "unjustly", "with discrimination", "unequally"]
   kw_attitude_pos = ["fairly", "justly", "equally"]
@@ -122,6 +123,8 @@ class SOCQ9(QMNLI):
 
   def __init__(self, **kwargs):
     super().__init__(
+        index=["index"],
+        scale="frequency",
         context_template="I feel that I am being treated {index}.",
         answer_template="It is {frequency} correct.",
         dimensions={
@@ -138,15 +141,16 @@ class SOCQ9(QMNLI):
 
 class SOCQ12(QMNLI):
   
-  index=["index"]
-  scale="frequency"
+
 
   kw_attitude_neg = ["helpless", "hopeless", 'powerless']
   kw_attitude_pos = ["easy", "comfortable", "relaxed"]
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
-    super().__init__( 
+    super().__init__(
+        index=["index"],
+        scale="frequency",
         context_template="In unfamiliar situation I feel {index}.",
         answer_template="It is {frequency} correct.",
         dimensions={
@@ -162,9 +166,7 @@ class SOCQ12(QMNLI):
     )
 
 class SOCQ16(QMNLI):
-  
-  index=["index"]
-  scale="frequency"
+
 
   kw_attitude_neg = ["meaningless", "dull", "aimless", 'boring']
   kw_attitude_pos = ["meaningful", "interesting", "fulfilling", 'fascinating']
@@ -172,6 +174,8 @@ class SOCQ16(QMNLI):
 
   def __init__(self, **kwargs):
     super().__init__(
+        index=["index"],
+        scale="frequency",
         context_template="Things I do every day are {index}.",
         answer_template="It is {frequency} correct.",
         dimensions={
@@ -188,8 +192,7 @@ class SOCQ16(QMNLI):
 
 class SOCQ19(QMNLI):
   
-  index=["index"]
-  scale="frequency"
+
 
   kw_attitude_pos = ["clear", "coherent", 'logical', 'comprehensible']
   kw_attitude_neg = ["mixed-up", "confounded"]
@@ -197,6 +200,8 @@ class SOCQ19(QMNLI):
 
   def __init__(self, **kwargs):
     super().__init__(
+        index=["index"],
+        scale="frequency",
         context_template="I have {index} feelings and ideas.",
         answer_template="It is {frequency} correct.",
         dimensions={
@@ -213,8 +218,7 @@ class SOCQ19(QMNLI):
 
 class SOCQ21(QMNLI):
   
-  index=["index"]
-  scale="frequency"
+
 
   kw_attitude_neg = ["unwanted", 'undesired']
   kw_attitude_pos = ['joyful', 'good']
@@ -222,6 +226,8 @@ class SOCQ21(QMNLI):
 
   def __init__(self, **kwargs):
     super().__init__(
+        index=["index"],
+        scale="frequency",
         context_template="I have {index} feelings.",
         answer_template="It is {frequency} correct.",
         dimensions={
@@ -238,8 +244,7 @@ class SOCQ21(QMNLI):
 
 class SOCQ25(QMNLI):
   
-  index=["index"]
-  scale="frequency"
+
 
   kw_attitude_neg = ["loser", "sad sack"]
   kw_attitude_pos = ["winner", "success"]
@@ -247,6 +252,8 @@ class SOCQ25(QMNLI):
 
   def __init__(self, **kwargs):
     super().__init__(
+        index=["index"],
+        scale="frequency",
         context_template="I’m a {index}.",
         answer_template="It is {frequency} correct.",
         dimensions={
@@ -263,8 +270,6 @@ class SOCQ25(QMNLI):
 
 class SOCQ26(QMNLI):
   
-  index=["index"]
-  scale="frequency"
 
   kw_attitude_pos = ["estimate in proportion", "judge in proportion"]
   kw_attitude_neg = ["overestimate","misjudge",'underestimate']
@@ -272,6 +277,8 @@ class SOCQ26(QMNLI):
 
   def __init__(self, **kwargs):
     super().__init__(
+        index=["index"],
+        scale="frequency",
         context_template="I {index} the importence of something that happened.",
         answer_template="It is {frequency} correct.",
         dimensions={
@@ -288,8 +295,7 @@ class SOCQ26(QMNLI):
 
 class SOCQ28(QMNLI):
   
-  index=["index"]
-  scale="frequency"
+
 
   kw_attitude_neg = ["meaningless", "dull", "aimless", 'boring']
   kw_attitude_pos = ["meaningful", "interesting", "fulfilling", 'fascinating']
@@ -297,6 +303,8 @@ class SOCQ28(QMNLI):
 
   def __init__(self, **kwargs):
     super().__init__(
+        index=["index"],
+        scale="frequency",
         context_template="The things I do in my daily life are {index} to me.",
         answer_template="It is {frequency} correct.",
         dimensions={
@@ -312,9 +320,7 @@ class SOCQ28(QMNLI):
     )
 
 class SOCQ29(QMNLI):
-  
-  index=["index"]
-  scale="frequency"
+
 
   kw_attitude_neg = ["out of control", "uncontrollable", 'unmanageable']
   kw_attitude_pos = ["contained", "collected", 'controlled']
@@ -322,6 +328,8 @@ class SOCQ29(QMNLI):
 
   def __init__(self, **kwargs):
     super().__init__(
+        index=["index"],
+        scale="frequency",
         context_template="I feel that my feelings are {index}.",
         answer_template="It is {frequency} correct.",
         dimensions={

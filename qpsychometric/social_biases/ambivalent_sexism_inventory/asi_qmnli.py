@@ -21,8 +21,7 @@ class ASIQ2(QMNLI):
   {frequently} to get {favors}
   """
   
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
 
@@ -34,6 +33,8 @@ class ASIQ2(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template='Women actually are seeking special favors that favor them over men, under the guise of asking for "equality."',
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
@@ -57,8 +58,7 @@ class ASIQ4(QMNLI):
   template="they {frequently} interpreted the remarks as being {sexist}.",
   """
   
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
 
@@ -70,6 +70,8 @@ class ASIQ4(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Women interpret innocent remarks and acts as being sexist.",
         answer_template="This sentence is {frequency} {index}.",
         
@@ -94,8 +96,7 @@ class ASIQ5(QMNLI):
   template="is {usually} {esier than} offending a man.",
   """
   
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -103,6 +104,8 @@ class ASIQ5(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Women are too easily offended.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
@@ -125,9 +128,7 @@ class ASIQ7(QMNLI):
   context="{most} feminists are seeking to have",
   template="{more power than} men",
   """
-  
-  index = ["index"]
-  scale = "frequency"
+ 
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -135,6 +136,8 @@ class ASIQ7(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Feminists are seeking for women to have more power than men.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
@@ -159,9 +162,7 @@ class ASIQ10(QMNLI):
         emo_pos=['appreciate',"cherish",],
         emo_neg=['despite','disrespect'],
   """
-  
-  index = ["index"]
-  scale = "frequency"
+ 
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -169,6 +170,8 @@ class ASIQ10(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Women fail to appreciate fully all that men do for them.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
@@ -193,9 +196,7 @@ class ASIQ11(QMNLI):
         emo_pos=['working hard',"studying a lot","developing carear"],
         emo_neg=['controlling men', 'getting control over men', 'manipulating men'] ,
   """
-  
-  index = ["index"]
-  scale = "frequency"
+
   
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -203,6 +204,8 @@ class ASIQ11(QMNLI):
     
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Women seek to gain power by getting control over men.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
@@ -228,8 +231,7 @@ class ASIQ14(QMNLI):
         emo_neg=['exaggerate',"overstate", "overestimate", "magnify"],
   """
   
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -237,6 +239,8 @@ class ASIQ14(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Women exaggerate problems they have at work.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
@@ -262,8 +266,7 @@ class ASIQ15(QMNLI):
         emo_neg=["restrain","constrain","restrict","confine","supress"],
   """
   
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -271,6 +274,8 @@ class ASIQ15(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Once a woman gets a man to commit to her, she tries to put him on a tight leash.",
         answer_template="This sentence is {frequency} {index}.",
         
@@ -298,8 +303,7 @@ class ASIQ16(QMNLI):
 
   """
   
-  index = ["index"]
-  scale = "frequency"
+
   
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -307,6 +311,8 @@ class ASIQ16(QMNLI):
     
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="When women lose to men in a fair competition, they complain about being discriminated against.",
         answer_template="This sentence is {frequency} {index}.",
         
@@ -334,8 +340,7 @@ class ASIQ18(QMNLI):
 
   """
   
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -343,6 +348,8 @@ class ASIQ18(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Women get a kick out of teasing men by seeming sexually available and then refusing male advances.",
         answer_template="This sentence is {frequency} {index}.",
 
@@ -370,8 +377,7 @@ class ASIQ21(QMNLI):
 
   """
   
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -379,6 +385,8 @@ class ASIQ21(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Feminists are making unreasonable demands of men.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
@@ -407,9 +415,7 @@ class ASIQ1(QMNLI):
         context="without the love of a {partner}",
         template="accomplished {men} are {usually} complete as persons",
   """
-  
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -417,6 +423,8 @@ class ASIQ1(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="No matter how accomplished he is, a man is not truly complete as a person unless he has the love of a woman.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
@@ -442,8 +450,7 @@ class ASIQ6(QMNLI):
         template="are {always} {happy} in life ",
   """
   
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -451,6 +458,8 @@ class ASIQ6(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Men are happy in life only when they are romantically involved with a woman.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
@@ -478,9 +487,7 @@ class ASIQ12(QMNLI):
         context="{men} {ought to have}",
         template="a {woman} that they {always} adore",
   """
-  
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -488,6 +495,8 @@ class ASIQ12(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Every man ought to have a woman whom he adores.",
         answer_template="This sentence is {frequency} {index}.",
 
@@ -516,9 +525,7 @@ class ASIQ13(QMNLI):
         context="{Men} without a {partner}",
         template="are {usually} incomplete",
   """
-  
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -526,6 +533,8 @@ class ASIQ13(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Men are incomplete without women.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
@@ -548,9 +557,7 @@ class ASIQ3(QMNLI):
         context="In a disaster",
         template="{always} rescue {women before men}",
   """
-  
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -558,6 +565,8 @@ class ASIQ3(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="In a disaster, women must be rescued before men.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
@@ -583,8 +592,7 @@ class ASIQ9(QMNLI):
         template="{by} {men}",
   """
   
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -592,6 +600,8 @@ class ASIQ9(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Women must be cherished and protected by men.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
@@ -617,9 +627,7 @@ class ASIQ17(QMNLI):
 Partners in a healthy relationship should value and respect each other,
 without one partner being elevated above the other.
   """
-  
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -627,6 +635,8 @@ without one partner being elevated above the other.
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="A good woman should be set on a pedestal by her man.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
@@ -649,9 +659,7 @@ class ASIQ20(QMNLI):
         context="in order to provide financially for the {women} in their lives",
         template="{men} {should} {usually} {sacrifice} their own well being",
   """
-  
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -659,6 +667,8 @@ class ASIQ20(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Men should be willing to sacrifice their own well being in order to provide financially for the women in their lives.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
@@ -686,9 +696,7 @@ class ASIQ8(QMNLI):
         context="{usually} the quality of a purity that {women} have",
         template="{only few men possess}",
   """
-  
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -696,6 +704,8 @@ class ASIQ8(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Women have a quality of purity that few men possess.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
@@ -719,8 +729,7 @@ class ASIQ19(QMNLI):
         template="is {usually} {relation} that of men",
   """
   
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -728,6 +737,8 @@ class ASIQ19(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Women have a superior moral sensibility compared to men.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
@@ -750,9 +761,7 @@ class ASIQ22(QMNLI):
         context="{women}, as compared to {men}, {usually} tend to have",
         template="{a more refined} sense of culture and good taste",
   """
-  
-  index = ["index"]
-  scale = "frequency"
+
 
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
   kw_favors   = ['legitimate','rightful', 'reasonable']
@@ -760,6 +769,8 @@ class ASIQ22(QMNLI):
   
   def __init__(self, **kwargs):
     super().__init__(
+        index = ["index"],
+        scale = "frequency",
         context_template="Women have a superior sense of culture and good taste compared to men.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={

@@ -14,10 +14,11 @@ frequency_weights:SCALE = {
 
 
 class BIG5Q1(QMLM):
-    index=["index"]
-    scale="frequency"
+
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             template="I am {frequency} {index} new experiences.",
             dimensions={
                 "frequency":frequency_weights,
@@ -34,10 +35,11 @@ class BIG5Q1(QMLM):
         
         
 class BIG5Q2(QMLM):
-    index=["index"]
-    scale="frequency"
+
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             template="I am {frequency} {index}.",
             dimensions={
                 "frequency":frequency_weights,
@@ -55,10 +57,11 @@ class BIG5Q2(QMLM):
         )
         
 class BIG5Q3(QMLM):
-    index=["index"]
-    scale="frequency"
+
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             template="I {frequency} {index} new experiences.", 
             dimensions={
                 "frequency":frequency_weights,
@@ -74,10 +77,11 @@ class BIG5Q3(QMLM):
         )
         
 class BIG5Q4(QMLM):
-    index=["index"]
-    scale="frequency"
+
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             template="I am {frequency} {index}.", 
             dimensions={
                 "frequency":frequency_weights,
@@ -93,10 +97,11 @@ class BIG5Q4(QMLM):
         )
         
 class BIG5Q5(QMLM):
-    index=["index"]
-    scale="frequency"
+
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             template="I am {frequency} {index}.", 
             dimensions={
                 "frequency":frequency_weights,
@@ -112,11 +117,11 @@ class BIG5Q5(QMLM):
         )
         
 class BIG5Q6(QMLM):
-    index=["index"]
-    scale="frequency"
+
     def __init__(self, **kwargs):
         super().__init__(
-#             context="I {intensifier} like to be {emotion}.",
+            index=["index"],
+            scale="frequency",
             template="I am {frequency} like to be {index}.", 
             dimensions={
                 "frequency":frequency_weights,
@@ -133,11 +138,11 @@ class BIG5Q6(QMLM):
         
 
 class BIG5Q7(QMLM):
-    index=["index"]
-    scale="frequency"
+
     def __init__(self, **kwargs):
         super().__init__(
-#             context="I am {intensifier} {emotion} around other people.",
+            index=["index"],
+            scale="frequency",
             template="I am {frequency} {index} around other people.", 
             dimensions={
                 "frequency":frequency_weights,
@@ -153,10 +158,11 @@ class BIG5Q7(QMLM):
         )
         
 class BIG5Q8(QMLM):
-    index=["index"]
-    scale="frequency"
+
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             template="I am {frequency} {index}.", 
             dimensions={
                 "frequency":frequency_weights,
@@ -173,10 +179,11 @@ class BIG5Q8(QMLM):
         
         
 class BIG5Q9(QMLM):
-    index=["index"]
-    scale="frequency"
+
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             template="I am {frequency} {index}.", 
             dimensions={
                 "frequency":frequency_weights,
@@ -193,10 +200,11 @@ class BIG5Q9(QMLM):
         
         
 class BIG5Q10(QMLM):
-    index=["index"]
-    scale="frequency"
+
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             template="I am {frequency} {index} towards other people's feelings.", 
             dimensions={
                 "frequency":frequency_weights,
@@ -212,10 +220,11 @@ class BIG5Q10(QMLM):
         )
         
 class BIG5Q11(QMLM):
-    index=["index"]
-    scale="frequency"
+
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             template="I am {frequency} {index} toward others.", 
             dimensions={
                 "frequency":frequency_weights,
@@ -232,10 +241,11 @@ class BIG5Q11(QMLM):
         
         
 class BIG5Q12(QMLM):
-    index=["index"]
-    scale="frequency"
+
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             template="I am {frequency} {index} toward others.", 
             dimensions={
                 "frequency":frequency_weights,
@@ -252,10 +262,11 @@ class BIG5Q12(QMLM):
         
         
 class BIG5Q13(QMLM):
-    index=["index"]
-    scale="frequency"
+
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             template="I am {frequency} {index} about things.", 
             dimensions={
                 "frequency":frequency_weights,
@@ -271,10 +282,11 @@ class BIG5Q13(QMLM):
         )
         
 class BIG5Q14(QMLM):
-    index=["index"]
-    scale="frequency"
+
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             template="I am {frequency} {index}.", 
             dimensions={
                 "frequency":frequency_weights,
