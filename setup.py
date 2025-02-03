@@ -7,7 +7,7 @@ with open('./qpsychometric/requirements.txt') as f:
 
 setup(
 name="qpsychometric",
-version="1.0.8",
+version="1.0.9",
 description="A Python package containing implemented psychometrics for LLMs.",
 packages=find_packages(),
 project_urls={
