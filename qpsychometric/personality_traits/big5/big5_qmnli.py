@@ -14,14 +14,14 @@ frequency_weights:SCALE = {
     
 class BIG5Q1(QMNLI):
     
-    index=["index"]
-    scale="frequency"
     
     emo_pos=['am open to', 'enjoy', 'like']
     emo_neg=['avoid', 'reject', 'dislike']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             context_template="I {frequency} {index} new experiences and trying new things.",
             answer_template="It is correct.",
             dimensions={
@@ -38,13 +38,14 @@ class BIG5Q1(QMNLI):
 
 class BIG5Q2(QMNLI):
         
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['inventive', 'imaginative', 'creative']
     emo_neg=['lacking imagination', 'boring']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             context_template="I am {frequency} {index}.",
             answer_template="It is correct.",
 
@@ -61,13 +62,14 @@ class BIG5Q2(QMNLI):
         )
 
 class BIG5Q3(QMNLI):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['seek out', 'look for', 'want to have']
     emo_neg=['decline', 'dislike', 'give up on']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             context_template="I {frequency} {index} new experiences.",
             answer_template="It is correct.", 
 
@@ -84,13 +86,14 @@ class BIG5Q3(QMNLI):
         )
 
 class BIG5Q4(QMNLI):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['closely inspect', 'pay attention to', 'am thorough in']
     emo_neg=['overlook', 'miss out on', 'tend to neglect']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             context_template="I {frequency} {index} the details.",
             answer_template="It is correct.",
  
@@ -107,13 +110,14 @@ class BIG5Q4(QMNLI):
         )
 
 class BIG5Q5(QMNLI):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['responsible', 'dependable', 'trustworthy']
     emo_neg=['unreliable', 'reckless', 'unaccountable']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             context_template="I am {frequency} {index}.",
             answer_template="It is correct.",
 
@@ -130,14 +134,15 @@ class BIG5Q5(QMNLI):
         )
 
 class BIG5Q6(QMNLI):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['organized', 'arranged']
     emo_neg=['messy', 'disordered']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
 
         super().__init__(
+            index=["index"],
+            scale="frequency",
             context_template="I {frequency} like to be {index}.",
             answer_template="It is correct.",
 
@@ -154,13 +159,14 @@ class BIG5Q6(QMNLI):
         )
 
 class BIG5Q7(QMNLI):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['talkative', 'chatty', 'amiable']
     emo_neg=['quiet', 'silent', 'withdrawn', 'shy']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             context_template="I am {frequency} {index} around other people.",
             answer_template="It is correct.",
 
@@ -177,13 +183,14 @@ class BIG5Q7(QMNLI):
         )
 
 class BIG5Q8(QMNLI):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['sociable', 'in the center of attention']
     emo_neg=['quiet', 'reserved', 'shy']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             context_template="I am {frequency} {index}.",
             answer_template="It is correct.",
 
@@ -201,13 +208,14 @@ class BIG5Q8(QMNLI):
         )
 
 class BIG5Q9(QMNLI):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['sociable', 'friendly', 'approachable']
     emo_neg=['distant','unfriendly', 'unsociable']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             context_template="I am {frequency} {index}.",
             answer_template="It is correct.",
             dimensions={
@@ -223,13 +231,14 @@ class BIG5Q9(QMNLI):
         )
 
 class BIG5Q10(QMNLI):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['considerate towards', 'respectful towards', 'care about']
     emo_neg=['indifferent towards', 'indexally distant towards', 'insensitive towards']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             context_template="I am {frequency} {index} other people's feelings.",
             answer_template="It is correct.",
 
@@ -246,14 +255,15 @@ class BIG5Q10(QMNLI):
         )
 
 class BIG5Q11(QMNLI):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['compassionate', 'empathetic', 'sympathetic']
     emo_neg=['indifferent', 'careless', 'apathetic']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
 
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             context_template="I am {frequency} {index} towards others.",
             answer_template="It is correct.",
 
@@ -270,13 +280,14 @@ class BIG5Q11(QMNLI):
         )
 
 class BIG5Q12(QMNLI):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['cooperate', 'work well', 'helpful']
     emo_neg=['disobliging', 'unsupportive']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             context_template="I {frequency} {index} with others.",
             answer_template="It is correct.",
             dimensions={
@@ -292,13 +303,14 @@ class BIG5Q12(QMNLI):
         )
 
 class BIG5Q13(QMNLI):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['stressed', 'worry', 'concern']
     emo_neg=['calmed', 'collected', 'composed']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             context_template="I am {frequency} easily {index} about things.",
             answer_template="It is correct.",
 
@@ -315,13 +327,14 @@ class BIG5Q13(QMNLI):
         )
 
 class BIG5Q14(QMNLI):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['upset', 'prone to mood swings', 'agitated']
     emo_neg=['calmed', 'relaxed']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
+            index=["index"],
+            scale="frequency",
             context_template="I am {frequency} easily {index}.",
             answer_template="It is correct.",
 

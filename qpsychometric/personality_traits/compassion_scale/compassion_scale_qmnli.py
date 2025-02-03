@@ -561,8 +561,7 @@ class CSQ24(QMNLI):
 class CSQ11(QMNLI):
     """
     """
-    index = ["index"] 
-    scale = "frequency"
+
 
     kw_attitude_pos = ['an important', 'an essential', 'a significant', 'a critical',]
     kw_attitude_neg = ['an insignificant', 'an unimportant', 'an irrelevant', 'a minor',]
@@ -570,6 +569,8 @@ class CSQ11(QMNLI):
     
     def __init__(self, **kwargs):
         super().__init__(
+            index = ["index"],
+            scale = "frequency",
             context_template="Being down is {index} part of being human.",
             answer_template="It is {frequency} correct.",
             dimensions={
@@ -587,8 +588,7 @@ class CSQ11(QMNLI):
 class CSQ15(QMNLI):
     """
     """
-    index = ["index"] 
-    scale = "frequency"
+
 
     kw_attitude_pos = ['an important', 'an essential', 'a significant', 'a critical',]
     kw_attitude_neg = ['an insignificant', 'an unimportant', 'an irrelevant', 'a minor',]
@@ -596,6 +596,8 @@ class CSQ15(QMNLI):
     
     def __init__(self, **kwargs):
         super().__init__(
+            index = ["index"],
+            scale = "frequency",
             context_template="Recognizing that all people have weaknesses is {index} part of life.",
             answer_template="It is {frequency} correct.",
             dimensions={
@@ -613,8 +615,7 @@ class CSQ15(QMNLI):
 class CSQ17(QMNLI):
     """
     """
-    index = ["index"] 
-    scale = "frequency"
+
 
     kw_attitude_pos = ['an important', 'an essential', 'a significant', 'a critical',]
     kw_attitude_neg = ['an insignificant', 'an unimportant', 'an irrelevant', 'a minor',]
@@ -622,6 +623,8 @@ class CSQ17(QMNLI):
     
     def __init__(self, **kwargs):
         super().__init__(
+            index = ["index"],
+            scale = "frequency",
             context_template="Knowing that all people feels pain is {index} part of life.",
             answer_template="It is {frequency} correct.",
             dimensions={
@@ -639,8 +642,7 @@ class CSQ17(QMNLI):
 class CSQ20(QMNLI):
     """
     """
-    index = ["index"] 
-    scale = "frequency"
+
 
     kw_attitude_pos = ['an important','a crucial', 'an essential', 'a significant', 'a critical',]
     kw_attitude_neg = ['an insignificant', 'an unimportant', 'an irrelevant', 'a minor',]
@@ -648,6 +650,8 @@ class CSQ20(QMNLI):
     
     def __init__(self, **kwargs):
         super().__init__(
+            index = ["index"],
+            scale = "frequency",
             context_template="Suffering is just {index} part of the common human experience.",
             answer_template="It is {frequency} correct.",
             dimensions={

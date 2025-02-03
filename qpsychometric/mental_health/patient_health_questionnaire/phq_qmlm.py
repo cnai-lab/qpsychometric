@@ -14,14 +14,14 @@ frequency_weights:SCALE = {
 
 
 class PHQ9Q1(QMLM):
-    index=["index"]
-    scale="frequency"
+
     emo_pos = ['unsatisfied', 'upset', 'annoyed']
     emo_neg = ['pleased', 'happy', 'satisfied']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
-#             template = "Over the last 2 weeks, I had {frequency} experienced {index} in doing things.",
+            index=["index"],
+            scale="frequency",
             template = "Over the last 2 weeks, I have {frequency} been {index} in doing things.",
             dimensions={
                     "index":self.dict_objective,
@@ -38,15 +38,14 @@ class PHQ9Q1(QMLM):
 
 
 class PHQ9Q2(QMLM):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['down', 'depressed', 'hopeless', 'sad']
     emo_neg=['happy', 'hopeful', 'cheerful']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs ):
         super().__init__(
-#             context_template="Over the last 2 weeks, I have been feeling {index}.",
-#             answer_template="It is {frequency} correct.",
+            index=["index"],
+            scale="frequency",
             template = "Over the last 2 weeks, I was {frequency} feeling {index}.",
             dimensions={
                     "index":self.dict_objective,
@@ -63,15 +62,14 @@ class PHQ9Q2(QMLM):
 
 
 class PHQ9Q3(QMLM):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['had trouble falling asleep', 'had trouble staying asleep']
     emo_neg=['been resting well', 'been sleeping well']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
-#             context_template="Over the last 2 weeks, I {frequency} had trouble falling asleep.",
-#             answer_template="This sentence is {index}.",
+            index=["index"],
+            scale="frequency",
             template = "Over the last 2 weeks, I have {frequency} {index}.",
             dimensions={
                     "index":self.dict_objective,
@@ -87,15 +85,14 @@ class PHQ9Q3(QMLM):
         
         
 class PHQ9Q4(QMLM):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['tired', 'drained', 'fatigued']
     emo_neg=['energized', 'refreshed', 'lively']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
-#             context_template="Over the last 2 weeks, I feel {index}.",
-#             answer_template="It is {frequency} correct.",
+            index=["index"],
+            scale="frequency",
             template = "Over the last 2 weeks, I have {frequency} felt {index}.",
             dimensions={
                     "index":self.dict_objective,
@@ -113,15 +110,14 @@ class PHQ9Q4(QMLM):
 
 
 class PHQ9Q5(QMLM):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['poor appetite', 'been overeating']
     emo_neg=['healthy appetite', 'satisfying appetite']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
-#             context_template="Over the last 2 weeks, I had {index}",
-#             answer_template="It is {frequency} correct.",
+            index=["index"],
+            scale="frequency",
             template = "Over the last 2 weeks, I {frequency} had a {index}.",
             dimensions={
                     "index":self.dict_objective,
@@ -138,16 +134,15 @@ class PHQ9Q5(QMLM):
 
 
 class PHQ9Q6(QMLM):
-    index=["index"]
-    scale="frequency"
+
     
     emo_pos=['a failure', 'a disappointment', 'letting myself down', 'letting my family down']
     emo_neg=['successful', 'lucky', 'confident']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
-#             context_template="Over the last 2 weeks, I feel {index}.",
-#             answer_template="It is {frequency} correct.",
+            index=["index"],
+            scale="frequency",
             template = "Over the last 2 weeks, I have {frequency} felt that I am {index}.",            
             dimensions={
                     "index":self.dict_objective,
@@ -164,15 +159,14 @@ class PHQ9Q6(QMLM):
     
 
 class PHQ9Q7(QMLM):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['have trouble concentrating', 'have difficulty focusing']
     emo_neg=['concentrate easily', 'focus effortlessly']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
-#             context_template="Over the last 2 weeks, I {frequency} had trouble concentrating.",
-#             answer_template="This sentence is {index}.",
+            index=["index"],
+            scale="frequency",
             template = "Over the last 2 weeks, I {frequency} {index}.",
             dimensions={
                     "index":self.dict_objective,
@@ -190,15 +184,14 @@ class PHQ9Q7(QMLM):
 
 
 class PHQ9Q8(QMLM):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['fidgetly', 'slowly']
     emo_neg=['normally', 'naturally']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
-#             context_template="Over the last 2 weeks, I move or speak {index}.",
-#             answer_template="It is {frequency} correct.",
+            index=["index"],
+            scale="frequency",
             template = "Over the last 2 weeks, I have {frequency} moved or spoken {index}.",
             dimensions={
                     "index":self.dict_objective,
@@ -215,15 +208,14 @@ class PHQ9Q8(QMLM):
 
 
 class PHQ9Q9(QMLM):
-    index=["index"]
-    scale="frequency"
+
     emo_pos=['suicidal', 'self destructive']
     emo_neg=['harmless', 'hopeful', 'positive']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
-#             context_template="Over the last 2 weeks, I have {index} thoughts.",
-#             answer_template="It is {frequency} correct.",
+            index=["index"],
+            scale="frequency",
             template = "Over the last 2 weeks, I have {frequency} had {index} thoughts.",
             dimensions={
                     "index":self.dict_objective,
