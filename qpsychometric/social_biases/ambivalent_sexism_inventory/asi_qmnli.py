@@ -11,6 +11,17 @@ frequency_weights:SCALE = {
     'always':4,    
 }
 
+certainty_weights:SCALE = {
+    "isn't":-2,
+#     "label isn't":-2,
+    "can't be":-2,
+    "isn't probably":-1,    
+    'is probably':1,
+    'can be':1,
+#     'label is':2,
+    'is':2,    
+}
+
 class ASIQ2(QMNLI):
   """
   H 2. Many women are actually seeking special favors, such as hiring policies that favor them over men,
@@ -26,8 +37,6 @@ class ASIQ2(QMNLI):
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
 
   kw_favors   = ['legitimate', 'rightful', 'reasonable']
-
-  kw_favors   = ['legitimate','rightful', 'reasonable']
 
   dict_objective = dict_pos_neg(kw_favors, kw_fairness,1)
   
@@ -63,8 +72,6 @@ class ASIQ4(QMNLI):
   kw_fairness = ['sexist', 'prejudiced', 'improper',]
 
   kw_favors   = ['legitimate', 'rightful', 'reasonable']
-
-  kw_favors   = ['legitimate','rightful', 'reasonable']
 
   dict_objective = dict_pos_neg(kw_favors, kw_fairness,1)
   
@@ -425,7 +432,7 @@ class ASIQ1(QMNLI):
     super().__init__(
         index = ["index"],
         scale = "frequency",
-        context_template="No matter how accomplished he is, a man is not truly complete as a person unless he has the love of a woman.",
+        context_template="A man need the love of a woman to be truly complete as a person.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
             "frequency":frequency_weights,
@@ -460,7 +467,7 @@ class ASIQ6(QMNLI):
     super().__init__(
         index = ["index"],
         scale = "frequency",
-        context_template="Men are happy in life only when they are romantically involved with a woman.",
+        context_template="A man must be romantically involved with a woman to be happy in life.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
             "frequency":frequency_weights,
@@ -538,7 +545,7 @@ class ASIQ13(QMNLI):
         context_template="Men are incomplete without women.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
-            "frequency":frequency_weights,
+            "frequency":certainty_weights,
             "index": self.dict_objective,
         },
         descriptor = {"Questionnair":"ASI",
