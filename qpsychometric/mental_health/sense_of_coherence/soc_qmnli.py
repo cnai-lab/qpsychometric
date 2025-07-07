@@ -100,7 +100,7 @@ class SOCQ8(QMNLI):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="My life are {index}.",
+        context_template="My life is {index}.",
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
@@ -220,15 +220,15 @@ class SOCQ21(QMNLI):
   
 
 
-  kw_attitude_neg = ["unwanted", 'undesired']
-  kw_attitude_pos = ['joyful', 'good']
+  kw_attitude_neg = ['face', 'confront', 'acknowledge', 'process', 'accept']
+  kw_attitude_pos = ['ignore', 'avoid', 'dismiss']
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="I have {index} feelings.",
+        context_template="I have feelings inside I would like to {index}.",
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
@@ -279,7 +279,7 @@ class SOCQ26(QMNLI):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="I {index} the importence of something that happened.",
+        context_template="I {index} the importance of something that happened.",
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
