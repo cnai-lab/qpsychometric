@@ -220,8 +220,8 @@ class SOCQ21(QMNLI):
   
 
 
-  kw_attitude_neg = ['face', 'confront', 'acknowledge', 'process', 'accept']
-  kw_attitude_pos = ['ignore', 'avoid', 'dismiss']
+  kw_attitude_pos = ['face', 'confront', 'acknowledge', 'process', 'accept']
+  kw_attitude_neg = ['ignore', 'avoid', 'dismiss']
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
