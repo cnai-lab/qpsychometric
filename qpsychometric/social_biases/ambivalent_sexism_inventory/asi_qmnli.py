@@ -545,7 +545,7 @@ class ASIQ13(QMNLI):
         context_template="Men are incomplete without women.",
         answer_template="This sentence is {frequency} {index}.",
         dimensions={
-            "frequency":certainty_weights,
+            "frequency":frequency_weights,
             "index": self.dict_objective,
         },
         descriptor = {"Questionnair":"ASI",
