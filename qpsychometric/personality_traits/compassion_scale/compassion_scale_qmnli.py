@@ -14,8 +14,6 @@ frequency_weights:SCALE = {
 
 
 
-
-
 class CSQ1(QMNLI):
     """
     """
@@ -29,7 +27,7 @@ class CSQ1(QMNLI):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I {frequency} distant when people cry in front of me.",
+            context_template="I {frequency} feel distant when people cry in front of me.",
             answer_template="This is {index}",
             dimensions={
                 "frequency":frequency_weights,
@@ -56,7 +54,7 @@ class CSQ7(QMNLI):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I {frequency} distant when people tell me about their troubles.",
+            context_template="I {frequency} feel distant when people tell me about their troubles.",
             answer_template="This is {index}",
             dimensions={
                 "frequency":frequency_weights,
