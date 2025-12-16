@@ -2,12 +2,12 @@ from setuptools import setup, find_packages
 
 
 # Read requirements.txt and store contents in a list
-with open('./qpsychometric/requirements.txt') as f:
-    required = f.read().splitlines()
+# with open("requirements.txt") as f:
+#     required = f.read().splitlines()
 
 setup(
 name="qpsychometric",
-version="1.0.9",
+version="1.0.24",
 description="A Python package containing implemented psychometrics for LLMs.",
 packages=find_packages(),
 project_urls={
@@ -20,5 +20,10 @@ classifiers=[
 ],
 include_package_data=True,
 python_requires=">=3.8",
-install_requires=required
+install_requires=[
+                'pandas==2.2.3',
+                "qlatent>=1.0.11",
+                "tqdm",
+                "overrides",
+                ]
 )
