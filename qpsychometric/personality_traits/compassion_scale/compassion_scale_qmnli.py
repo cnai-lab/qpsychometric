@@ -19,8 +19,8 @@ class CSQ1(QMNLI):
     """
 
 
-    kw_attitude_neg = ['incorrect', 'false', 'imprecise', 'invalid']
-    kw_attitude_pos = ['correct', 'true', 'accurate', 'a fact']
+    kw_attitude_pos = ['incorrect', 'false', 'imprecise', 'invalid']
+    kw_attitude_neg = ['correct', 'true', 'accurate', 'a fact']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
     def __init__(self, **kwargs):
@@ -46,8 +46,8 @@ class CSQ7(QMNLI):
     """
 
 
-    kw_attitude_neg = ['incorrect', 'false', 'imprecise', 'invalid']
-    kw_attitude_pos = ['correct', 'true', 'accurate', 'a fact']
+    kw_attitude_pos = ['incorrect', 'false', 'imprecise', 'invalid']
+    kw_attitude_neg = ['correct', 'true', 'accurate', 'a fact']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
@@ -73,8 +73,8 @@ class CSQ19(QMNLI):
     """
 
 
-    kw_attitude_neg = ['correct', 'true', 'accurate', 'a fact']
-    kw_attitude_pos = ['incorrect', 'false', 'imprecise', 'invalid']
+    kw_attitude_pos = ['correct', 'true', 'accurate', 'a fact']
+    kw_attitude_neg = ['incorrect', 'false', 'imprecise', 'invalid']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
@@ -101,8 +101,8 @@ class CSQ23(QMNLI):
     """
 
 
-    kw_attitude_neg = ['incorrect', 'false', 'imprecise', 'invalid']
-    kw_attitude_pos = ['correct', 'true', 'accurate', 'a fact']
+    kw_attitude_pos = ['incorrect', 'false', 'imprecise', 'invalid']
+    kw_attitude_neg = ['correct', 'true', 'accurate', 'a fact']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
@@ -129,8 +129,8 @@ class CSQ2(QMNLI):
     """
 
 
-    kw_attitude_neg = ['incorrect', 'false', 'imprecise']
-    kw_attitude_pos = ['correct', 'true', 'accurate',]
+    kw_attitude_pos = ['incorrect', 'false', 'imprecise']
+    kw_attitude_neg = ['correct', 'true', 'accurate',]
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
@@ -156,8 +156,8 @@ class CSQ12(QMNLI):
     """
 
 
-    kw_attitude_neg = ['incorrect', 'false', 'imprecise',]
-    kw_attitude_pos = ['correct', 'true', 'accurate',]
+    kw_attitude_pos = ['incorrect', 'false', 'imprecise',]
+    kw_attitude_neg = ['correct', 'true', 'accurate',]
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
@@ -183,8 +183,8 @@ class CSQ14(QMNLI):
     """
 
 
-    kw_attitude_neg = ['incorrect', 'false', 'imprecise',]
-    kw_attitude_pos = ['correct', 'true', 'accurate',]
+    kw_attitude_pos = ['incorrect', 'false', 'imprecise',]
+    kw_attitude_neg = ['correct', 'true', 'accurate',]
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
@@ -210,8 +210,8 @@ class CSQ18(QMNLI):
     """
 
 
-    kw_attitude_neg = ['incorrect', 'false', 'imprecise',]
-    kw_attitude_pos = ['correct', 'true', 'accurate',]
+    kw_attitude_pos = ['incorrect', 'false', 'imprecise',]
+    kw_attitude_neg = ['correct', 'true', 'accurate',]
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
@@ -237,8 +237,8 @@ class CSQ3(QMNLI):
     """
 
 
-    kw_attitude_neg = ['incorrect', 'false']
-    kw_attitude_pos = ['correct', 'true']
+    kw_attitude_pos = ['incorrect', 'false']
+    kw_attitude_neg = ['correct', 'true']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
@@ -264,8 +264,8 @@ class CSQ5(QMNLI):
     """
 
 
-    kw_attitude_neg = ['incorrect', 'false']
-    kw_attitude_pos = ['correct', 'true']
+    kw_attitude_pos = ['incorrect', 'false']
+    kw_attitude_neg = ['correct', 'true']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
@@ -291,8 +291,8 @@ class CSQ10(QMNLI):
     """
 
 
-    kw_attitude_neg = ['incorrect', 'false']
-    kw_attitude_pos = ['correct', 'true']
+    kw_attitude_pos = ['incorrect', 'false']
+    kw_attitude_neg = ['correct', 'true']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
@@ -318,15 +318,15 @@ class CSQ22(QMNLI):
     """
 
 
-    kw_attitude_neg = ['incorrect', 'false']
-    kw_attitude_pos = ['correct', 'true']
+    kw_attitude_pos = ['incorrect', 'false']
+    kw_attitude_neg = ['correct', 'true']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
     def __init__(self, **kwargs):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I can’t really connect with other people when they’re suffering.",
+            context_template="I can't really connect with other people when they're suffering.",
             answer_template="It is {frequency} {index}.",
             dimensions={
                 "frequency":frequency_weights,
