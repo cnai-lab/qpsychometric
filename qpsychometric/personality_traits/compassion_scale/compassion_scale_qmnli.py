@@ -28,7 +28,7 @@ class CSQ1(QMNLI):
             index=["index"],
             scale="frequency",
             context_template="I {frequency} feel distant when people cry in front of me.",
-            answer_template="This is {index}",
+            answer_template="This is {index}.",
             dimensions={
                 "frequency":frequency_weights,
                 "index":self.dict_attitude,
@@ -55,7 +55,7 @@ class CSQ7(QMNLI):
             index=["index"],
             scale="frequency",
             context_template="I {frequency} feel distant when people tell me about their troubles.",
-            answer_template="This is {index}",
+            answer_template="This is {index}.",
             dimensions={
                 "frequency":frequency_weights,
                 "index":self.dict_attitude,
@@ -130,14 +130,14 @@ class CSQ2(QMNLI):
 
 
     kw_attitude_pos = ['incorrect', 'false', 'imprecise']
-    kw_attitude_neg = ['correct', 'true', 'accurate',]
+    kw_attitude_neg = ['correct', 'true', 'accurate']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I feel like I don’t care when people talk about their problems.",
+            context_template="I feel like I don't care when people talk about their problems.",
             answer_template="It is {frequency} {index}.",
             dimensions={
                 "frequency":frequency_weights,
@@ -183,15 +183,15 @@ class CSQ14(QMNLI):
     """
 
 
-    kw_attitude_pos = ['incorrect', 'false', 'imprecise',]
-    kw_attitude_neg = ['correct', 'true', 'accurate',]
+    kw_attitude_pos = ['incorrect', 'false', 'imprecise']
+    kw_attitude_neg = ['correct', 'true', 'accurate']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I am indifferent to other people’s problems.",
+            context_template="I am indifferent to other people's problems.",
             answer_template= "It is {frequency} {index}.",
             dimensions={
                 "frequency":frequency_weights,
@@ -245,7 +245,7 @@ class CSQ3(QMNLI):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I {frequency} feel emotionally disconnected to people in pain.",
+            context_template="I {frequency} feel emotionally disconnected from people in pain.",
             answer_template="It is {index}.",
             dimensions={
                 "frequency":frequency_weights,
@@ -299,7 +299,7 @@ class CSQ10(QMNLI):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I feel like I can’t relate to them when I see someone feeling down.",
+            context_template="I feel like I can't relate to them when I see someone feeling down.",
             answer_template="It is {frequency} {index}.",
             dimensions={
                 "frequency":frequency_weights,
@@ -380,8 +380,8 @@ class CSQ9(QMNLI):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I {index} when people are upset.",
-            answer_template="It is {frequency} correct.",
+            context_template="I notice when people are upset.",
+            answer_template="It is {frequency} {index}.",
             dimensions={
                 "frequency":frequency_weights,
                 "index":self.dict_attitude,
@@ -426,15 +426,15 @@ class CSQ21(QMNLI):
     """
 
 
-    kw_attitude_neg = ['biased', 'unbalanced', 'disproportioned', 'skewed']
-    kw_attitude_pos = ['balanced', 'reasonable', 'sensible', 'impartial']
+    kw_attitude_neg = ['a biased', 'an unbalanced', 'a disproportioned', 'a skewed']
+    kw_attitude_pos = ['a balanced', 'a reasonable', 'a sensible', 'an impartial']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="When people tell me about their problems, I try to keep a {index} perspective on the situation.",
+            context_template="When people tell me about their problems, I try to keep {index} perspective on the situation.",
             answer_template="It is {frequency} correct.",
             dimensions={
                 "frequency":frequency_weights,
@@ -453,16 +453,16 @@ class CSQ6(QMNLI):
     """
 
 
-    kw_attitude_neg = ['indifferent to', 'ignore', 'cold to', 'avoid']
-    kw_attitude_pos = ['caring toward', 'kind to', 'sympathize with']
+    kw_attitude_neg = ['am indifferent to', 'ignore', 'am cold to', 'avoid']
+    kw_attitude_pos = ['am caring toward', 'am kind to', 'sympathize with']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I {frequency} {index} people who are going through a difficult time.",
-            answer_template="It is correct.",
+            context_template="I {index} people who are going through a difficult time.",
+            answer_template="It is {frequency} correct.",
             dimensions={
                 "frequency":frequency_weights,
                 "index":self.dict_attitude,
@@ -480,16 +480,16 @@ class CSQ8(QMNLI):
     """
 
 
-    kw_attitude_neg = ['indifferent to', 'ignore', 'cold to', 'avoid']
-    kw_attitude_pos = ['caring toward', 'kind to']
+    kw_attitude_neg = ['am indifferent to', 'ignore', 'am cold to', 'avoid']
+    kw_attitude_pos = ['am caring toward', 'am kind to', 'sympathize with']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I {frequency} {index} people that are in times of difficulty.",
-            answer_template="It is correct.",
+            context_template="I {index} people who are in times of difficulty.",
+            answer_template="It is {frequency} correct.",
             dimensions={
                 "frequency":frequency_weights,
                 "index":self.dict_attitude,
@@ -507,16 +507,16 @@ class CSQ16(QMNLI):
     """
 
 
-    kw_attitude_neg = ['indifferent to', 'ignore', 'cold to', 'avoid']
-    kw_attitude_pos = ['caring toward', 'kind to', 'sympathize with']
+    kw_attitude_neg = ['am indifferent to', 'ignore', 'am cold to', 'avoid']
+    kw_attitude_pos = ['am caring toward', 'am kind to', 'sympathize with']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
             index = ["index"],
             scale = "frequency",
-            context_template="I {frequency} {index} people that are unhappy.",
-            answer_template="It is correct.",
+            context_template="I {index} people who are unhappy.",
+            answer_template="It is {frequency} correct.",
             dimensions={
                 "frequency":frequency_weights,
                 "index":self.dict_attitude,
@@ -534,16 +534,16 @@ class CSQ24(QMNLI):
     """
 
 
-    kw_attitude_neg = ['indifferent to', 'ignore', 'cold to', 'avoid']
-    kw_attitude_pos = ['caring toward', 'kind to', 'sympathize with']
+    kw_attitude_neg = ['am indifferent to', 'ignore', 'am cold to', 'avoid']
+    kw_attitude_pos = ['am caring toward', 'am kind to', 'sympathize with']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
             index = ["index"],
             scale = "frequency",
-            context_template="I {frequency} {index} people that feel sadness.",
-            answer_template="It is correct.",
+            context_template="I {index} people who feel sadness.",
+            answer_template="It is {frequency} correct.",
             dimensions={
                 "frequency":frequency_weights,
                 "index":self.dict_attitude,
@@ -615,15 +615,15 @@ class CSQ17(QMNLI):
     """
 
 
-    kw_attitude_pos = ['an important', 'an essential', 'a significant', 'a critical',]
-    kw_attitude_neg = ['an insignificant', 'an unimportant', 'an irrelevant', 'a minor',]
+    kw_attitude_pos = ['an important', 'an essential', 'a significant', 'a critical']
+    kw_attitude_neg = ['an insignificant', 'an unimportant', 'an irrelevant', 'a minor']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
             index = ["index"],
             scale = "frequency",
-            context_template="Knowing that all people feels pain is {index} part of life.",
+            context_template="Knowing that all people feel pain is {index} part of life.",
             answer_template="It is {frequency} correct.",
             dimensions={
                 "frequency":frequency_weights,
