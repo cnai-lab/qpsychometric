@@ -161,6 +161,277 @@ qpsychometric<br>
     Qs[0].run(mnli)  # you may add .mean_score() or .report() after the run() function.
   ```
 
+
+# questionnaire_validator.py
+
+A general-purpose validation module for psychometric questionnaires based on the QMNLI framework.
+
+## Overview
+
+This module provides a `QuestionnaireValidator` class that automates the validation process for any QMNLI-based questionnaire. It handles question splitting, model evaluation, linguistic validation, and statistical analysis.
+
+## Class: QuestionnaireValidator
+
+### Initialization Parameters
+
+#### Required Parameters
+
+```python
+QuestionnaireValidator(
+    questionnaire_name,      # str: Short name (e.g., "CS", "ASI", "GAD7")
+    questions,               # list: Question objects from questionnaire
+    factors,                 # list: Factor names in the questionnaire
+)
+```
+
+#### Optional Parameters (with defaults)
+
+```python
+    index=["index"],                 # list: Index dimensions
+    scales=["frequency"],            # list: Scale dimensions
+    result_path,                     # str/Path: Output directory
+    mnli_pipelines=None,             # list: MNLI model identifiers (uses 2 default models if None)
+    softmax_settings=[True, False],  # list: Softmax configurations
+    filters=None,                    # dict: Filter functions (uses default if None)
+    device=None,                     # int: GPU device (-1 for CPU, auto-detect if None)
+    q_range=[5, 0],                  # list: Question score range
+    update=True                      # bool: Re-evaluate existing results
+```
+
+### Methods
+
+#### `run_validation(output_filename=None)`
+Executes complete validation pipeline:
+1. Model evaluation on MNLI pipelines
+2. Content validity calculation
+3. Cronbach's alpha calculation
+4. Factor correlation analysis
+
+Returns dictionary with:
+- `results_csv`: Path to results file
+- `content_validity`: DataFrame with linguistic metrics
+- `cronbach_alpha`: Dict with alpha values
+- `correlations`: DataFrame with correlations
+
+#### `run_model_evaluation(output_filename=None)`
+Runs questionnaire on configured MNLI models.
+
+Returns: Path to results CSV
+
+#### `calc_content_validity(results_csv, softmax=None, output_filename=None)`
+Calculates linguistic acceptability metrics from results.
+
+Returns: DataFrame with semantic_similarity, cola_score, silhouette_score
+
+#### `calc_cronbach_alpha(results_csv, softmax=None, positiveonly=True)`
+Calculates internal consistency metrics.
+
+Returns: Dict with 'data_df', 'overall' and 'factors' alpha values
+
+#### `calc_correlations(results_csv, softmax=None, positiveonly=True, method='spearman')`
+Calculates factor correlations.
+
+Returns: Correlation matrix DataFrame
+
+#### `load_results(csv_path, softmax, positiveonly, value='score', index='model', columns='Q')`
+Loads and filters results from CSV into pivot table.
+
+Returns: Pivot table DataFrame
+
+## Output Files
+
+### Directory Structure
+```
+result_path/
+├── {questionnaire_name}_mnli_results.csv
+├── linguistic_acceptability.csv
+└── linguistic_acceptabilities.csv
+```
+
+### File Contents
+
+**{questionnaire_name}_mnli_results.csv**
+- Main results with columns: questionnair, factor, ordinal, scale, index, filter, softmax, original, Q, context_template, answer_template, dimensions, model, mean_score, cola_score, silhouette_score, semantic_similarity, epoch, train_process, dataset, run, mnli_score, range, score, mlm_epoch, mnli_checkpoint
+
+**linguistic_acceptability.csv**
+- Summary metrics per question
+- Columns: Q, semantic_similarity, cola_score, silhouette_score
+
+**linguistic_acceptabilities.csv**
+- Detailed metrics per question permutation
+- Columns: student_id, question_name, original_question, param, question_permutation, cola_score, semantic_similarity, silhouette_score
+
+## Running Example
+
+### Basic Usage (Minimal Configuration)
+
+```python
+from qpsychometric.questionnaire_validator import QuestionnaireValidator
+from qpsychometric.personality_traits.compassion_scale import compassion_scale_questionnaire
+
+# Load questions
+cs_qmnli_df = compassion_scale_questionnaire['QMNLI']
+cs_questions = cs_qmnli_df.get_questions()
+
+# Extract factors automatically from question descriptors
+cs_factors = list(set([q()._descriptor['Factor'] for q in cs_questions]))
+
+# Create validator (only required parameters)
+validator = QuestionnaireValidator(
+    questionnaire_name="CS",
+    questions=cs_questions,
+    factors=cs_factors,
+    result_path="results_cs/",
+)
+
+# Run validation
+results = validator.run_validation()
+
+# Access results
+print(f"Results saved to: {results['results_csv']}")
+print(f"Cronbach's alpha: {results['cronbach_alpha']}")
+print(f"Correlations:\n{results['correlations']}")
+```
+
+### With Optional Parameters
+
+```python
+# Create validator with custom configuration
+validator = QuestionnaireValidator(
+    questionnaire_name="CS",
+    questions=cs_questions,
+    factors=cs_factors,
+    result_path="results_cs/",
+    index=["index"],
+    scales=["frequency"],
+    mnli_pipelines=[
+        'typeform/distilbert-base-uncased-mnli',
+        'typeform/mobilebert-uncased-mnli',
+    ],
+    device=0,  # Force GPU 0
+    update=True
+)
+
+results = validator.run_validation()
+```
+
+## Internal Processing
+
+### Question Splitting
+Each question is split into variants based on:
+- Softmax settings (True/False)
+- Filter types (unfiltered/positiveonly)
+- Dimension combinations (index, scale, index+scale)
+
+Default generates 8 variants per question per filter type.
+
+### Model Evaluation
+For each question variant:
+1. Run through MNLI pipeline
+2. Calculate mean score from model outputs
+3. Compute linguistic acceptability metrics
+4. Extract question attributes
+5. Store results
+
+### Validation Metrics
+- **COLA Score**: Linguistic acceptability via DeBERTa-v3 COLA model
+- **Semantic Similarity**: Cosine similarity between original and permutations via sentence-transformers
+- **Silhouette Score**: Internal consistency via clustering metric
+- **Cronbach's Alpha**: Reliability coefficient using pingouin
+- **Correlations**: Spearman or Pearson correlations between factors
+
+## Default Configuration
+
+```python
+# Default MNLI pipelines - These models' performance were tested on the mnli matched validation dataset.
+[
+    'typeform/distilbert-base-uncased-mnli',
+    'typeform/mobilebert-uncased-mnli',
+    'cross-encoder/nli-roberta-base',
+    'cross-encoder/nli-deberta-base',
+    'cross-encoder/nli-distilroberta-base',
+    'cross-encoder/nli-MiniLM2-L6-H768',
+    'navteca/bart-large-mnli',
+    'digitalepidemiologylab/covid-twitter-bert-v2-mnli',
+    'joeddav/bart-large-mnli-yahoo-answers',
+    'Narsil/deberta-large-mnli-zero-cls',
+    'microsoft/deberta-large-mnli',
+    'microsoft/deberta-base-mnli',
+    'Alireza1044/albert-base-v2-mnli',
+    'yoshitomo-matsubara/bert-large-uncased-mnli',
+    'yoshitomo-matsubara/bert-base-uncased-mnli',
+    'yoshitomo-matsubara/bert-base-uncased-mnli_from_bert-large-uncased-mnli',
+    'valhalla/distilbart-mnli-12-6',
+]
+
+# Default filters
+{
+    'unfiltered': {},
+    'positiveonly': lambda q: q.get_filter_for_postive_keywords(scales)
+}
+
+# Default models for validation
+sentence_embedding_model = SentenceTransformer('all-MiniLM-L6-v2')
+cola = pipeline("text-classification", "mrm8488/deberta-v3-small-finetuned-cola")
+```
+
+## Dependencies
+
+Required packages:
+- torch
+- pandas
+- numpy
+- transformers
+- sentence-transformers
+- pingouin
+- tqdm
+- qlatent
+- qpsychometric
+
+## GPU Support
+
+The module auto-detects GPU availability. To force CPU or specific GPU:
+
+```python
+validator = QuestionnaireValidator(
+    ...,
+    device=-1  # CPU
+    # device=0   # GPU 0
+    # device=1   # GPU 1
+)
+```
+
+## Resume Capability
+
+Set `update=False` to skip already-evaluated question-model combinations:
+
+```python
+validator = QuestionnaireValidator(
+    ...,
+    update=False  # Skip existing evaluations
+)
+```
+
+## Running Individual Steps
+
+```python
+# Initialize
+validator = QuestionnaireValidator(...)
+
+# Step 1: Model evaluation only
+results_csv = validator.run_model_evaluation()
+
+# Step 2: Content validity only (requires results_csv)
+content_validity = validator.calc_content_validity(results_csv)
+
+# Step 3: Cronbach's alpha only
+alpha = validator.calc_cronbach_alpha(results_csv)
+
+# Step 4: Correlations only
+correlations = validator.calc_correlations(results_csv)
+```
+
+
 Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
 This work is licensed under a
