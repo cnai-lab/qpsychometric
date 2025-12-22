@@ -226,7 +226,19 @@ Returns: DataFrame with semantic_similarity, cola_score, silhouette_score
 #### `calc_cronbach_alpha(results_csv, softmax=None, positiveonly=True)`
 Calculates internal consistency metrics.
 
-Returns: Dict with 'data_df', 'overall' and 'factors' alpha values
+Returns: Dict with:
+- `data_df`: DataFrame with mean scores per model and question (pivot table)
+- `overall`: Overall Cronbach's alpha for entire questionnaire
+- `factors`: Dict of Cronbach's alpha per factor
+
+#### `test_question_affect_on_cronbach_alpha(data_df, specific_factors=None)`
+Tests how removing individual questions affects Cronbach's alpha reliability.
+
+Parameters:
+- `data_df`: DataFrame from calc_cronbach_alpha results
+- `specific_factors`: List of factor names to test (default: all factors)
+
+Prints alpha with and without each question to identify problematic items.
 
 #### `calc_correlations(results_csv, softmax=None, positiveonly=True, method='spearman')`
 Calculates factor correlations.
@@ -245,7 +257,7 @@ Returns: Pivot table DataFrame
 result_path/
 ├── {questionnaire_name}_mnli_results.csv
 ├── linguistic_acceptability.csv
-└── linguistic_acceptabilities.csv
+##└── linguistic_acceptabilities.csv (optional)
 ```
 
 ### File Contents
@@ -291,6 +303,10 @@ results = validator.run_validation()
 print(f"Results saved to: {results['results_csv']}")
 print(f"Cronbach's alpha: {results['cronbach_alpha']}")
 print(f"Correlations:\n{results['correlations']}")
+
+# Test individual question impact on Cronbach's alpha
+data_df = results['cronbach_alpha']['data_df']
+validator.test_question_affect_on_cronbach_alpha(data_df, specific_factors=["Common Humanity"])
 ```
 
 ### With Optional Parameters
@@ -426,6 +442,11 @@ content_validity = validator.calc_content_validity(results_csv)
 
 # Step 3: Cronbach's alpha only
 alpha = validator.calc_cronbach_alpha(results_csv)
+
+# Step 3b: Test question impact on alpha (optional)
+data_df = alpha['data_df']
+validator.test_question_affect_on_cronbach_alpha(data_df)  # Test all factors
+validator.test_question_affect_on_cronbach_alpha(data_df, specific_factors=["Factor1", "Factor2"])  # Test specific factors
 
 # Step 4: Correlations only
 correlations = validator.calc_correlations(results_csv)
