@@ -240,6 +240,26 @@ Parameters:
 
 Prints alpha with and without each question to identify problematic items.
 
+#### `get_semantic_similarity(q)`
+Calculate semantic similarity score for a single question without running full MNLI evaluation.
+
+Parameters:
+- `q`: Question object with _descriptor, _context_template, _answer_template, and _keywords_map
+
+Returns: float (75th percentile semantic similarity score)
+
+Use this to quickly evaluate semantic similarity between question permutations and the original question using sentence embeddings.
+
+#### `get_cola_score(q)`
+Calculate COLA (linguistic acceptability) score for a single question without running full MNLI evaluation.
+
+Parameters:
+- `q`: Question object with _context_template, _answer_template, and _keywords_map
+
+Returns: float (mean COLA score across all permutations)
+
+Use this to quickly evaluate grammaticality/linguistic acceptability of question permutations.
+
 #### `calc_correlations(results_csv, softmax=None, positiveonly=True, method='spearman')`
 Calculates factor correlations.
 
@@ -450,6 +470,56 @@ validator.test_question_affect_on_cronbach_alpha(data_df, specific_factors=["Fac
 
 # Step 4: Correlations only
 correlations = validator.calc_correlations(results_csv)
+```
+
+## Quick Metric Calculation for Individual Questions
+
+If you want to calculate semantic similarity or COLA scores for specific questions without running the full MNLI evaluation pipeline:
+
+```python
+# Initialize validator (models will be loaded)
+validator = QuestionnaireValidator(
+    questionnaire_name="CS",
+    questions=cs_questions,
+    factors=cs_factors,
+)
+
+# Get quick metrics for a single question
+question = cs_questions[0]  # Get first question
+
+# Calculate semantic similarity (75th percentile)
+similarity_score = validator.get_semantic_similarity(question)
+print(f"Semantic Similarity: {similarity_score}")
+
+# Calculate COLA score (mean across permutations)
+cola_score = validator.get_cola_score(question)
+print(f"COLA Score: {cola_score}")
+
+# Useful for quick validation during question development
+```
+
+## Re-evaluating Specific Questions
+
+To re-evaluate just one or a few specific questions and update the results:
+
+```python
+# Load all questions
+cs_questions = cs_qmnli_df.get_questions()
+
+# Re-evaluate only the first question
+validator = QuestionnaireValidator(
+    questionnaire_name="CS",
+    questions=[cs_questions[0]],  # Single question
+    factors=cs_factors,            # Keep all factors
+    result_path="results_cs/",
+    update=True  # Important: must be True to replace existing results
+)
+
+# Run evaluation - will replace results for this question only
+results = validator.run_model_evaluation()
+
+# The duplicate removal keeps the latest results
+# Other questions in the CSV remain untouched
 ```
 
 
