@@ -32,7 +32,7 @@ class SOCQ4(QMNLI):
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Meaningfulness",
                       "Ordinal":4,
-                      "Original":"Do you have the feeling that you don’t really care what goes on around you? "
+                      "Original":"Do you have the feeling that you don't really care what goes on around you? "
         },
         **kwargs,
     )
