@@ -708,6 +708,89 @@ class QuestionnaireValidator:
                 alpha = pg.cronbach_alpha(data=subset_df[sub])
                 print('without:', feature, 'Alpha:', alpha)
 
+    def get_semantic_similarity(self, q):
+        """
+        Calculate semantic similarity score for a question.
+
+        Compares each question permutation against the original question
+        using sentence embeddings and cosine similarity.
+
+        Parameters
+        ----------
+        q : Question object
+            A question object with _descriptor, _context_template, _answer_template,
+            and _keywords_map attributes
+
+        Returns
+        -------
+        float
+            75th percentile semantic similarity score (used in validation)
+        """
+        description = q._descriptor
+        strFactor = description['Factor']
+        strOrdinal = str(description.get('Ordinal', 0))
+
+        # Clean the string to get the original question
+        strOriginal = description['Original']
+        strOriginal = 'none' if strOriginal is None else strOriginal
+        strOriginal = strOriginal.replace(strFactor, '', 1)
+        strOriginal = strOriginal.replace(strOrdinal, '', 1)
+        strOriginal = strOriginal.replace('.', '', 1)
+        strOriginal = strOriginal.strip()
+
+        scores = []
+
+        # Calculate for each keyword permutation
+        for kmap in q._keywords_map:
+            context = q._context_template.format_map(kmap)
+            answer = q._answer_template.format_map(kmap)
+            strPermutation = context + " " + answer
+
+            # Semantic similarity
+            embeddings1 = self.sentence_embedding_model.encode(strOriginal, convert_to_tensor=True)
+            embeddings2 = self.sentence_embedding_model.encode(strPermutation, convert_to_tensor=True)
+            cosine_scores = util.cos_sim(embeddings1, embeddings2)
+
+            scores.append(cosine_scores.item())
+
+        # Return 75th percentile (used in validation)
+        return np.percentile(scores, 75)
+
+    def get_cola_score(self, q):
+        """
+        Calculate COLA (linguistic acceptability) score for a question.
+
+        Evaluates the grammaticality/linguistic acceptability of each
+        question permutation.
+
+        Parameters
+        ----------
+        q : Question object
+            A question object with _context_template, _answer_template,
+            and _keywords_map attributes
+
+        Returns
+        -------
+        float
+            Mean COLA score across all permutations (used in validation)
+        """
+        scores = []
+
+        # Calculate for each keyword permutation
+        for kmap in q._keywords_map:
+            context = q._context_template.format_map(kmap)
+            answer = q._answer_template.format_map(kmap)
+            strPermutation = context + " " + answer
+
+            # COLA score
+            cola_result = self.cola(strPermutation)[0]
+            cola_score = cola_result.get('score')
+
+            scores.append(cola_score)
+
+        # Return mean (used in validation)
+        return np.mean(scores)
+
 
     def calc_correlations(self, results_csv, softmax=None, positiveonly=True, method='spearman'):
         """
