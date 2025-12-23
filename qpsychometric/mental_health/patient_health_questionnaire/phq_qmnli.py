@@ -64,7 +64,7 @@ class PHQ9Q2(QMNLI):
 
 class PHQ9Q3(QMNLI):
 
-    emo_neg=['depressive', 'sad', 'gloom']
+    emo_neg=['depressive', 'sad', 'gloomy']
     emo_pos=["benign", 'legitimate',]
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
@@ -96,7 +96,7 @@ class PHQ9Q4(QMNLI):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="Over the last 2 weeks, I feel {index}.",
+            context_template="Over the last 2 weeks, I have been feeling {index}.",
             answer_template="It is {frequency} correct.",
 
             dimensions={
@@ -114,14 +114,14 @@ class PHQ9Q4(QMNLI):
 
 class PHQ9Q5(QMNLI):
 
-    emo_pos=['poor appetite', 'been overeating']
-    emo_neg=['healthy appetite', 'satisfying appetite']
+    emo_pos=['a poor appetite', 'been overeating']
+    emo_neg=['a healthy appetite', 'a satisfying appetite']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="Over the last 2 weeks, I had {index}",
+            context_template="Over the last 2 weeks, I had {index}.",
             answer_template="It is {frequency} correct.",
 
             dimensions={
@@ -139,14 +139,14 @@ class PHQ9Q5(QMNLI):
 
 class PHQ9Q6(QMNLI):
   
-    emo_pos=['I am a failure', 'I am a disappointment', 'I am underachieving', 'I let myself down', 'I let my family down']
-    emo_neg=['successful ', 'lucky', 'confident']
+    emo_pos=['like I am a failure', 'like I am a disappointment', 'like I am underachieving', 'like I let myself down', 'like I let my family down']
+    emo_neg=['successful', 'lucky', 'confident']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="Over the last 2 weeks, I feel {index}.",
+            context_template="Over the last 2 weeks, I have been feeling {index}.",
             answer_template="It is {frequency} correct.",
             
             dimensions={
@@ -165,15 +165,15 @@ class PHQ9Q6(QMNLI):
 
 class PHQ9Q7(QMNLI):
 
-    emo_pos=["happy", 'joyful',]
-    emo_neg=['depressive', 'sad', 'gloom']
+    emo_pos=["happiness", 'joyfulness',]
+    emo_neg=['depressiveness', 'sadness', 'gloominess']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
             index=["index"],
             scale="frequency",
             context_template="Over the last 2 weeks, I {frequency} had trouble concentrating.",
-            answer_template="This sentence is {index}.",
+            answer_template="This sentence is expressing {index}.",
 
             dimensions={
                     "index":self.dict_objective,
@@ -191,14 +191,14 @@ class PHQ9Q7(QMNLI):
 
 class PHQ9Q8(QMNLI):
 
-    emo_pos=['fidgetly', 'slowly']
+    emo_pos=['fidgetily', 'slowly']
     emo_neg=['normally', 'naturally']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="Over the last 2 weeks, I move or speak {index}.",
+            context_template="Over the last 2 weeks, I have moved or spoken {index}.",
             answer_template="It is {frequency} correct.",
 
             dimensions={
@@ -217,7 +217,7 @@ class PHQ9Q8(QMNLI):
 
 class PHQ9Q9(QMNLI):
 
-    emo_pos=['suicidal', 'self destructive', 'deadly']
+    emo_pos=['suicidal', 'self-destructive', 'deadly']
     emo_neg=['harmless', 'hopeful', 'positive']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
@@ -242,3 +242,37 @@ class PHQ9Q9(QMNLI):
 phq2_qmnli = [PHQ9Q1, PHQ9Q2]
 phq9_qmnli = [PHQ9Q1, PHQ9Q2, PHQ9Q3, PHQ9Q4, PHQ9Q5, PHQ9Q6, PHQ9Q7, PHQ9Q8, PHQ9Q9]
 phq_qmnli_list = phq9_qmnli
+
+
+
+"""
+Summary of Changes Made to PHQ Questionnaire
+
+PHQ9Q3:
+    - Fixed: 'gloom' → 'gloomy'
+
+PHQ9Q4:
+    - Fixed tense: "I feel {index}" → "I have been feeling {index}"
+
+PHQ9Q5:
+    - Added articles: 'poor appetite' → 'a poor appetite'
+    - Added articles: 'healthy appetite' → 'a healthy appetite'
+    - Added articles: 'satisfying appetite' → 'a satisfying appetite'
+
+PHQ9Q6:
+    - Added "like" prefix to emo_pos items: 'I am a failure' → 'like I am a failure', etc.
+    - Fixed tense: "I feel {index}" → "I have been feeling {index}"
+    - Removed trailing space: 'successful ' → 'successful'
+
+PHQ9Q7:
+    - Converted adjectives to nouns: 'happy' → 'happiness', 'joyful' → 'joyfulness'
+    - Converted adjectives to nouns: 'depressive' → 'depressiveness', 'sad' → 'sadness', 'gloom' → 'gloominess'
+    - Updated answer template: "This sentence is {index}." → "This sentence is expressing {index}."
+
+PHQ9Q8:
+    - Fixed spelling: 'fidgetly' → 'fidgetily'
+    - Fixed verb tense: "I move or speak {index}" → "I have moved or spoken {index}"
+
+PHQ9Q9:
+    - Fixed hyphenation: 'self destructive' → 'self-destructive'
+"""

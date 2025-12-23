@@ -99,23 +99,23 @@ class QuestionnaireValidator:
         # Default MNLI pipelines if not provided
         if mnli_pipelines is None:
             self.mnli_pipelines = [
-                'typeform/distilbert-base-uncased-mnli',
-                'typeform/mobilebert-uncased-mnli',
+                'typeform/distilbert-base-uncased-mnli', # 0.8211920529801324
+                'typeform/mobilebert-uncased-mnli', # 0.8354559347936832
                 'cross-encoder/nli-roberta-base',
-                'cross-encoder/nli-deberta-base',
+                'cross-encoder/nli-deberta-base', # 0.8824248599083037
                 'cross-encoder/nli-distilroberta-base',
-                'cross-encoder/nli-MiniLM2-L6-H768',
-                'navteca/bart-large-mnli',
-                'digitalepidemiologylab/covid-twitter-bert-v2-mnli',
-                'joeddav/bart-large-mnli-yahoo-answers',
-                'Narsil/deberta-large-mnli-zero-cls',
+                'cross-encoder/nli-MiniLM2-L6-H768', # 0.8660213958227203
+                'navteca/bart-large-mnli', # 0.901782985226694
+                'digitalepidemiologylab/covid-twitter-bert-v2-mnli', # 0.8748853795211411
+                'joeddav/bart-large-mnli-yahoo-answers', # 0.8097809475292919
+                'Narsil/deberta-large-mnli-zero-cls', # 0.9125827814569536
                 'microsoft/deberta-large-mnli',
                 'microsoft/deberta-base-mnli',
                 'Alireza1044/albert-base-v2-mnli',
                 'yoshitomo-matsubara/bert-large-uncased-mnli',
                 'yoshitomo-matsubara/bert-base-uncased-mnli',
                 'yoshitomo-matsubara/bert-base-uncased-mnli_from_bert-large-uncased-mnli',
-                'valhalla/distilbart-mnli-12-6',
+                'valhalla/distilbart-mnli-12-6', # 0.8919001528273052
             ]
         else:
             self.mnli_pipelines = mnli_pipelines
