@@ -23,7 +23,7 @@ class SOCQ4(QMNLI):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="What goes around me is {index} to me.",
+        context_template="What goes on around me is {index} to me.",
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
@@ -151,7 +151,7 @@ class SOCQ12(QMNLI):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="In unfamiliar situation I feel {index}.",
+        context_template="In unfamiliar situations I feel {index}.",
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
@@ -345,3 +345,15 @@ class SOCQ29(QMNLI):
     )
 
 soc_qmnli_list = [SOCQ4, SOCQ5, SOCQ6, SOCQ8, SOCQ9, SOCQ12, SOCQ16, SOCQ19, SOCQ21, SOCQ25, SOCQ26, SOCQ28, SOCQ29]
+
+
+
+"""
+Summary of Changes Made to SOC Questionnaire
+
+SOCQ4:
+    - Fixed preposition: "What goes around me" → "What goes on around me"
+
+SOCQ12:
+    - Fixed article/number: "In unfamiliar situation" → "In unfamiliar situations"
+"""
