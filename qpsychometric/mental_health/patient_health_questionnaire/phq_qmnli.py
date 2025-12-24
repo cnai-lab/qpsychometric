@@ -64,15 +64,22 @@ class PHQ9Q2(QMNLI):
 
 class PHQ9Q3(QMNLI):
 
-    emo_neg=['depressive', 'sad', 'gloomy']
-    emo_pos=["benign", 'legitimate',]
+    # emo_neg=['depressive', 'sad', 'gloomy']
+    # emo_pos=["benign", 'legitimate',]
+
+
+    emo_pos=['had trouble falling asleep', 'had trouble staying asleep', 'slept too much']
+    emo_neg=['slept well', 'had restful sleep']
+
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="Over the last 2 weeks, I {frequency} had trouble falling asleep.",
-            answer_template="This sentence is {index}.",
+            # context_template="Over the last 2 weeks, I {frequency} had trouble falling asleep.",
+            # answer_template="This sentence is {index}.",
+            context_template="Over the last 2 weeks, I {index}.",
+            answer_template="It is {frequency} correct.",
             dimensions={
                     "index":self.dict_objective,
                     "frequency":frequency_weights,
@@ -165,15 +172,20 @@ class PHQ9Q6(QMNLI):
 
 class PHQ9Q7(QMNLI):
 
-    emo_pos=["happiness", 'joyfulness',]
-    emo_neg=['depressiveness', 'sadness', 'gloominess']
+    # emo_pos=["happiness", 'joyfulness',]
+    # emo_neg=['depressiveness', 'sadness', 'gloominess']
+    emo_pos=['had trouble concentrating', 'had difficulty focusing']
+    emo_neg=['easily concentrated', 'effortlessly focused']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="Over the last 2 weeks, I {frequency} had trouble concentrating.",
-            answer_template="This sentence is expressing {index}.",
+            # context_template="Over the last 2 weeks, I {frequency} had trouble concentrating.",
+            # answer_template="This sentence is expressing {index}.",
+
+            context_template="Over the last 2 weeks, I {index} on things such as reading the newspaper or watching television.",
+            answer_template="It is {frequency} correct.",
 
             dimensions={
                     "index":self.dict_objective,
@@ -249,7 +261,12 @@ phq_qmnli_list = phq9_qmnli
 Summary of Changes Made to PHQ Questionnaire
 
 PHQ9Q3:
-    - Fixed: 'gloom' → 'gloomy'
+    - MAJOR REVISION: Changed from answer_template approach to context_template approach
+    - Fixed construct alignment: Swapped parameter order in dict_pos_neg to put depressive symptoms first
+    - Changed emo_pos from ["benign", 'legitimate'] to ['had trouble falling asleep', 'had trouble staying asleep', 'slept too much']
+    - Changed emo_neg from ['depressive', 'sad', 'gloomy'] to ['slept well', 'had restful sleep']
+    - Changed context_template from "Over the last 2 weeks, I {frequency} had trouble falling asleep." to "Over the last 2 weeks, I {index}."
+    - Changed answer_template from "This sentence is {index}." to "It is {frequency} correct."
 
 PHQ9Q4:
     - Fixed tense: "I feel {index}" → "I have been feeling {index}"
@@ -265,9 +282,12 @@ PHQ9Q6:
     - Removed trailing space: 'successful ' → 'successful'
 
 PHQ9Q7:
-    - Converted adjectives to nouns: 'happy' → 'happiness', 'joyful' → 'joyfulness'
-    - Converted adjectives to nouns: 'depressive' → 'depressiveness', 'sad' → 'sadness', 'gloom' → 'gloominess'
-    - Updated answer template: "This sentence is {index}." → "This sentence is expressing {index}."
+    - MAJOR REVISION: Changed from answer_template approach to context_template approach
+    - Fixed construct alignment: Swapped parameter order in dict_pos_neg to put depressive symptoms first
+    - Changed emo_pos from ["happiness", 'joyfulness'] to ['had trouble concentrating', 'had difficulty focusing']
+    - Changed emo_neg from ['depressiveness', 'sadness', 'gloominess'] to ['easily concentrated', 'effortlessly focused']
+    - Changed context_template to "Over the last 2 weeks, I {index} on things such as reading the newspaper or watching television."
+    - Changed answer_template to "It is {frequency} correct."
 
 PHQ9Q8:
     - Fixed spelling: 'fidgetly' → 'fidgetily'
