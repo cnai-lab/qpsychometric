@@ -426,7 +426,7 @@ class CSQ21(QMNLI):
     """
 
 
-    kw_attitude_neg = ['a biased', 'an unbalanced', 'a disproportioned', 'a skewed']
+    kw_attitude_neg = ['a biased', 'an unbalanced', 'a disproportionate', 'a skewed']
     kw_attitude_pos = ['a balanced', 'a reasonable', 'a sensible', 'an impartial']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
@@ -665,3 +665,12 @@ class CSQ20(QMNLI):
         )
 
 compassion_scale_qmnli_list = [CSQ1, CSQ2, CSQ3, CSQ4, CSQ5, CSQ6, CSQ7, CSQ8, CSQ9, CSQ10, CSQ11, CSQ12, CSQ13, CSQ14, CSQ15, CSQ16, CSQ17, CSQ18, CSQ19, CSQ20, CSQ21, CSQ22, CSQ23, CSQ24]
+
+
+
+"""
+Summary of Changes Made to Compassion Scale Questionnaire
+
+CSQ21:
+    - Fixed adjective form: 'a disproportioned' → 'a disproportionate'
+"""

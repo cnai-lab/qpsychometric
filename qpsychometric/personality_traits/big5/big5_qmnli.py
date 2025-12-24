@@ -15,7 +15,7 @@ frequency_weights:SCALE = {
 class BIG5Q1(QMNLI):
     
     
-    emo_pos=['am open to', 'enjoy', 'like']
+    emo_pos=['want to have', 'enjoy', 'like']
     emo_neg=['avoid', 'reject', 'dislike']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
@@ -87,7 +87,7 @@ class BIG5Q3(QMNLI):
 
 class BIG5Q4(QMNLI):
 
-    emo_pos=['closely inspect', 'pay attention to', 'am thorough in']
+    emo_pos=['closely inspect', 'pay attention to', 'examine']
     emo_neg=['overlook', 'miss out on', 'tend to neglect']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
@@ -232,8 +232,8 @@ class BIG5Q9(QMNLI):
 
 class BIG5Q10(QMNLI):
 
-    emo_pos=['considerate towards', 'respectful towards', 'care about']
-    emo_neg=['indifferent towards', 'indexally distant towards', 'insensitive towards']
+    emo_pos=['considerate towards', 'respectful towards', 'caring about']
+    emo_neg=['indifferent towards', 'emotionally distant towards', 'insensitive towards']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
@@ -281,7 +281,7 @@ class BIG5Q11(QMNLI):
 
 class BIG5Q12(QMNLI):
 
-    emo_pos=['cooperate', 'work well', 'helpful']
+    emo_pos=['cooperate', 'work well']
     emo_neg=['disobliging', 'unsupportive']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
@@ -304,7 +304,7 @@ class BIG5Q12(QMNLI):
 
 class BIG5Q13(QMNLI):
 
-    emo_pos=['stressed', 'worry', 'concern']
+    emo_pos=['stressed', 'worried', 'concerned']
     emo_neg=['calmed', 'collected', 'composed']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
@@ -351,3 +351,25 @@ class BIG5Q14(QMNLI):
         )
 
 big5_qmnli_list = [BIG5Q1, BIG5Q2, BIG5Q3, BIG5Q4, BIG5Q5, BIG5Q6, BIG5Q7, BIG5Q8, BIG5Q9, BIG5Q10, BIG5Q11, BIG5Q12, BIG5Q13, BIG5Q14]
+
+
+
+"""
+Summary of Changes Made to BIG5 Questionnaire
+
+BIG5Q1:
+    - Fixed verb phrase: 'am open to' → 'want to have'
+
+BIG5Q4:
+    - Fixed verb phrase: 'am thorough in' → 'examine'
+
+BIG5Q10:
+    - Changed verb to adjective: 'care about' → 'caring about'
+    - Fixed typo: 'indexally distant towards' → 'emotionally distant towards'
+
+BIG5Q12:
+    - Removed adjective that didn't fit template: 'helpful' (removed from list)
+
+BIG5Q13:
+    - Changed verbs to adjectives: 'worry' → 'worried', 'concern' → 'concerned'
+"""
