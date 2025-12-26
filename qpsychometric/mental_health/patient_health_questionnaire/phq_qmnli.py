@@ -23,7 +23,7 @@ class PHQ9Q1(QMNLI):
             index=["index"],
             scale="frequency",
             context_template="Over the last 2 weeks, I had {index} in doing things.",
-            answer_template="It is {frequency} correct.",
+            answer_template="It has {frequency} happened.",
             dimensions={
                     "index":self.dict_objective,
                     "frequency":frequency_weights,
@@ -47,7 +47,7 @@ class PHQ9Q2(QMNLI):
             index=["index"],
             scale="frequency",
             context_template="Over the last 2 weeks, I have been feeling {index}.",
-            answer_template="It is {frequency} correct.",
+            answer_template="It has {frequency} happened.",
             dimensions={
                     "index":self.dict_objective,
                     "frequency":frequency_weights,
@@ -79,7 +79,7 @@ class PHQ9Q3(QMNLI):
             # context_template="Over the last 2 weeks, I {frequency} had trouble falling asleep.",
             # answer_template="This sentence is {index}.",
             context_template="Over the last 2 weeks, I {index}.",
-            answer_template="It is {frequency} correct.",
+            answer_template="It has {frequency} happened.",
             dimensions={
                     "index":self.dict_objective,
                     "frequency":frequency_weights,
@@ -104,7 +104,7 @@ class PHQ9Q4(QMNLI):
             index=["index"],
             scale="frequency",
             context_template="Over the last 2 weeks, I have been feeling {index}.",
-            answer_template="It is {frequency} correct.",
+            answer_template="It has {frequency} happened.",
 
             dimensions={
                     "index":self.dict_objective,
@@ -129,7 +129,7 @@ class PHQ9Q5(QMNLI):
             index=["index"],
             scale="frequency",
             context_template="Over the last 2 weeks, I had {index}.",
-            answer_template="It is {frequency} correct.",
+            answer_template="It has {frequency} happened.",
 
             dimensions={
                     "index":self.dict_objective,
@@ -154,7 +154,7 @@ class PHQ9Q6(QMNLI):
             index=["index"],
             scale="frequency",
             context_template="Over the last 2 weeks, I have been feeling {index}.",
-            answer_template="It is {frequency} correct.",
+            answer_template="It has {frequency} happened.",
             
             dimensions={
                     "index":self.dict_objective,
@@ -185,7 +185,7 @@ class PHQ9Q7(QMNLI):
             # answer_template="This sentence is expressing {index}.",
 
             context_template="Over the last 2 weeks, I {index} on things such as reading the newspaper or watching television.",
-            answer_template="It is {frequency} correct.",
+            answer_template="It has {frequency} happened.",
 
             dimensions={
                     "index":self.dict_objective,
@@ -211,7 +211,7 @@ class PHQ9Q8(QMNLI):
             index=["index"],
             scale="frequency",
             context_template="Over the last 2 weeks, I have moved or spoken {index}.",
-            answer_template="It is {frequency} correct.",
+            answer_template="It has {frequency} happened.",
 
             dimensions={
                     "index":self.dict_objective,
@@ -237,7 +237,7 @@ class PHQ9Q9(QMNLI):
             index=["index"],
             scale="frequency",
             context_template="Over the last 2 weeks, I have {index} thoughts.",
-            answer_template="It is {frequency} correct.",
+            answer_template="It has {frequency} happened.",
 
             dimensions={
                     "index":self.dict_objective,

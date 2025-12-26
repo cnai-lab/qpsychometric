@@ -134,7 +134,7 @@ class SOCQ9(QMNLI):
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Manageability",
                       "Ordinal":9,
-                      "Original":"Do you have the feeling that you’re being treated unfairly? "
+                      "Original":"Do you have the feeling that you're being treated unfairly? "
         },
         **kwargs,
     )
@@ -160,7 +160,7 @@ class SOCQ12(QMNLI):
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Comprehensibility",
                       "Ordinal":12,
-                      "Original":"Do you have the feeling that you’re in an unfamiliar situation and don’t know what to do?"
+                      "Original":"Do you have the feeling that you're in an unfamiliar situation and don't know what to do?"
         },
         **kwargs,
     )
@@ -254,7 +254,7 @@ class SOCQ25(QMNLI):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="I’m a {index}.",
+        context_template="I'm a {index}.",
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
@@ -314,7 +314,7 @@ class SOCQ28(QMNLI):
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Meaningfulness",
                       "Ordinal":28,
-                      "Original":"How often do you have the feeling that there’s little meaning in the things you do in your daily life? "
+                      "Original":"How often do you have the feeling that there's little meaning in the things you do in your daily life? "
         },
         **kwargs,
     )
@@ -339,7 +339,7 @@ class SOCQ29(QMNLI):
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Manageability",
                       "Ordinal":29,
-                      "Original":"How often do you have feelings that you’re not sure you can keep under control? "
+                      "Original":"How often do you have feelings that you're not sure you can keep under control? "
         },
         **kwargs,
     )
