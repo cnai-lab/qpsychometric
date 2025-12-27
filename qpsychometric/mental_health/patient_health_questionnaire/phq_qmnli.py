@@ -121,7 +121,7 @@ class PHQ9Q4(QMNLI):
 
 class PHQ9Q5(QMNLI):
 
-    emo_pos=['a poor appetite', 'been overeating']
+    emo_pos=['a poor appetite', 'overeaten']
     emo_neg=['a healthy appetite', 'a satisfying appetite']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
@@ -203,7 +203,7 @@ class PHQ9Q7(QMNLI):
 
 class PHQ9Q8(QMNLI):
 
-    emo_pos=['fidgetily', 'slowly']
+    emo_pos=['restlessly', 'slowly']
     emo_neg=['normally', 'naturally']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
@@ -229,14 +229,14 @@ class PHQ9Q8(QMNLI):
 
 class PHQ9Q9(QMNLI):
 
-    emo_pos=['suicidal', 'self-destructive', 'deadly']
+    emo_pos=['suicidal', 'self-destructive', 'harmful']
     emo_neg=['harmless', 'hopeful', 'positive']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="Over the last 2 weeks, I have {index} thoughts.",
+            context_template="Over the last 2 weeks, I have had {index} thoughts.",
             answer_template="It has {frequency} happened.",
 
             dimensions={

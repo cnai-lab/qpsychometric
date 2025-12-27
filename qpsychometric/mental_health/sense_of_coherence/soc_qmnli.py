@@ -144,7 +144,7 @@ class SOCQ12(QMNLI):
 
 
   kw_attitude_neg = ["helpless", "hopeless", 'powerless']
-  kw_attitude_pos = ["easy", "comfortable", "relaxed"]
+  kw_attitude_pos = ["at ease", "comfortable", "relaxed"]
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
@@ -271,7 +271,7 @@ class SOCQ25(QMNLI):
 class SOCQ26(QMNLI):
   
 
-  kw_attitude_pos = ["estimate in proportion", "judge in proportion"]
+  kw_attitude_pos = ["accurately estimate", "correctly judge"]
   kw_attitude_neg = ["overestimate","misjudge",'underestimate']
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
@@ -288,7 +288,7 @@ class SOCQ26(QMNLI):
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Comprehensibility",
                       "Ordinal":26,
-                      "Original":"When something happened‚ you have generally found that: you overestimated or underestimated its importance, you saw things in the right proportion"
+                      "Original":"When something happened, you have generally found that: you overestimated or underestimated its importance, you saw things in the right proportion"
         },
         **kwargs,
     )
@@ -323,7 +323,7 @@ class SOCQ29(QMNLI):
 
 
   kw_attitude_neg = ["out of control", "uncontrollable", 'unmanageable']
-  kw_attitude_pos = ["contained", "collected", 'controlled']
+  kw_attitude_pos = ["in check", "collected", 'controlled']
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
