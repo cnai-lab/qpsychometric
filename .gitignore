@@ -8,3 +8,5 @@ qpsychometric.egg-info
 dist
 build/
 test_imports.py
+*.sh
+*.out

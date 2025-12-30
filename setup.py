@@ -7,8 +7,8 @@ from setuptools import setup, find_packages
 
 setup(
 name="qpsychometric",
-version="1.0.24",
-description="A Python package containing implemented psychometrics for LLMs.",
+version="1.0.25",
+description="A Python package containing implemented psychometrics for LLMs. (validated soc gad phq) 1.0.25",
 packages=find_packages(),
 project_urls={
         "Academic Article": "https://openreview.net/pdf/026597881acf1899856edfa5147390a6a60bd3a8.pdf",
