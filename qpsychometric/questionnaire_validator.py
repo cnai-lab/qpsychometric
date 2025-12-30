@@ -707,18 +707,30 @@ class QuestionnaireValidator:
         }
     
     def test_question_affect_on_cronbach_alpha(self, data_df, specific_factors=None):
-        if not specific_factors:
-            specific_factors=self.factors
-        for subset in specific_factors:
-            feature_subset = [c for c in data_df.columns if subset in c]
-        #     subset_df = data_df[feature_subset].drop(subset, axis=1)
-            subset_df = data_df[feature_subset]
+        if specific_factors is None:
+            # Analyze all questions together without grouping by factors
+            subset_df = data_df
             alpha = pg.cronbach_alpha(data=subset_df)
-            print(subset, 'Alpha:', alpha)
+            print('All Questions Alpha:', alpha)
             for feature in subset_df.columns:
                 sub = [c for c in subset_df.columns if c != feature]
                 alpha = pg.cronbach_alpha(data=subset_df[sub])
                 print('without:', feature, 'Alpha:', alpha)
+        else:
+            # If "all", use all factors; otherwise use the provided list
+            if specific_factors == "all":
+                specific_factors = self.factors
+
+            # Analyze by specific factors
+            for subset in specific_factors:
+                feature_subset = [c for c in data_df.columns if subset in c]
+                subset_df = data_df[feature_subset]
+                alpha = pg.cronbach_alpha(data=subset_df)
+                print(subset, 'Alpha:', alpha)
+                for feature in subset_df.columns:
+                    sub = [c for c in subset_df.columns if c != feature]
+                    alpha = pg.cronbach_alpha(data=subset_df[sub])
+                    print('without:', feature, 'Alpha:', alpha)
 
     def get_semantic_similarity(self, q=None):
         """

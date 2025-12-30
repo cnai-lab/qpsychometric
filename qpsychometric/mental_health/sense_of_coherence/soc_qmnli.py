@@ -92,8 +92,9 @@ class SOCQ6(QMNLI):
 class SOCQ8(QMNLI):
 
 
-  kw_attitude_neg = ["meaningless", "dull", "aimless", 'boring']
-  kw_attitude_pos = ["meaningful", "interesting", "fulfilling", 'fascinating']
+  kw_attitude_neg = ["meaningless", "aimless", 'pointless']
+  kw_attitude_pos = ["meaningful", "significant", 'purposeful']
+
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
@@ -248,8 +249,8 @@ class SOCQ25(QMNLI):
   
 
 
-  kw_attitude_neg = ["failure", "loser", "sad sack"]
-  kw_attitude_pos = ["winner", "successful person"]
+  kw_attitude_neg = ["failure", "loser", "sad sack", "worthless person"]
+  kw_attitude_pos = ["winner", "successful person", "valuable person"]
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
