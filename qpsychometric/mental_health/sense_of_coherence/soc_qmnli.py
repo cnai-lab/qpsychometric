@@ -23,8 +23,8 @@ class SOCQ4(QMNLI):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="What goes on around me is {index} to me.",
-        answer_template="This is {frequency} correct.",
+        context_template="What goes around me is {index} to me.",
+        answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
             "index":self.dict_attitude,
@@ -41,7 +41,7 @@ class SOCQ5(QMNLI):
   
 
 
-  kw_attitude_neg = ['surprised by','puzzled by']
+  kw_attitude_neg = ['surprised by','puzzled by', ]
   kw_attitude_pos = ['expecting','anticipating']
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
@@ -50,7 +50,7 @@ class SOCQ5(QMNLI):
         index=["index"],
         scale="frequency",
         context_template="I am {frequency} {index} the behavior of people I thought I knew well.",
-        answer_template="True.",
+        answer_template="True.", 
         dimensions={
             "frequency":frequency_weights,
             "index":self.dict_attitude,
@@ -92,8 +92,8 @@ class SOCQ6(QMNLI):
 class SOCQ8(QMNLI):
 
 
-  kw_attitude_neg = ["meaningless", "aimless", 'pointless']
-  kw_attitude_pos = ["meaningful", "significant", 'purposeful']
+  kw_attitude_neg = ["meaningless", "dull", "aimless", 'boring']
+  kw_attitude_pos = ["meaningful", "interesting", "fulfilling", 'fascinating']
 
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
@@ -101,8 +101,8 @@ class SOCQ8(QMNLI):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="My life is {index}.",
-        answer_template="This is {frequency} correct.",
+        context_template="My life are {index}.",
+        answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
             "index":self.dict_attitude,
@@ -127,7 +127,7 @@ class SOCQ9(QMNLI):
         index=["index"],
         scale="frequency",
         context_template="I feel that I am being treated {index}.",
-        answer_template="This is {frequency} correct.",
+        answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
             "index":self.dict_attitude,
@@ -145,15 +145,15 @@ class SOCQ12(QMNLI):
 
 
   kw_attitude_neg = ["helpless", "hopeless", 'powerless']
-  kw_attitude_pos = ["at ease", "comfortable", "relaxed"]
+  kw_attitude_pos = ["easy", "comfortable", "relaxed"]
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="In unfamiliar situations I feel {index}.",
-        answer_template="This is {frequency} correct.",
+        context_template="In unfamiliar situation I feel {index}.",
+        answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
             "index":self.dict_attitude,
@@ -169,7 +169,7 @@ class SOCQ12(QMNLI):
 class SOCQ16(QMNLI):
 
 
-  kw_attitude_neg = ["meaningless", "aimless", 'boring']
+  kw_attitude_neg = ["meaningless", "dull", "aimless", 'boring']
   kw_attitude_pos = ["meaningful", "interesting", "fulfilling", 'fascinating']
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
@@ -177,8 +177,8 @@ class SOCQ16(QMNLI):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="Doing the things I do every day is {index}.",
-        answer_template="This is {frequency} correct.",
+        context_template="Things I do every day are {index}.",
+        answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
             "index":self.dict_attitude,
@@ -195,16 +195,16 @@ class SOCQ19(QMNLI):
   
 
 
-  kw_attitude_pos = ["clear", "coherent", "distinct"]
-  kw_attitude_neg = ["mixed-up", "confused", "unclear"]
+  kw_attitude_pos = ["clear", "coherent", 'logical', 'comprehensible']
+  kw_attitude_neg = ["mixed-up", "confounded"]
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="My feelings and ideas are very {index}.",
-        answer_template="This is {frequency} correct.",
+        context_template="I have {index} feelings and ideas.",
+        answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
             "index":self.dict_attitude,
@@ -223,16 +223,16 @@ class SOCQ21(QMNLI):
 
 #   kw_attitude_pos = ['face', 'confront', 'acknowledge', 'process', 'accept']
 #   kw_attitude_neg = ['ignore', 'avoid', 'dismiss']
-  kw_attitude_pos = ['face', 'feel', 'acknowledge']
-  kw_attitude_neg = ['ignore', 'avoid', 'dismiss']
+  kw_attitude_neg = ["unwanted", 'undesired']
+  kw_attitude_pos = ['joyful', 'good',]
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="I would rather {index} the feelings inside of me.",
-        answer_template="This is {frequency} correct.",
+        context_template="I have {index} feelings.",
+        answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
             "index":self.dict_attitude,
@@ -249,16 +249,16 @@ class SOCQ25(QMNLI):
   
 
 
-  kw_attitude_neg = ["failure", "loser", "sad sack", "worthless person"]
-  kw_attitude_pos = ["winner", "successful person", "valuable person"]
+  kw_attitude_neg = ["loser", "sad sack"]
+  kw_attitude_pos = ["winner", "success"]
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="Even though I have a strong character, in ceratin situations I feel like a {index}.",
-        answer_template="This is {frequency} correct.",
+        context_template="I’m a {index}.",
+        answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
             "index":self.dict_attitude,
@@ -274,7 +274,7 @@ class SOCQ25(QMNLI):
 class SOCQ26(QMNLI):
   
 
-  kw_attitude_pos = ["accurately estimate", "correctly judge"]
+  kw_attitude_pos = ["estimate in proportion", "judge in proportion",]
   kw_attitude_neg = ["overestimate","misjudge",'underestimate']
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
@@ -282,8 +282,8 @@ class SOCQ26(QMNLI):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="I {index} the importance of something that happened.",
-        answer_template="This is {frequency} correct.",
+        context_template="I {index} the importence of something that happened.",
+        answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
             "index":self.dict_attitude,
@@ -300,16 +300,16 @@ class SOCQ28(QMNLI):
   
 
 
-  kw_attitude_neg = ["little", "minimal", "negligible"]
-  kw_attitude_pos = ["great", "significant", "deep"]
+  kw_attitude_neg = ["meaningless", "dull", "aimless", 'boring']
+  kw_attitude_pos = ["meaningful", "interesting", "fulfilling", 'fascinating']
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="I find {index} meaning in my daily life.",
-        answer_template="This is {frequency} correct.",
+        context_template="The things I do in my daily life are {index} to me.",
+        answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
             "index":self.dict_attitude,
@@ -329,8 +329,14 @@ class SOCQ29(QMNLI):
 #   kw_attitude_pos = ["under control", "stable", "regulated"]
 #   kw_attitude_pos = ["positive", "sure", 'certain', 'confident']
 #   kw_attitude_neg = ["doubtful", "uncertain", "unconvinced"]
-  kw_attitude_pos = ["positive", "sure", 'certain', 'confident']
-  kw_attitude_neg = ["doubtful", "uncertain", "unconvinced"]
+  kw_attitude_neg = ["out of control", 
+                   "uncontrollable", 
+                   'unmanageable'
+                   ]
+  kw_attitude_pos = ["contained",
+                  "collected",
+                  'controlled'
+                  ]
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
@@ -339,8 +345,8 @@ class SOCQ29(QMNLI):
         scale="frequency",
         # context_template="My feelings are {index}.",
         #context_template="I am {index} that I can keep my feelings under control.",
-        context_template="I feel {index} about my ability to keep my feelings under control.",
-        answer_template="This is {frequency} correct.",
+        context_template="I feel that my feelings are {index}.",
+        answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
             "index":self.dict_attitude,

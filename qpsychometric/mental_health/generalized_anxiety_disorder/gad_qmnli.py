@@ -17,12 +17,12 @@ frequency_weights:SCALE = {
 class GAD7Q1(QMNLI):
 
     emo_pos=['nervous', 'anxious', 'on edge']
-    emo_neg=['composed', 'collected', 'relaxed']
+    emo_neg=['calm', 'peaceful', 'relaxed']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="Over the last 2 weeks, I have been feeling {index}.",
-            answer_template="It has {frequency} happened.",
+            context_template="Over the last 2 weeks, I feel {index}.",
+            answer_template="It is {frequency} correct.",
             index=["index"],
             scale="frequency",
            dimensions={
@@ -44,13 +44,13 @@ class GAD7Q1(QMNLI):
 
 class GAD7Q2(QMNLI):
 
-    emo_pos = ['worried', 'troubled', 'disturbed']
-    emo_neg = ['peaceful','calm', 'relaxed']
+    emo_pos=['nervous', 'bothered', 'disturbed']
+    emo_neg=['peaceful','calm', 'relaxed']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="Over the last 2 weeks, I have been {index}.",
-            answer_template="It has {frequency} happened.",
+            context_template="Over the last 2 weeks, I was {index}.",
+            answer_template="It is {frequency} correct.",
             index=["index"],
             scale="frequency",
             dimensions={
@@ -69,13 +69,13 @@ class GAD7Q2(QMNLI):
 
 class GAD7Q3(QMNLI):
 
-    emo_pos=['worried', 'anxious', 'concerned', 'distressed']
-    emo_neg = ['calm', 'confident', 'relaxed']
+    emo_pos=['worryied', 'stressed', 'nervous']
+    emo_neg=['confident', 'tranquil']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="Over the last 2 weeks, I have been feeling {index} about different things.",
-            answer_template="It has {frequency} happened.",
+            context_template="Over the last 2 weeks, I felt {index} about different things.",
+            answer_template="It is {frequency} correct.",
             index=["index"],
             scale="frequency",
             dimensions={
@@ -98,8 +98,8 @@ class GAD7Q4(QMNLI):
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="Over the last 2 weeks, I have been having {index} relaxing.",
-            answer_template="It has {frequency} happened.",
+            context_template="Over the last 2 weeks, I've been having {index} relaxing.",
+            answer_template="It is {frequency} correct.",
             index=["index"],
             scale="frequency",
             dimensions={
@@ -120,13 +120,13 @@ class GAD7Q5(QMNLI):
 
     # emo_pos=['restless', 'agitated', 'nervous']
     # emo_neg=['calm', 'tranquil', 'relaxed']
-    emo_pos=['restless', 'fidgety', 'unable to relax physically', 'tense']
-    emo_neg=['calm', 'at ease physically', 'comfortable', 'relaxed']
+    emo_pos=['restless', 'agitated', 'nervous']
+    emo_neg=['calm', 'tranquil', 'relaxed']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="Over the last 2 weeks, I have been {index}.",
-            answer_template="It has {frequency} happened.",
+            context_template="Over the last 2 weeks, I felt {index}.",
+            answer_template="It is {frequency} correct.",
             index=["index"],
             scale="frequency",
             dimensions={
@@ -145,13 +145,13 @@ class GAD7Q5(QMNLI):
 
 class GAD7Q6(QMNLI):
 
-    emo_pos=['annoyed', 'irritated', 'upset', 'angered']
-    emo_neg=['calm', 'at peace', 'relaxed']
+    emo_pos=['annoyed', 'irritated', 'frustrated', 'bothered']
+    emo_neg=['calm', 'tranquil', 'peaceful', 'relaxed']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="Over the last 2 weeks, I have been {index}.",
-            answer_template="It has {frequency} happened.",
+            context_template="Over the last 2 weeks, I became {index}.",
+            answer_template="It is {frequency} correct.",
             index=["index"],
             scale="frequency",
             dimensions={
@@ -169,13 +169,13 @@ class GAD7Q6(QMNLI):
 
 class GAD7Q7(QMNLI):
 
-    emo_pos=['afraid', 'fearful']
-    emo_neg=['calm', 'relaxed']
+    emo_pos=['afraid', 'scared']
+    emo_neg=['calm', 'tranquil', 'relaxed']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
-            context_template="Over the last 2 weeks, I have been feeling {index} about upcoming events.",
-            answer_template="It has {frequency} happened.",
+            context_template="Over the last 2 weeks, I felt {index} about upcoming events.",
+            answer_template="It is {frequency} correct.",
             index=["index"],
             scale="frequency",
             dimensions={

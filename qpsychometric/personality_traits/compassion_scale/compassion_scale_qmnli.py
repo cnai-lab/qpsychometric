@@ -27,8 +27,8 @@ class CSQ1(QMNLI):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I {frequency} feel distant when people cry in front of me.",
-            answer_template="This is {index}.",
+            context_template="I {frequency} distant when people cry in front of me.",
+            answer_template="This is {index}",
             dimensions={
                 "frequency":frequency_weights,
                 "index":self.dict_attitude,
@@ -245,7 +245,7 @@ class CSQ3(QMNLI):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I {frequency} feel emotionally disconnected from people in pain.",
+            context_template="I {frequency} feel emotionally disconnected to people in pain.",
             answer_template="It is {index}.",
             dimensions={
                 "frequency":frequency_weights,
@@ -462,7 +462,7 @@ class CSQ6(QMNLI):
             index=["index"],
             scale="frequency",
             context_template="I {index} people who are going through a difficult time.",
-            answer_template="It is {frequency} correct.",
+            answer_template="It is correct.",
             dimensions={
                 "frequency":frequency_weights,
                 "index":self.dict_attitude,

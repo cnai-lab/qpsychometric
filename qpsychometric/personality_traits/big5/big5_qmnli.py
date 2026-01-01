@@ -15,7 +15,7 @@ frequency_weights:SCALE = {
 class BIG5Q1(QMNLI):
     
     
-    emo_pos=['want to have', 'enjoy', 'like']
+    emo_pos=['am open to', 'enjoy', 'like']
     emo_neg=['avoid', 'reject', 'dislike']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
@@ -87,7 +87,7 @@ class BIG5Q3(QMNLI):
 
 class BIG5Q4(QMNLI):
 
-    emo_pos=['closely inspect', 'pay attention to', 'examine']
+    emo_pos=['closely inspect', 'pay attention to', 'am thorough in']
     emo_neg=['overlook', 'miss out on', 'tend to neglect']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
@@ -232,7 +232,7 @@ class BIG5Q9(QMNLI):
 
 class BIG5Q10(QMNLI):
 
-    emo_pos=['considerate towards', 'respectful towards', 'caring about']
+    emo_pos=['considerate towards', 'respectful towards', 'care about']
     emo_neg=['indifferent towards', 'emotionally distant towards', 'insensitive towards']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
@@ -281,7 +281,7 @@ class BIG5Q11(QMNLI):
 
 class BIG5Q12(QMNLI):
 
-    emo_pos=['cooperate', 'work well']
+    emo_pos=['cooperate', 'work well', 'helpful']
     emo_neg=['disobliging', 'unsupportive']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
@@ -304,7 +304,7 @@ class BIG5Q12(QMNLI):
 
 class BIG5Q13(QMNLI):
 
-    emo_pos=['stressed', 'worried', 'concerned']
+    emo_pos=['stressed', 'worry', 'concern']
     emo_neg=['calmed', 'collected', 'composed']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
