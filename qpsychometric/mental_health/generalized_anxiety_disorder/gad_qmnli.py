@@ -32,7 +32,7 @@ class GAD7Q1(QMNLI):
             descriptor = {"Questionnair":"GAD7",
                       "Factor":"GAD7",
                       "Ordinal":1,
-                      "Original":'Over the last 2 weeks, how often have you been bothered by the following problems? Feeling nervous, anxious or on edge'
+                      "Original":'Over the last 2 weeks, how often have you been bothered by the following problems? Feeling nervous, anxious or on edge.'
             },
             **kwargs
         )
@@ -60,7 +60,7 @@ class GAD7Q2(QMNLI):
             descriptor = {"Questionnair":"GAD7",
               "Factor":"GAD7",
               "Ordinal":2,
-              "Original":'Over the last 2 weeks, how often have you been bothered by the following problems? Not being able to stop or control worrying'
+              "Original":'Over the last 2 weeks, how often have you been bothered by the following problems? Not being able to stop or control worrying.'
             },
             **kwargs
         )
@@ -69,7 +69,7 @@ class GAD7Q2(QMNLI):
 
 class GAD7Q3(QMNLI):
 
-    emo_pos=['worryied', 'stressed', 'nervous']
+    emo_pos=['worried', 'stressed', 'nervous']
     emo_neg=['confident', 'tranquil']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
@@ -85,7 +85,7 @@ class GAD7Q3(QMNLI):
             descriptor = {"Questionnair":"GAD7",
                       "Factor":"GAD7",
                       "Ordinal":3,
-                      "Original":'Over the last 2 weeks, how often have you been bothered by the following problems? Worrying too much about different things'
+                      "Original":'Over the last 2 weeks, how often have you been bothered by the following problems? Worrying too much about different things.'
             },
             **kwargs
         )
@@ -93,7 +93,7 @@ class GAD7Q3(QMNLI):
 
 
 class GAD7Q4(QMNLI):
-    emo_pos=['trouble', 'difficulty', ]
+    emo_pos=['trouble', 'difficulty']
     emo_neg=['no problem', 'an easy time']
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
@@ -109,7 +109,7 @@ class GAD7Q4(QMNLI):
             descriptor = {"Questionnair":"GAD7",
                       "Factor":"GAD7",
                       "Ordinal":4,
-                      "Original":'Over the last 2 weeks, how often have you been bothered by the following problems? Trouble relaxing'
+                      "Original":'Over the last 2 weeks, how often have you been bothered by the following problems? Trouble relaxing.'
             },
             **kwargs
         )
@@ -136,7 +136,7 @@ class GAD7Q5(QMNLI):
             descriptor = {"Questionnair":"GAD7",
                       "Factor":"GAD7",
                       "Ordinal":5,
-                      "Original":'Over the last 2 weeks, how often have you been bothered by the following problems? Being so restless that it is hard to sit still'
+                      "Original":'Over the last 2 weeks, how often have you been bothered by the following problems? Being so restless that it is hard to sit still.'
             },
             **kwargs
         )
@@ -161,7 +161,7 @@ class GAD7Q6(QMNLI):
             descriptor = {"Questionnair":"GAD7",
                       "Factor":"GAD7",
                       "Ordinal":6,
-                      "Original":'Over the last 2 weeks, how often have you been bothered by the following problems? Becoming easily annoyed or irritable'
+                      "Original":'Over the last 2 weeks, how often have you been bothered by the following problems? Becoming easily annoyed or irritable.'
             },
             **kwargs
         )
@@ -185,7 +185,7 @@ class GAD7Q7(QMNLI):
             descriptor = {"Questionnair":"GAD7",
                       "Factor":"GAD7",
                       "Ordinal":7,
-                      "Original":'Over the last 2 weeks, how often have you been bothered by the following problems? Feeling afraid as if something awful might happen'
+                      "Original":'Over the last 2 weeks, how often have you been bothered by the following problems? Feeling afraid as if something awful might happen.'
             },
             **kwargs
         )

@@ -232,7 +232,7 @@ class BIG5Q9(QMNLI):
 
 class BIG5Q10(QMNLI):
 
-    emo_pos=['considerate towards', 'respectful towards', 'care about']
+    emo_pos=['considerate towards', 'respectful towards', 'caring about']
     emo_neg=['indifferent towards', 'emotionally distant towards', 'insensitive towards']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
@@ -281,8 +281,8 @@ class BIG5Q11(QMNLI):
 
 class BIG5Q12(QMNLI):
 
-    emo_pos=['cooperate', 'work well', 'helpful']
-    emo_neg=['disobliging', 'unsupportive']
+    emo_pos=['cooperate', 'work well', 'am helpful']
+    emo_neg=['am disobliging', 'unsupportive']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
         super().__init__(
@@ -304,7 +304,7 @@ class BIG5Q12(QMNLI):
 
 class BIG5Q13(QMNLI):
 
-    emo_pos=['stressed', 'worry', 'concern']
+    emo_pos=['stressed', 'worried', 'concerned']
     emo_neg=['calmed', 'collected', 'composed']
     dict_attitude=dict_pos_neg(emo_pos, emo_neg, 1.0)
     def __init__(self, **kwargs):
@@ -357,19 +357,13 @@ big5_qmnli_list = [BIG5Q1, BIG5Q2, BIG5Q3, BIG5Q4, BIG5Q5, BIG5Q6, BIG5Q7, BIG5Q
 """
 Summary of Changes Made to BIG5 Questionnaire
 
-BIG5Q1:
-    - Fixed verb phrase: 'am open to' → 'want to have'
-
-BIG5Q4:
-    - Fixed verb phrase: 'am thorough in' → 'examine'
-
 BIG5Q10:
-    - Changed verb to adjective: 'care about' → 'caring about'
-    - Fixed typo: 'indexally distant towards' → 'emotionally distant towards'
+    - Changed verb to present participle: 'care about' → 'caring about'
 
 BIG5Q12:
-    - Removed adjective that didn't fit template: 'helpful' (removed from list)
+    - Added 'am' prefix to adjectives to match template: 'helpful' → 'am helpful'
+    - Added 'am' prefix to negative adjective: 'disobliging' → 'am disobliging'
 
 BIG5Q13:
-    - Changed verbs to adjectives: 'worry' → 'worried', 'concern' → 'concerned'
+    - Changed verbs to past participles/adjectives: 'worry' → 'worried', 'concern' → 'concerned'
 """

@@ -27,8 +27,8 @@ class CSQ1(QMNLI):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I {frequency} distant when people cry in front of me.",
-            answer_template="This is {index}",
+            context_template="I {frequency} feel distant when people cry in front of me.",
+            answer_template="This is {index}.",
             dimensions={
                 "frequency":frequency_weights,
                 "index":self.dict_attitude,
@@ -36,7 +36,7 @@ class CSQ1(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Disengagement",
                           "Ordinal":1,
-                          "Original":"when people cry in front of me, I often don’t feel anything at all."
+                          "Original":"When people cry in front of me, I often don't feel anything at all."
             },
             **kwargs,
         )
@@ -63,7 +63,7 @@ class CSQ7(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Disengagement",
                           "Ordinal":7,
-                          "Original":"I often tune out when people tell me about their troubles"
+                          "Original":"I often tune out when people tell me about their troubles."
             },
             **kwargs,
         )
@@ -90,7 +90,7 @@ class CSQ19(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Disengagement",
                           "Ordinal":19,
-                          "Original":"I don’t think much about the concerns of others"
+                          "Original":"I don't think much about the concerns of others."
             },
             **kwargs,
         )
@@ -118,7 +118,7 @@ class CSQ23(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Disengagement",
                           "Ordinal":23,
-                          "Original":"I try to avoid people who are experiencing a lot of pain"
+                          "Original":"I try to avoid people who are experiencing a lot of pain."
             },
             **kwargs,
         )
@@ -146,7 +146,7 @@ class CSQ2(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Indifference",
                           "Ordinal":2,
-                          "Original":"sometimes when people talk about their problems, I feel like I don’t care"
+                          "Original":"Sometimes when people talk about their problems, I feel like I don't care."
             },
             **kwargs,
         )
@@ -200,7 +200,7 @@ class CSQ14(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Indifference",
                           "Ordinal":14,
-                          "Original":"I don’t concern myself with other people’s problems."
+                          "Original":"I don't concern myself with other people's problems."
             },
             **kwargs,
         )
@@ -245,7 +245,7 @@ class CSQ3(QMNLI):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I {frequency} feel emotionally disconnected to people in pain.",
+            context_template="I {frequency} feel emotionally disconnected from people in pain.",
             answer_template="It is {index}.",
             dimensions={
                 "frequency":frequency_weights,
@@ -254,7 +254,7 @@ class CSQ3(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Separation",
                           "Ordinal":3,
-                          "Original":"I don’t feel emotionally connected to people in pain"
+                          "Original":"I don't feel emotionally connected to people in pain."
             },
             **kwargs,
         )
@@ -308,7 +308,7 @@ class CSQ10(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Separation",
                           "Ordinal":10,
-                          "Original":"when I see someone feeling down, I feel like I can’t relate to them"
+                          "Original":"when I see someone feeling down, I feel like I can't relate to them."
             },
             **kwargs,
         )
@@ -335,7 +335,7 @@ class CSQ22(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Separation",
                           "Ordinal":22,
-                          "Original":"I can’t really connect with other people when they’re suffering"
+                          "Original":"I can't really connect with other people when they're suffering."
             },
             **kwargs,
         )
@@ -380,8 +380,8 @@ class CSQ9(QMNLI):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I notice when people are upset.",
-            answer_template="It is {frequency} {index}.",
+            context_template="I {frequency} notice when people are upset.",
+            answer_template="It is {index}.",
             dimensions={
                 "frequency":frequency_weights,
                 "index":self.dict_attitude,
@@ -389,7 +389,7 @@ class CSQ9(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Mindfulness",
                           "Ordinal":9,
-                          "Original":"I notice when people are upset, even if they don’t say anything."
+                          "Original":"I notice when people are upset, even if they don't say anything."
             },
             **kwargs,
         )
@@ -416,7 +416,7 @@ class CSQ13(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Mindfulness",
                           "Ordinal":13,
-                          "Original":"I tend to listen patiently when people tell me their problems"
+                          "Original":"I tend to listen patiently when people tell me their problems."
             },
             **kwargs,
         )
@@ -426,15 +426,15 @@ class CSQ21(QMNLI):
     """
 
 
-    kw_attitude_neg = ['a biased', 'an unbalanced', 'a disproportionate', 'a skewed']
-    kw_attitude_pos = ['a balanced', 'a reasonable', 'a sensible', 'an impartial']
+    kw_attitude_neg = ['biased', 'unbalanced', 'disproportionate', 'skewed']
+    kw_attitude_pos = ['balanced', 'reasonable', 'sensible', 'impartial']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="When people tell me about their problems, I try to keep {index} perspective on the situation.",
+            context_template="When people tell me about their problems, I try to keep a {index} perspective on the situation.",
             answer_template="It is {frequency} correct.",
             dimensions={
                 "frequency":frequency_weights,
@@ -443,7 +443,7 @@ class CSQ21(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Mindfulness",
                           "Ordinal":21,
-                          "Original":"when people tell me about their problems, I try to keep a balanced perspective on the situation"
+                          "Original":"when people tell me about their problems, I try to keep a balanced perspective on the situation."
             },
             **kwargs,
         )
@@ -461,7 +461,7 @@ class CSQ6(QMNLI):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I {index} people who are going through a difficult time.",
+            context_template="I {frequency} {index} people who are going through a difficult time.",
             answer_template="It is correct.",
             dimensions={
                 "frequency":frequency_weights,
@@ -470,7 +470,7 @@ class CSQ6(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Kindness",
                           "Ordinal":6,
-                          "Original":"If I see someone going through a difficult time, I try to be caring toward that person"
+                          "Original":"If I see someone going through a difficult time, I try to be caring toward that person."
             },
             **kwargs,
         )
@@ -481,15 +481,15 @@ class CSQ8(QMNLI):
 
 
     kw_attitude_neg = ['am indifferent to', 'ignore', 'am cold to', 'avoid']
-    kw_attitude_pos = ['am caring toward', 'am kind to', 'sympathize with']
+    kw_attitude_pos = ['am caring toward', 'am kind to']
     dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
     
     def __init__(self, **kwargs):
         super().__init__(
             index=["index"],
             scale="frequency",
-            context_template="I {index} people who are in times of difficulty.",
-            answer_template="It is {frequency} correct.",
+            context_template="I {frequency} {index} people that are in times of difficulty.",
+            answer_template="It is correct.",
             dimensions={
                 "frequency":frequency_weights,
                 "index":self.dict_attitude,
@@ -497,7 +497,7 @@ class CSQ8(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Kindness",
                           "Ordinal":8,
-                          "Original":" I like to be there for others in times of difficulty"
+                          "Original":" I like to be there for others in times of difficulty."
             },
             **kwargs,
         )
@@ -515,8 +515,8 @@ class CSQ16(QMNLI):
         super().__init__(
             index = ["index"],
             scale = "frequency",
-            context_template="I {index} people who are unhappy.",
-            answer_template="It is {frequency} correct.",
+            context_template="I {frequency} {index} people that are unhappy.",
+            answer_template="It is correct.",
             dimensions={
                 "frequency":frequency_weights,
                 "index":self.dict_attitude,
@@ -524,7 +524,7 @@ class CSQ16(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Kindness",
                           "Ordinal":16,
-                          "Original":"My heart goes out to people who are unhappy"
+                          "Original":"My heart goes out to people who are unhappy."
             },
             **kwargs,
         )
@@ -542,8 +542,8 @@ class CSQ24(QMNLI):
         super().__init__(
             index = ["index"],
             scale = "frequency",
-            context_template="I {index} people who feel sadness.",
-            answer_template="It is {frequency} correct.",
+            context_template="I {frequency} {index} people that feel sadness.",
+            answer_template="It is correct.",
             dimensions={
                 "frequency":frequency_weights,
                 "index":self.dict_attitude,
@@ -551,7 +551,7 @@ class CSQ24(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Kindness",
                           "Ordinal":24,
-                          "Original":"when others feel sadness, I try to comfort them"
+                          "Original":"when others feel sadness, I try to comfort them."
             },
             **kwargs,
         )
@@ -578,7 +578,7 @@ class CSQ11(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Common Humanity",
                           "Ordinal":11,
-                          "Original":"Everyone feels down sometimes, it is part of being human"
+                          "Original":"Everyone feels down sometimes, it is part of being human."
             },
             **kwargs,
         )
@@ -605,7 +605,7 @@ class CSQ15(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Common Humanity",
                           "Ordinal":15,
-                          "Original":"it’s important to recognize that all people have weaknesses and no one’s perfect"
+                          "Original":"it's important to recognize that all people have weaknesses and no one's perfect."
             },
             **kwargs,
         )
@@ -632,7 +632,7 @@ class CSQ17(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Common Humanity",
                           "Ordinal":17,
-                          "Original":"Despite my differences with others, I know that everyone feels pain just like me"
+                          "Original":"Despite my differences with others, I know that everyone feels pain just like me."
             },
             **kwargs,
         )
@@ -659,18 +659,9 @@ class CSQ20(QMNLI):
             descriptor = {"Questionnair":"CS",
                           "Factor":"Common Humanity",
                           "Ordinal":20,
-                          "Original":" suffering is just a part of the common human experience"
+                          "Original":"Suffering is just a part of the common human experience."
             },
             **kwargs,
         )
 
 compassion_scale_qmnli_list = [CSQ1, CSQ2, CSQ3, CSQ4, CSQ5, CSQ6, CSQ7, CSQ8, CSQ9, CSQ10, CSQ11, CSQ12, CSQ13, CSQ14, CSQ15, CSQ16, CSQ17, CSQ18, CSQ19, CSQ20, CSQ21, CSQ22, CSQ23, CSQ24]
-
-
-
-"""
-Summary of Changes Made to Compassion Scale Questionnaire
-
-CSQ21:
-    - Fixed adjective form: 'a disproportioned' → 'a disproportionate'
-"""

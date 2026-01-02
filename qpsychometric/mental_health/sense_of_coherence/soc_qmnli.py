@@ -23,7 +23,7 @@ class SOCQ4(QMNLI):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="What goes around me is {index} to me.",
+        context_template="What goes on around me is {index} to me.",
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
@@ -32,7 +32,7 @@ class SOCQ4(QMNLI):
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Meaningfulness",
                       "Ordinal":4,
-                      "Original":"Do you have the feeling that you don't really care what goes on around you? "
+                      "Original":"Do you have the feeling that you don't really care what goes on around you?"
         },
         **kwargs,
     )
@@ -41,7 +41,7 @@ class SOCQ5(QMNLI):
   
 
 
-  kw_attitude_neg = ['surprised by','puzzled by', ]
+  kw_attitude_neg = ['surprised by','puzzled by']
   kw_attitude_pos = ['expecting','anticipating']
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
@@ -58,7 +58,7 @@ class SOCQ5(QMNLI):
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Comprehensibility",
                       "Ordinal":5,
-                      "Original":"Has it happened in the past that you were surprised by the behavior of people whom you thought you knew well? "
+                      "Original":"Has it happened in the past that you were surprised by the behavior of people whom you thought you knew well?"
         },
         **kwargs,
     )
@@ -84,7 +84,7 @@ class SOCQ6(QMNLI):
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Manageability",
                       "Ordinal":6,
-                      "Original":"Has it happened that people whom you counted on disappointed you? "
+                      "Original":"Has it happened that people whom you counted on disappointed you?"
         },
         **kwargs,
     )
@@ -101,7 +101,7 @@ class SOCQ8(QMNLI):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="My life are {index}.",
+        context_template="My life is {index}.",
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
@@ -152,7 +152,7 @@ class SOCQ12(QMNLI):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="In unfamiliar situation I feel {index}.",
+        context_template="In an unfamiliar situation I feel {index}.",
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
@@ -186,7 +186,7 @@ class SOCQ16(QMNLI):
         descriptor = {"Questionnair":"SOC",
                       "Factor":"Meaningfulness",
                       "Ordinal":16,
-                      "Original":"Doing the things you do every day is: "
+                      "Original":"Doing the things you do every day is:"
         },
         **kwargs,
     )
@@ -224,7 +224,7 @@ class SOCQ21(QMNLI):
 #   kw_attitude_pos = ['face', 'confront', 'acknowledge', 'process', 'accept']
 #   kw_attitude_neg = ['ignore', 'avoid', 'dismiss']
   kw_attitude_neg = ["unwanted", 'undesired']
-  kw_attitude_pos = ['joyful', 'good',]
+  kw_attitude_pos = ['joyful', 'good']
   dict_attitude = dict_pos_neg(kw_attitude_pos, kw_attitude_neg, 1.0)
 
   def __init__(self, **kwargs):
@@ -257,7 +257,7 @@ class SOCQ25(QMNLI):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="I’m a {index}.",
+        context_template="I am a {index}.",
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
@@ -282,7 +282,7 @@ class SOCQ26(QMNLI):
     super().__init__(
         index=["index"],
         scale="frequency",
-        context_template="I {index} the importence of something that happened.",
+        context_template="I {index} the importance of something that happened.",
         answer_template="It is {frequency} correct.",
         dimensions={
             "frequency":frequency_weights,
@@ -361,14 +361,3 @@ class SOCQ29(QMNLI):
 
 soc_qmnli_list = [SOCQ4, SOCQ5, SOCQ6, SOCQ8, SOCQ9, SOCQ12, SOCQ16, SOCQ19, SOCQ21, SOCQ25, SOCQ26, SOCQ28, SOCQ29]
 
-
-
-"""
-Summary of Changes Made to SOC Questionnaire
-
-SOCQ4:
-    - Fixed preposition: "What goes around me" → "What goes on around me"
-
-SOCQ12:
-    - Fixed article/number: "In unfamiliar situation" → "In unfamiliar situations"
-"""
