@@ -8,6 +8,20 @@ This package contains several psychometric questionnaires from the following cat
 These psychometric questionnaires will help you to assess your model's biases and behavioural tendencies.
 Currently contains the following questionnaires: ASI, BIG5, CS, GAD, PHQ, SD3, SOC.
 
+## Environment Setup for Reproducibility
+
+To reproduce the exact results and ensure consistency with the validation studies, we recommend using the provided conda environment file:
+
+```bash
+# Create the environment from the yml file
+conda env create -f env_qpsychometric.yml
+
+# Activate the environment
+conda activate qpsychometric_env
+```
+
+**Important:** Different versions of dependencies (especially transformers, torch, sentence-transformers, and pingouin) may produce slightly different results due to implementation changes across versions. Using the provided environment file ensures you have the exact package versions used during development and validation.
+
 ## List of questionnaires are available for running
 * ASI:
   * asi_questionnaire (all questions of ASI in QMNLI & QMLM format)
@@ -236,27 +250,35 @@ Tests how removing individual questions affects Cronbach's alpha reliability.
 
 Parameters:
 - `data_df`: DataFrame from calc_cronbach_alpha results
-- `specific_factors`: List of factor names to test (default: all factors)
+- `specific_factors`: List of factor names to test, "all" for all factors, or None for analyzing all questions together without grouping by factors
 
 Prints alpha with and without each question to identify problematic items.
 
-#### `get_semantic_similarity(q)`
-Calculate semantic similarity score for a single question without running full MNLI evaluation.
+#### `get_semantic_similarity(q=None)`
+Calculate semantic similarity score for a question or all questions without running full MNLI evaluation.
 
 Parameters:
-- `q`: Question object with _descriptor, _context_template, _answer_template, and _keywords_map
+- `q`: Question object with _descriptor, _context_template, _answer_template, and _keywords_map (optional)
+  - If provided: calculates for single question
+  - If None: calculates for all raw questions
 
-Returns: float (75th percentile semantic similarity score)
+Returns:
+- If q is provided: float (75th percentile semantic similarity score)
+- If q is None: DataFrame with question names as index and 'semantic_similarity' column
 
 Use this to quickly evaluate semantic similarity between question permutations and the original question using sentence embeddings.
 
-#### `get_cola_score(q)`
-Calculate COLA (linguistic acceptability) score for a single question without running full MNLI evaluation.
+#### `get_cola_score(q=None)`
+Calculate COLA (linguistic acceptability) score for a question or all questions without running full MNLI evaluation.
 
 Parameters:
-- `q`: Question object with _context_template, _answer_template, and _keywords_map
+- `q`: Question object with _context_template, _answer_template, and _keywords_map (optional)
+  - If provided: calculates for single question
+  - If None: calculates for all raw questions
 
-Returns: float (mean COLA score across all permutations)
+Returns:
+- If q is provided: float (mean COLA score across all permutations)
+- If q is None: DataFrame with question names as index and 'cola_score' column
 
 Use this to quickly evaluate grammaticality/linguistic acceptability of question permutations.
 
@@ -465,7 +487,8 @@ alpha = validator.calc_cronbach_alpha(results_csv)
 
 # Step 3b: Test question impact on alpha (optional)
 data_df = alpha['data_df']
-validator.test_question_affect_on_cronbach_alpha(data_df)  # Test all factors
+validator.test_question_affect_on_cronbach_alpha(data_df)  # Analyze all questions together without grouping
+validator.test_question_affect_on_cronbach_alpha(data_df, specific_factors="all")  # Test all factors
 validator.test_question_affect_on_cronbach_alpha(data_df, specific_factors=["Factor1", "Factor2"])  # Test specific factors
 
 # Step 4: Correlations only
@@ -485,7 +508,7 @@ validator = QuestionnaireValidator(
 )
 
 # Get quick metrics for a single question
-question = cs_questions[0]  # Get first question
+question = cs_questions[0]()  # Get first question instance
 
 # Calculate semantic similarity (75th percentile)
 similarity_score = validator.get_semantic_similarity(question)
@@ -494,6 +517,13 @@ print(f"Semantic Similarity: {similarity_score}")
 # Calculate COLA score (mean across permutations)
 cola_score = validator.get_cola_score(question)
 print(f"COLA Score: {cola_score}")
+
+# Or calculate for all questions at once
+all_semantic_scores = validator.get_semantic_similarity()  # Returns DataFrame
+print(all_semantic_scores)
+
+all_cola_scores = validator.get_cola_score()  # Returns DataFrame
+print(all_cola_scores)
 
 # Useful for quick validation during question development
 ```

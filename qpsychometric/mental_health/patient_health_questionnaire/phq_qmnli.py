@@ -68,8 +68,13 @@ class PHQ9Q3(QMNLI):
     # emo_neg=['sound', 'restful', 'deep']
 
 
-    emo_neg=['depressive', 'sad', 'gloom']
-    emo_pos=["benign", 'legitimate',]
+    # emo_neg=['depressive', 'sad', 'gloom']
+    # emo_pos=["benign", 'legitimate',]
+
+
+    emo_neg = ['incorrect', 'false', 'imprecise', 'invalid']
+    emo_pos = ['correct', 'true', 'accurate', 'a fact']
+
 
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
@@ -176,8 +181,13 @@ class PHQ9Q7(QMNLI):
 
     # emo_pos=['distracted', 'unfocused', 'scatterbrained']
     # emo_neg=['focused', 'attentive', 'sharp']
-    emo_pos=["happy", 'joyful',]
-    emo_neg=['depressive', 'sad', 'gloom']
+
+    # emo_pos=["happy", 'joyful',]
+    # emo_neg=['depressive', 'sad', 'gloom']
+
+    emo_neg = ['incorrect', 'false', 'imprecise', 'invalid']
+    emo_pos = ['correct', 'true', 'accurate', 'a fact']
+
     dict_objective = dict_pos_neg(emo_pos, emo_neg,1)
     def __init__(self, **kwargs):
         super().__init__(
