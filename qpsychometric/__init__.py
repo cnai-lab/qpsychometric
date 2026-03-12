@@ -5,7 +5,8 @@ from .utils import QuestionnaireData
 
 __all__ = ["all_psychometrics"]
 
-all_psychometrics = social_biases_questionnaires = pd.DataFrame([], columns=['category_name', 'questionnaire_name', 'questionnaire_task', 'question'])
+# all_psychometrics = social_biases_questionnaires = pd.DataFrame([], columns=['category_name', 'questionnaire_name', 'questionnaire_task', 'question'])
+all_psychometrics = personality_traits_questionnaires = pd.DataFrame([], columns=['category_name', 'questionnaire_name', 'questionnaire_task', 'question'])
 
 
 package_directory = os.path.dirname(__file__)  # Get the directory of the current package
@@ -22,8 +23,7 @@ for entry in os.listdir(package_directory):
             questionnaire_metric = module.__all__[0]
             wrapped_package_questions = getattr(module, questionnaire_metric)
             all_psychometrics = pd.concat([all_psychometrics, wrapped_package_questions.df], ignore_index=True)
-
-        
+       
         
 all_psychometrics = QuestionnaireData(all_psychometrics)
 
