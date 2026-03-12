@@ -1,5 +1,6 @@
 from .gad_qmnli import gad_qmnli_list
 from .gad_qmlm import gad_qmlm_list
+from .gad_qclm import gad_qclm_list
 import pandas as pd
 import os
 from ...utils import QuestionnaireData, verify_df_intergrity
@@ -35,6 +36,12 @@ if gad_qmnli_list:
     for nli_question in gad_qmnli_list:
         data.append((category_name, questionnaire_name, task_name, nli_question))
 
+
+if gad_qclm_list:
+    question_class_nli = gad_qclm_list[0]
+    task_name, questionnaire_name = get_questionnaire_info(question_class_nli)
+    for clm_question in gad_qclm_list:
+        data.append((category_name, questionnaire_name, task_name, clm_question))
 
 
 gad_questionnaire = QuestionnaireData(pd.DataFrame(data, columns=['category_name', 'questionnaire_name', 'questionnaire_task', 'question']))

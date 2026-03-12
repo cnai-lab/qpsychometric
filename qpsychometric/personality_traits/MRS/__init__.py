@@ -1,6 +1,6 @@
-from .compassion_scale_qmnli import compassion_scale_qmnli_list
-from .compassion_scale_qmlm import compassion_scale_qmlm_list
-from .compassion_scale_heb_qclm import compassion_scale_heb_qclm_list
+from .mrs_arabs_heb_qclm import mrs_arabs_heb_qclm_list
+from .mrs_ethiopians_heb_qclm import mrs_ethiopians_heb_qclm_list
+from .mrs_haredi_heb_qclm import mrs_haredi_heb_qclm_list
 import os
 import pandas as pd
 from ...utils import QuestionnaireData
@@ -20,23 +20,23 @@ def get_questionnaire_info(question_class):
     return task_name, questionnaire_name
 
 
-if compassion_scale_qmlm_list:
-    question_class_nli = compassion_scale_qmlm_list[0]
+if mrs_arabs_heb_qclm_list:
+    question_class_nli = mrs_arabs_heb_qclm_list[0]
     task_name, questionnaire_name = get_questionnaire_info(question_class_nli)
-    for mlm_question in compassion_scale_qmlm_list:
-        data.append((category_name, questionnaire_name, task_name, mlm_question))
+    for clm_question in mrs_arabs_heb_qclm_list:
+        data.append((category_name, questionnaire_name, task_name, clm_question))
 
 
-if compassion_scale_qmnli_list:
-    question_class_nli = compassion_scale_qmnli_list[0]
+if mrs_ethiopians_heb_qclm_list:
+    question_class_nli = mrs_ethiopians_heb_qclm_list[0]
     task_name, questionnaire_name = get_questionnaire_info(question_class_nli)
-    for nli_question in compassion_scale_qmnli_list:
-        data.append((category_name, questionnaire_name, task_name, nli_question))
+    for clm_question in mrs_ethiopians_heb_qclm_list:
+        data.append((category_name, questionnaire_name, task_name, clm_question))
         
-if compassion_scale_heb_qclm_list:
-    question_class_heb_clm = compassion_scale_heb_qclm_list[0]
+if mrs_haredi_heb_qclm_list:
+    question_class_heb_clm = mrs_haredi_heb_qclm_list[0]
     task_name, questionnaire_name = get_questionnaire_info(question_class_nli)
-    for clm_question in compassion_scale_heb_qclm_list:
+    for clm_question in mrs_haredi_heb_qclm_list:
         data.append((category_name, questionnaire_name, task_name, clm_question))
         
 

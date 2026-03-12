@@ -58,7 +58,7 @@ class STAISQ3(QCLM):
             descriptor = {"Questionnair":"STAI-S",
               "Factor":"Q",
               "Ordinal":3,
-              "Original":'I am tense'
+              "Original":'I feel tense'
             },
             **kwargs
         )
@@ -317,5 +317,5 @@ class STAISQ20(QCLM):
         )
 
 
-stai_s_qclm = [STAISQ1s, STAISQ2s, STAISQ3s, STAISQ4s, STAISQ5s, STAISQ6s, STAISQ7s, STAISQ8s, STAISQ9s, STAISQ10s, STAISQ11s, STAISQ12s, STAISQ13s, STAISQ14s, STAISQ18s, STAISQ19s, STAISQ20s]
+stai_s_qclm = [STAISQ1, STAISQ2, STAISQ3, STAISQ4, STAISQ5, STAISQ6, STAISQ7, STAISQ8, STAISQ9, STAISQ10, STAISQ11, STAISQ12, STAISQ13, STAISQ14, STAISQ18, STAISQ19, STAISQ20]
 stai_s_qclm_list = stai_s_qclm

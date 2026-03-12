@@ -13,10 +13,11 @@ personality_traits_questionnaires = pd.DataFrame([], columns=['category_name', '
 
 # List only the top-level directories (modules) directly under the package directory
 for entry in os.listdir(package_directory):
-    if os.path.isdir(os.path.join(package_directory, entry)) and not entry.startswith('_') or entry.startswith('.'):
+    if os.path.isdir(os.path.join(package_directory, entry)) and not entry.startswith('_') and not entry.startswith('.'):
         # Construct the module name
         module_name = f"{package_name}.{entry}"
         # Import the module
+        # print(f"DEBUG: Attempting to import: '{module_name}'") # <--- ADD THIS
         module = importlib.import_module(module_name)
         # Some modules don't have the __all__ global var, only packages.
         if hasattr(module, "__all__"):
