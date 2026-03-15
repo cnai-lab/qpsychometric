@@ -23,7 +23,7 @@ class PANASSQ1(QCLM):
                                          ['interested', 'curious', 'engaged'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "PA",
+                        "Factor": "state-PA",
                         "Ordinal": 1,
                         "Original": "Interested"},
             **kwargs
@@ -40,7 +40,7 @@ class PANASSQ2(QCLM):
                                          ['calm', 'undisturbed', 'at ease'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "NA",
+                        "Factor": "state-NA",
                         "Ordinal": 2,
                         "Original": "Distressed"},
             **kwargs
@@ -57,7 +57,7 @@ class PANASSQ3(QCLM):
                                          ['excited', 'thrilled', 'exhilarated'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "PA",
+                        "Factor": "state-PA",
                         "Ordinal": 3,
                         "Original": "Excited"},
             **kwargs
@@ -74,7 +74,7 @@ class PANASSQ4(QCLM):
                                          ['content', 'undisturbed', 'composed'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "NA",
+                        "Factor": "state-NA",
                         "Ordinal": 4,
                         "Original": "Upset"},
             **kwargs
@@ -91,7 +91,7 @@ class PANASSQ5(QCLM):
                                          ['strong', 'powerful', 'capable'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "PA",
+                        "Factor": "state-PA",
                         "Ordinal": 5,
                         "Original": "Strong"},
             **kwargs
@@ -108,7 +108,7 @@ class PANASSQ6(QCLM):
                                          ['blameless', 'innocent', 'guilt-free'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "NA",
+                        "Factor": "state-NA",
                         "Ordinal": 6,
                         "Original": "Guilty"},
             **kwargs
@@ -125,7 +125,7 @@ class PANASSQ7(QCLM):
                                          ['unafraid', 'fearless', 'safe'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "NA",
+                        "Factor": "state-NA",
                         "Ordinal": 7,
                         "Original": "Scared"},
             **kwargs
@@ -142,7 +142,7 @@ class PANASSQ8(QCLM):
                                          ['friendly', 'warm', 'amicable'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "NA",
+                        "Factor": "state-NA",
                         "Ordinal": 8,
                         "Original": "Hostile"},
             **kwargs
@@ -159,7 +159,7 @@ class PANASSQ9(QCLM):
                                          ['enthusiastic', 'eager', 'passionate'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "PA",
+                        "Factor": "state-PA",
                         "Ordinal": 9,
                         "Original": "Enthusiastic"},
             **kwargs
@@ -176,7 +176,7 @@ class PANASSQ10(QCLM):
                                          ['proud', 'accomplished', 'self-satisfied'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "PA",
+                        "Factor": "state-PA",
                         "Ordinal": 10,
                         "Original": "Proud"},
             **kwargs
@@ -193,7 +193,7 @@ class PANASSQ11(QCLM):
                                          ['calm', 'good-natured', 'even-tempered'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "NA",
+                        "Factor": "state-NA",
                         "Ordinal": 11,
                         "Original": "Irritable"},
             **kwargs
@@ -210,7 +210,7 @@ class PANASSQ12(QCLM):
                                          ['alert', 'sharp', 'wide-awake'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "PA",
+                        "Factor": "state-PA",
                         "Ordinal": 12,
                         "Original": "Alert"},
             **kwargs
@@ -227,7 +227,7 @@ class PANASSQ13(QCLM):
                                          ['dignified', 'unashamed', 'self-respecting'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "NA",
+                        "Factor": "state-NA",
                         "Ordinal": 13,
                         "Original": "Ashamed"},
             **kwargs
@@ -244,7 +244,7 @@ class PANASSQ14(QCLM):
                                          ['inspired', 'motivated', 'uplifted'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "PA",
+                        "Factor": "state-PA",
                         "Ordinal": 14,
                         "Original": "Inspired"},
             **kwargs
@@ -261,7 +261,7 @@ class PANASSQ15(QCLM):
                                          ['calm', 'relaxed', 'composed'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "NA",
+                        "Factor": "state-NA",
                         "Ordinal": 15,
                         "Original": "Nervous"},
             **kwargs
@@ -278,7 +278,7 @@ class PANASSQ16(QCLM):
                                          ['determined', 'resolute', 'driven'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "PA",
+                        "Factor": "state-PA",
                         "Ordinal": 16,
                         "Original": "Determined"},
             **kwargs
@@ -295,7 +295,7 @@ class PANASSQ17(QCLM):
                                          ['attentive', 'focused', 'mindful'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "PA",
+                        "Factor": "state-PA",
                         "Ordinal": 17,
                         "Original": "Attentive"},
             **kwargs
@@ -312,7 +312,7 @@ class PANASSQ18(QCLM):
                                          ['calm', 'steady', 'composed'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "NA",
+                        "Factor": "state-NA",
                         "Ordinal": 18,
                         "Original": "Jittery"},
             **kwargs
@@ -329,7 +329,7 @@ class PANASSQ19(QCLM):
                                          ['active', 'energetic', 'lively'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "PA",
+                        "Factor": "state-PA",
                         "Ordinal": 19,
                         "Original": "Active"},
             **kwargs
@@ -346,7 +346,7 @@ class PANASSQ20(QCLM):
                                          ['unafraid', 'courageous', 'fearless'], 1.0),
             },
             descriptor={"Questionnair": "PANAS-S",
-                        "Factor": "NA",
+                        "Factor": "state-NA",
                         "Ordinal": 20,
                         "Original": "Afraid"},
             **kwargs
