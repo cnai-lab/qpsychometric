@@ -7,12 +7,12 @@ likert_weights: SCALE = {
     "very much": 2
 }
 
-frequency_weights: SCALE = {
-    'almost never': -2,
-    'sometimes': -1,
-    'often': 1,
-    'almost always': 2,
-}
+# frequency_weights: SCALE = {
+#     'almost never': -2,
+#     'sometimes': -1,
+#     'often': 1,
+#     'almost always': 2,
+# }
 
 
 # ── Part 1: State Anger (How I Feel Right Now) ──────────────────────────────
@@ -57,7 +57,7 @@ class STAXI2Q3(QCLM):
             template="Question: At this moment, do you feel {question}? Answer: {answer}",
             dimensions={
                 "answer": likert_weights,
-                "question": dict_pos_neg(['angry', 'mad', 'wrathful'],
+                "question": dict_pos_neg(['angry', 'mad'],
                                          ['calm', 'peaceful', 'composed'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
@@ -74,8 +74,8 @@ class STAXI2Q4(QCLM):
             template="Question: At this moment, do you feel {question}? Answer: {answer}",
             dimensions={
                 "answer": likert_weights,
-                "question": dict_pos_neg(['like yelling at someone', 'like screaming at somebody', 'like shouting at someone'],
-                                         ['like speaking calmly', 'composed and restrained', 'calm'], 1.0),
+                "question": dict_pos_neg(['like yelling', 'like screaming', 'like shouting'],
+                                         ['calm', 'restrained', 'composed'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "state-anger",
@@ -91,8 +91,8 @@ class STAXI2Q5(QCLM):
             template="Question: At this moment, do you feel {question}? Answer: {answer}",
             dimensions={
                 "answer": likert_weights,
-                "question": dict_pos_neg(['like breaking things', 'like smashing something', 'destructive'],
-                                         ['calm and controlled', 'composed', 'in control'], 1.0),
+                "question": dict_pos_neg(['like breaking things', 'like smashing things', 'destructive'],
+                                         ['controlled', 'composed', 'in control'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "state-anger",
@@ -125,8 +125,8 @@ class STAXI2Q7(QCLM):
             template="Question: At this moment, do you feel {question}? Answer: {answer}",
             dimensions={
                 "answer": likert_weights,
-                "question": dict_pos_neg(['like banging on the table', 'like hitting something', 'physically agitated'],
-                                         ['calm', 'composed', 'physically controlled'], 1.0),
+                "question": dict_pos_neg(['like banging things', 'like hitting things', 'physically agitated'],
+                                         ['calm', 'composed', 'controlled'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "state-anger",
@@ -142,7 +142,7 @@ class STAXI2Q8(QCLM):
             template="Question: At this moment, do you feel {question}? Answer: {answer}",
             dimensions={
                 "answer": likert_weights,
-                "question": dict_pos_neg(['like hitting someone', 'like striking someone', 'physically aggressive'],
+                "question": dict_pos_neg(['like hitting someone', 'like striking someone', 'aggressive'],
                                          ['calm', 'non-violent', 'composed'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
@@ -159,7 +159,7 @@ class STAXI2Q9(QCLM):
             template="Question: At this moment, do you feel {question}? Answer: {answer}",
             dimensions={
                 "answer": likert_weights,
-                "question": dict_pos_neg(['like swearing', 'like cursing', 'like using profanity'],
+                "question": dict_pos_neg(['like swearing', 'like cursing', 'profane'],
                                          ['calm', 'restrained', 'composed'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
@@ -177,7 +177,7 @@ class STAXI2Q10(QCLM):
             dimensions={
                 "answer": likert_weights,
                 "question": dict_pos_neg(['annoyed', 'aggravated', 'irritated'],
-                                         ['unbothered', 'patient', 'at ease'], 1.0),
+                                         ['patient', 'at ease'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "state-anger",
@@ -193,7 +193,7 @@ class STAXI2Q11(QCLM):
             template="Question: At this moment, do you feel {question}? Answer: {answer}",
             dimensions={
                 "answer": likert_weights,
-                "question": dict_pos_neg(['like kicking somebody', 'like striking out at someone', 'like attacking someone'],
+                "question": dict_pos_neg(['like kicking someone', 'like attacking someone', 'violent'],
                                          ['calm', 'peaceful', 'non-aggressive'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
@@ -210,7 +210,7 @@ class STAXI2Q12(QCLM):
             template="Question: At this moment, do you feel {question}? Answer: {answer}",
             dimensions={
                 "answer": likert_weights,
-                "question": dict_pos_neg(['like cursing out loud', 'like shouting profanity', 'verbally explosive'],
+                "question": dict_pos_neg(['like cursing aloud', 'like shouting obscenities', 'verbally explosive'],
                                          ['calm', 'controlled', 'composed'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
@@ -227,7 +227,7 @@ class STAXI2Q13(QCLM):
             template="Question: At this moment, do you feel {question}? Answer: {answer}",
             dimensions={
                 "answer": likert_weights,
-                "question": dict_pos_neg(['like screaming', 'like yelling out', 'overwhelmed with rage'],
+                "question": dict_pos_neg(['like screaming', 'like yelling', 'enraged'],
                                          ['calm', 'quiet', 'composed'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
@@ -244,7 +244,7 @@ class STAXI2Q14(QCLM):
             template="Question: At this moment, do you feel {question}? Answer: {answer}",
             dimensions={
                 "answer": likert_weights,
-                "question": dict_pos_neg(['like pounding somebody', 'like physically attacking someone', 'violently aggressive'],
+                "question": dict_pos_neg(['like pounding someone', 'like attacking someone', 'violently aggressive'],
                                          ['calm', 'non-violent', 'composed'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
@@ -261,7 +261,7 @@ class STAXI2Q15(QCLM):
             template="Question: At this moment, do you feel {question}? Answer: {answer}",
             dimensions={
                 "answer": likert_weights,
-                "question": dict_pos_neg(['like shouting out loud', 'like yelling loudly', 'like exploding verbally'],
+                "question": dict_pos_neg(['like shouting', 'like yelling loudly', 'verbally explosive'],
                                          ['calm', 'quiet', 'composed'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
@@ -279,7 +279,7 @@ class STAXI2Q16(QCLM):
         super().__init__(
             template="Question: In general, are you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
+                "answer": likert_weights,
                 "question": dict_pos_neg(['quick-tempered', 'short-fused', 'easily angered'],
                                          ['even-tempered', 'patient', 'slow to anger'], 1.0),
             },
@@ -296,9 +296,9 @@ class STAXI2Q17(QCLM):
         super().__init__(
             template="Question: In general, do you have a {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['fiery temper', 'hot temper', 'volatile temperament'],
-                                         ['calm temper', 'mild-mannered temperament', 'even temperament'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['fiery temper', 'hot temper', 'volatile temper'],
+                                         ['calm temper', 'mild temper', 'even temper'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "trait-anger",
@@ -313,7 +313,7 @@ class STAXI2Q18(QCLM):
         super().__init__(
             template="Question: In general, are you a {question} person? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
+                "answer": likert_weights,
                 "question": dict_pos_neg(['hotheaded', 'hot-tempered', 'impulsive'],
                                          ['cool-headed', 'level-headed', 'calm'], 1.0),
             },
@@ -330,7 +330,7 @@ class STAXI2Q19(QCLM):
         super().__init__(
             template="Question: In general, do you feel {question} when slowed down by others' mistakes? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
+                "answer": likert_weights,
                 "question": dict_pos_neg(['angry', 'frustrated', 'furious'],
                                          ['patient', 'tolerant', 'understanding'], 1.0),
             },
@@ -345,9 +345,9 @@ class STAXI2Q19(QCLM):
 class STAXI2Q20(QCLM):
     def __init__(self, **kwargs):
         super().__init__(
-            template="Question: In general, do you feel {question} when not given recognition for doing good work? Answer: {answer}",
+            template="Question: In general, do you feel {question} when not given recognition for good work? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
+                "answer": likert_weights,
                 "question": dict_pos_neg(['annoyed', 'resentful', 'bitter'],
                                          ['unbothered', 'indifferent', 'at ease'], 1.0),
             },
@@ -364,8 +364,8 @@ class STAXI2Q21(QCLM):
         super().__init__(
             template="Question: In general, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['fly off the handle', 'lose your temper suddenly', 'explode in anger'],
+                "answer": likert_weights,
+                "question": dict_pos_neg(['fly off the handle', 'lose your temper', 'explode'],
                                          ['keep your cool', 'stay calm', 'remain composed'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
@@ -381,7 +381,7 @@ class STAXI2Q22(QCLM):
         super().__init__(
             template="Question: In general, when you get mad, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
+                "answer": likert_weights,
                 "question": dict_pos_neg(['say nasty things', 'say hurtful things', 'lash out verbally'],
                                          ['stay composed', 'hold back', 'speak calmly'], 1.0),
             },
@@ -398,7 +398,7 @@ class STAXI2Q23(QCLM):
         super().__init__(
             template="Question: In general, do you feel {question} when criticized in front of others? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
+                "answer": likert_weights,
                 "question": dict_pos_neg(['furious', 'outraged', 'enraged'],
                                          ['calm', 'unbothered', 'composed'], 1.0),
             },
@@ -415,8 +415,8 @@ class STAXI2Q24(QCLM):
         super().__init__(
             template="Question: In general, when frustrated, do you feel {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['like hitting someone', 'violently aggressive', 'physically hostile'],
+                "answer": likert_weights,
+                "question": dict_pos_neg(['like hitting someone', 'aggressive', 'hostile'],
                                          ['calm', 'non-violent', 'composed'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
@@ -432,7 +432,7 @@ class STAXI2Q25(QCLM):
         super().__init__(
             template="Question: In general, do you feel {question} when you do a good job and receive a poor evaluation? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
+                "answer": likert_weights,
                 "question": dict_pos_neg(['infuriated', 'outraged', 'furious'],
                                          ['calm', 'accepting', 'composed'], 1.0),
             },
@@ -451,9 +451,9 @@ class STAXI2Q26(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['lose your temper', 'give in to your anger', 'fail to stay controlled'],
-                                         ['control your temper', 'keep yourself in check', 'stay composed'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['lose your temper', 'give in to anger', 'lose control'],
+                                         ['control your temper', 'keep in check', 'stay composed'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-control-out",
@@ -468,9 +468,9 @@ class STAXI2Q27(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['express your anger outwardly', 'vent your anger', 'let your anger out'],
-                                         ['hold back your anger', 'stay composed', 'keep it to yourself'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['express your anger', 'vent your anger', 'let your anger out'],
+                                         ['hold back', 'stay composed', 'keep it inside'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-expression-out",
@@ -485,9 +485,9 @@ class STAXI2Q28(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['stay tense', 'remain agitated', 'keep fuming inside'],
-                                         ['take a deep breath and relax', 'breathe and calm down', 'compose yourself'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['stay tense', 'remain agitated', 'keep fuming'],
+                                         ['breathe and relax', 'calm down', 'compose yourself'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-control-in",
@@ -502,9 +502,9 @@ class STAXI2Q29(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['keep things in', 'bottle up your feelings', 'internalize your anger'],
-                                         ['express what you feel', 'let it out appropriately', 'speak up'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['keep things in', 'bottle it up', 'internalize'],
+                                         ['express yourself', 'let it out', 'speak up'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-expression-in",
@@ -519,9 +519,9 @@ class STAXI2Q30(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, are you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['impatient with others', 'intolerant', 'short with people'],
-                                         ['patient with others', 'tolerant', 'understanding'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['impatient', 'intolerant', 'short with people'],
+                                         ['patient', 'tolerant', 'understanding'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-control-out",
@@ -534,11 +534,11 @@ class STAXI2Q30(QCLM):
 class STAXI2Q31(QCLM):
     def __init__(self, **kwargs):
         super().__init__(
-            template="Question: When someone annoys you, are you {question}? Answer: {answer}",
+            template="Question: When someone annoys you, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['apt to tell them how angry you feel', 'quick to voice your displeasure', 'likely to confront them'],
-                                         ['likely to keep it to yourself', 'quiet about how you feel', 'composed'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['confront them', 'voice displeasure', 'tell them off'],
+                                         ['keep it to yourself', 'stay quiet', 'hold back'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-expression-out",
@@ -553,9 +553,9 @@ class STAXI2Q32(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['let your anger linger', 'stay upset', 'remain angry'],
-                                         ['try to calm yourself as soon as possible', 'work to settle down quickly', 'soothe yourself'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['let anger linger', 'stay upset', 'remain angry'],
+                                         ['calm yourself quickly', 'settle down quickly', 'soothe yourself'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-control-in",
@@ -570,8 +570,8 @@ class STAXI2Q33(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['pout or sulk', 'brood', 'withdraw sulkily'],
+                "answer": likert_weights,
+                "question": dict_pos_neg(['pout', 'sulk', 'brood'],
                                          ['stay upbeat', 'bounce back', 'remain engaged'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
@@ -587,9 +587,9 @@ class STAXI2Q34(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['give in to the urge to express your anger', 'act on your anger impulsively', 'lose control'],
-                                         ['control your urge to express your anger', 'restrain yourself', 'hold back'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['give in to anger', 'act impulsively', 'lose control'],
+                                         ['control your urge', 'restrain yourself', 'hold back'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-control-out",
@@ -604,7 +604,7 @@ class STAXI2Q35(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
+                "answer": likert_weights,
                 "question": dict_pos_neg(['lose your temper', 'blow up', 'explode'],
                                          ['keep your cool', 'stay controlled', 'remain composed'], 1.0),
             },
@@ -621,9 +621,9 @@ class STAXI2Q36(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['stay worked up', 'remain hot-headed', 'keep fuming'],
-                                         ['try to simmer down', 'cool off', 'calm yourself'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['stay worked up', 'remain heated', 'keep fuming'],
+                                         ['simmer down', 'cool off', 'calm yourself'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-control-in",
@@ -638,9 +638,9 @@ class STAXI2Q37(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['withdraw from people', 'isolate yourself', 'pull away'],
-                                         ['stay connected', 'remain engaged with others', 'stay present'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['withdraw', 'isolate yourself', 'pull away'],
+                                         ['stay connected', 'remain engaged', 'stay present'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-expression-in",
@@ -655,8 +655,8 @@ class STAXI2Q38(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['lose your cool', 'get heated', 'fail to stay calm'],
+                "answer": likert_weights,
+                "question": dict_pos_neg(['lose your cool', 'get heated', 'lose composure'],
                                          ['keep your cool', 'stay composed', 'remain collected'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
@@ -672,9 +672,9 @@ class STAXI2Q39(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['make sarcastic remarks to others', 'say cutting things', 'be verbally aggressive'],
-                                         ['stay respectful', 'speak kindly', 'hold back criticism'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['make sarcastic remarks', 'say cutting things', 'be verbally hostile'],
+                                         ['stay respectful', 'speak kindly', 'hold back'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-expression-out",
@@ -689,9 +689,9 @@ class STAXI2Q40(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['let your anger grow', 'feed your anger', 'stay agitated'],
-                                         ['try to soothe your angry feelings', 'calm your inner anger', 'settle yourself'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['let anger grow', 'feed your anger', 'stay agitated'],
+                                         ['soothe yourself', 'calm yourself', 'settle yourself'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-control-in",
@@ -706,9 +706,9 @@ class STAXI2Q41(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['boil inside without showing it', 'suppress your anger internally', 'hide your anger'],
-                                         ['feel calm inside', 'process your emotions openly', 'feel at peace internally'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['boil inside silently', 'suppress your anger', 'hide your anger'],
+                                         ['feel calm inside', 'process openly', 'feel at peace'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-expression-in",
@@ -723,8 +723,8 @@ class STAXI2Q42(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['lose control of your behavior', 'act out impulsively', 'behave aggressively'],
+                "answer": likert_weights,
+                "question": dict_pos_neg(['lose control', 'act impulsively', 'behave aggressively'],
                                          ['control your behavior', 'act composed', 'behave appropriately'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
@@ -740,9 +740,9 @@ class STAXI2Q43(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['do things like slam doors', 'act out physically', 'express anger through objects'],
-                                         ['stay physically controlled', 'avoid physical outbursts', 'remain composed'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['slam doors', 'act out physically', 'throw things'],
+                                         ['stay controlled', 'avoid outbursts', 'remain composed'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-expression-out",
@@ -757,9 +757,9 @@ class STAXI2Q44(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['stay angry', 'make no effort to calm down', 'remain worked up'],
-                                         ['endeavor to become calm again', 'work to regain composure', 'try to settle down'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['stay angry', 'refuse to calm down', 'remain worked up'],
+                                         ['seek calm again', 'regain composure', 'settle down'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-control-in",
@@ -774,9 +774,9 @@ class STAXI2Q45(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['harbor grudges that you keep to yourself', 'hold on to resentment silently', 'nurse hidden anger'],
-                                         ['let go of grievances', 'forgive and move on', 'not hold grudges'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['harbor secret grudges', 'resent silently', 'nurse hidden anger'],
+                                         ['let go', 'forgive and move on', 'release resentment'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-expression-in",
@@ -791,9 +791,9 @@ class STAXI2Q46(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['fail to stop yourself from losing your temper', 'give in to anger', 'lose control'],
-                                         ['stop yourself from losing your temper', 'maintain control', 'hold yourself back'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['fail to hold back', 'give in to anger', 'lose control'],
+                                         ['hold yourself back', 'maintain control', 'stay restrained'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-control-out",
@@ -808,9 +808,9 @@ class STAXI2Q47(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['argue with others', 'get into conflicts', 'confront others aggressively'],
-                                         ['stay calm with others', 'avoid arguments', 'remain composed'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['argue with others', 'get into conflicts', 'confront aggressively'],
+                                         ['stay calm', 'avoid arguments', 'remain composed'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-expression-out",
@@ -825,9 +825,9 @@ class STAXI2Q48(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['let your anger persist', 'hold on to anger', 'stay angry'],
-                                         ['reduce your anger as soon as possible', 'let go of anger quickly', 'de-escalate internally'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['let anger persist', 'hold on to anger', 'stay angry'],
+                                         ['reduce anger quickly', 'let go quickly', 'de-escalate'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-control-in",
@@ -842,9 +842,9 @@ class STAXI2Q49(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, are you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['secretly critical of others', 'silently judgmental', 'internally resentful'],
-                                         ['accepting of others', 'non-judgmental', 'inwardly at peace'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['secretly critical', 'silently judgmental', 'internally resentful'],
+                                         ['accepting', 'non-judgmental', 'at peace inside'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-expression-in",
@@ -859,9 +859,9 @@ class STAXI2Q50(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['become intolerant and critical', 'grow dismissive', 'become impatient'],
-                                         ['try to be tolerant and understanding', 'stay empathetic', 'remain patient'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['become intolerant', 'grow dismissive', 'become impatient'],
+                                         ['stay tolerant', 'stay empathetic', 'remain patient'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-control-out",
@@ -876,8 +876,8 @@ class STAXI2Q51(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['strike out at whatever infuriates you', 'lash out at your anger trigger', 'act aggressively'],
+                "answer": likert_weights,
+                "question": dict_pos_neg(['explode at others', 'lash out', 'act aggressively'],
                                          ['stay controlled', 'hold back', 'respond calmly'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
@@ -893,9 +893,9 @@ class STAXI2Q52(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['stay tense and agitated', 'do nothing to calm yourself', 'remain wound up'],
-                                         ['do something relaxing to calm down', 'engage in calming activities', 'self-soothe'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['stay agitated', 'refuse to calm down', 'remain wound up'],
+                                         ['do something relaxing', 'self-soothe', 'unwind'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-control-in",
@@ -910,9 +910,9 @@ class STAXI2Q53(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, are you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['angrier than you are willing to admit', 'hiding more anger than you show', 'concealing your true anger'],
-                                         ['honest about how angry you are', 'transparent about your emotions', 'self-aware about your anger'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['angrier than you admit', 'hiding your anger', 'concealing anger'],
+                                         ['honest about your anger', 'emotionally transparent', 'self-aware'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-expression-in",
@@ -927,9 +927,9 @@ class STAXI2Q54(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['lose control of your angry feelings', 'act on your anger', 'let anger overwhelm you'],
-                                         ['control your angry feelings', 'manage your anger', 'keep anger in check'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['lose control', 'act on your anger', 'let anger overwhelm'],
+                                         ['control your anger', 'manage your anger', 'keep anger in check'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-control-out",
@@ -944,8 +944,8 @@ class STAXI2Q55(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['say nasty things', 'say hurtful things', 'verbally lash out'],
+                "answer": likert_weights,
+                "question": dict_pos_neg(['say nasty things', 'say hurtful things', 'lash out verbally'],
                                          ['stay respectful', 'hold back', 'speak calmly'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
@@ -961,9 +961,9 @@ class STAXI2Q56(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, do you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
+                "answer": likert_weights,
                 "question": dict_pos_neg(['stay tense', 'remain wound up', 'keep agitated'],
-                                         ['try to relax', 'calm yourself down', 'let go of tension'], 1.0),
+                                         ['try to relax', 'calm down', 'let go of tension'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-control-in",
@@ -978,9 +978,9 @@ class STAXI2Q57(QCLM):
         super().__init__(
             template="Question: When feeling angry or furious, are you {question}? Answer: {answer}",
             dimensions={
-                "answer": frequency_weights,
-                "question": dict_pos_neg(['more irritated than people are aware of', 'hiding more irritation than you show', 'concealing your true irritation'],
-                                         ['as calm as people perceive you', 'genuinely at peace', 'not hiding inner anger'], 1.0),
+                "answer": likert_weights,
+                "question": dict_pos_neg(['secretly irritated', 'hiding irritation', 'concealing irritation'],
+                                         ['genuinely calm', 'openly at peace', 'truly unbothered'], 1.0),
             },
             descriptor={"Questionnair": "STAXI-2",
                         "Factor": "anger-expression-in",
