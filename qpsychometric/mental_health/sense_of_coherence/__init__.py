@@ -1,5 +1,6 @@
 from .soc_qmnli import soc_qmnli_list
 from .soc_qmlm import soc_qmlm_list
+from .soc_qclm import soc_qclm_list
 import os
 import pandas as pd
 from ...utils import QuestionnaireData
@@ -25,6 +26,12 @@ task_name = questions_class_nli.__bases__[0].__name__
 
 for nli_question in soc_qmnli_list:
     data.append((category_name, questionnaire_name, task_name, nli_question))
+
+
+task_name = soc_qclm_list[0].__bases__[0].__name__
+
+for clm_question in soc_qclm_list:
+    data.append((category_name, questionnaire_name, task_name, clm_question))
 
 soc_questionnaire = QuestionnaireData(pd.DataFrame(data, columns=['category_name', 'questionnaire_name', 'questionnaire_task', 'question']))
 

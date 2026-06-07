@@ -1,5 +1,6 @@
 from .big5_qmnli import big5_qmnli_list
 from .big5_qmlm import big5_qmlm_list
+from .big5_qclm import big5_qclm_list
 import os
 import pandas as pd
 from ...utils import QuestionnaireData
@@ -31,7 +32,14 @@ if big5_qmnli_list:
     task_name, questionnaire_name = get_questionnaire_info(question_class_nli)
     for nli_question in big5_qmnli_list:
         data.append((category_name, questionnaire_name, task_name, nli_question))
-    
+
+
+if big5_qclm_list:
+    question_class_nli = big5_qclm_list[0]
+    task_name, questionnaire_name = get_questionnaire_info(question_class_nli)
+    for clm_question in big5_qclm_list:
+        data.append((category_name, questionnaire_name, task_name, clm_question))
+
 
 big5_questionnaire = QuestionnaireData(pd.DataFrame(data, columns=['category_name', 'questionnaire_name', 'questionnaire_task', 'question']))
 

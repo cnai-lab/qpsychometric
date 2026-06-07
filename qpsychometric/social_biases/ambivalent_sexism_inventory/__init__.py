@@ -1,5 +1,6 @@
 from .asi_qmnli import asi_qmnli_list
 from .asi_qmlm import asi_qmlm_list
+from .asi_qclm import asi_qclm_list
 import os
 import pandas as pd
 from ...utils import QuestionnaireData
@@ -30,6 +31,13 @@ if asi_qmnli_list:
     task_name, questionnaire_name = get_questionnaire_info(question_class_nli)
     for nli_question in asi_qmnli_list:
         data.append((category_name, questionnaire_name, task_name, nli_question))
+
+
+if asi_qclm_list:
+    question_class_nli = asi_qclm_list[0]
+    task_name, questionnaire_name = get_questionnaire_info(question_class_nli)
+    for clm_question in asi_qclm_list:
+        data.append((category_name, questionnaire_name, task_name, clm_question))
 
 
 asi_questionnaire = QuestionnaireData(pd.DataFrame(data, columns=['category_name', 'questionnaire_name', 'questionnaire_task', 'question']))

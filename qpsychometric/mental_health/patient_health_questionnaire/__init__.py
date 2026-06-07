@@ -1,5 +1,6 @@
 from .phq_qmnli import phq_qmnli_list
 from .phq_qmlm import phq_qmlm_list
+from .phq_qclm import phq_qclm_list
 import os
 import pandas as pd
 from ...utils import QuestionnaireData
@@ -29,6 +30,14 @@ if phq_qmnli_list:
     task_name, questionnaire_name = get_questionnaire_info(question_class_nli)
     for nli_question in phq_qmnli_list:
         data.append((category_name, questionnaire_name, task_name, nli_question))
+
+
+if phq_qclm_list:
+    question_class_nli = phq_qclm_list[0]
+    task_name, questionnaire_name = get_questionnaire_info(question_class_nli)
+    for clm_question in phq_qclm_list:
+        data.append((category_name, questionnaire_name, task_name, clm_question))
+
 
 phq_questionnaire = QuestionnaireData(pd.DataFrame(data, columns=['category_name', 'questionnaire_name', 'questionnaire_task', 'question']))
 
