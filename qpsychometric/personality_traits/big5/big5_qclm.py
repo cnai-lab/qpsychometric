@@ -74,7 +74,7 @@ class BIG5Q4(QCLM):
             dimensions={
             "answer":frequency_weights,
             "question":dict_pos_neg(['closely inspect', 'pay attention to', 'focus on'], 
-                                ['overlook', 'miss', 'neglect'],1.0),
+                             ['overlook', 'skip', 'disregard'],1.0),
             },
             descriptor = {"Questionnair":"BIG5",
                         "Factor":"Conscientiousness",
@@ -91,8 +91,8 @@ class BIG5Q5(QCLM):
             template="Question: How often do you feel {question}? Answer: {answer}",
             dimensions={
             "answer":frequency_weights,
-            "question":dict_pos_neg(['responsible', 'dependable'], 
-                                ['unreliable', 'irresponsible', 'untrustworthy'],1.0),
+            "question":dict_pos_neg(['dependable', 'reliable', 'accountable'], 
+                             ['unreliable', 'irresponsible', 'untrustworthy'],1.0),
             },
             descriptor = {"Questionnair":"BIG5",
                         "Factor":"Conscientiousness",
@@ -109,8 +109,8 @@ class BIG5Q6(QCLM):
             template="Question: How often are your things {question}? Answer: {answer}",
             dimensions={
             "answer":frequency_weights,
-            "question":dict_pos_neg(['organized', 'neat', 'arranged'], 
-                                ['cluttered', 'messy', 'disordered'],1.0),
+            "question":dict_pos_neg(['organized', 'neat', 'tidy'], 
+                             ['cluttered', 'messy', 'disordered', 'scattered'],1.0),
             },
             descriptor = {"Questionnair":"BIG5",
                         "Factor":"Conscientiousness",
@@ -127,8 +127,8 @@ class BIG5Q7(QCLM):
             template="Question: How often are you {question} around other people? Answer: {answer}",
             dimensions={
             "answer":frequency_weights,
-            "question":dict_pos_neg(['talkative', 'chatty', 'amiable'], 
-                                ['quiet', 'silent'],1.0),
+            "question":dict_pos_neg(['talkative', 'chatty'], 
+                             ['quiet', 'silent'],1.0),
             },
             descriptor = {"Questionnair":"BIG5",
                         "Factor":"Extraversion",
@@ -142,11 +142,11 @@ class BIG5Q7(QCLM):
 class BIG5Q8(QCLM):
     def __init__(self, **kwargs):
         super().__init__(
-            template="Question: How often do you feel {question}? Answer: {answer}",
+            template="Question: How often do you feel {question} around people? Answer: {answer}",
             dimensions={
             "answer":frequency_weights,
-            "question":dict_pos_neg(['outgoing', 'extroverted'], 
-                                ['quiet', 'shy'],1.0),
+            "question":dict_pos_neg(['expressive', 'talkative', 'sociable'], 
+                             ['quiet', 'shy', 'reserved'],1.0),
             },
             descriptor = {"Questionnair":"BIG5",
                         "Factor":"Extraversion",
@@ -160,11 +160,11 @@ class BIG5Q8(QCLM):
 class BIG5Q9(QCLM):
     def __init__(self, **kwargs):
         super().__init__(
-            template="Question: How often are you {question}? Answer: {answer}",
+            template="Question: How often are you {question} around new people? Answer: {answer}",
             dimensions={
             "answer":frequency_weights,
-            "question":dict_pos_neg([ 'friendly', 'amiable', 'personable'], 
-                                ['silent', 'distant', 'shy', 'uncommunicative'],1.0),
+            "question":dict_pos_neg([ 'friendly', 'personable', 'sociable'], 
+                             ['silent', 'distant', 'shy'],1.0),
             },
             descriptor = {"Questionnair":"BIG5",
                         "Factor":"Extraversion",
