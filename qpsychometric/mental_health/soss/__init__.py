@@ -1,4 +1,4 @@
-from .soc_qclm import soss_qclm_list
+from .soss_qclm import soss_qclm_list
 import os
 import pandas as pd
 from ...utils import QuestionnaireData
