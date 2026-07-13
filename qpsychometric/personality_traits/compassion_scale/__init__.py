@@ -1,6 +1,7 @@
 from .compassion_scale_qmnli import compassion_scale_qmnli_list
 from .compassion_scale_qmlm import compassion_scale_qmlm_list
-from .compassion_scale_heb_qclm import compassion_scale_heb_qclm_list
+# from .compassion_scale_heb_qclm import compassion_scale_heb_qclm_list
+from .compassion_scale_en_qclm import compassion_scale_qclm_list
 import os
 import pandas as pd
 from ...utils import QuestionnaireData
@@ -32,12 +33,23 @@ if compassion_scale_qmnli_list:
     task_name, questionnaire_name = get_questionnaire_info(question_class_nli)
     for nli_question in compassion_scale_qmnli_list:
         data.append((category_name, questionnaire_name, task_name, nli_question))
-        
-if compassion_scale_heb_qclm_list:
-    question_class_heb_clm = compassion_scale_heb_qclm_list[0]
-    task_name, questionnaire_name = get_questionnaire_info(question_class_nli)
-    for clm_question in compassion_scale_heb_qclm_list:
+
+
+if compassion_scale_qclm_list:
+    question_class_en_clm = compassion_scale_qclm_list[0]
+    task_name, questionnaire_name = get_questionnaire_info(question_class_en_clm)
+    for clm_question in compassion_scale_qclm_list:
         data.append((category_name, questionnaire_name, task_name, clm_question))
+        
+         
+# if compassion_scale_heb_qclm_list:
+#     question_class_heb_clm = compassion_scale_heb_qclm_list[0]
+#     task_name, questionnaire_name = get_questionnaire_info(question_class_heb_clm)
+#     for clm_question in compassion_scale_heb_qclm_list:
+#         data.append((category_name, questionnaire_name, task_name, clm_question))
+
+
+
         
 
 compassion_scale_questionnaire = QuestionnaireData(pd.DataFrame(data, columns=['category_name', 'questionnaire_name', 'questionnaire_task', 'question']))
