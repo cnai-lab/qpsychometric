@@ -10,3 +10,4 @@ build/
 test_imports.py
 *.sh
 *.out
+results/
