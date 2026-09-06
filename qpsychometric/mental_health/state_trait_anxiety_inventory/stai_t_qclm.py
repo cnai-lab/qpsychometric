@@ -1,4 +1,7 @@
 from qlatent.qclm.qclm import QCLM, SCALE, dict_pos_neg
+# import sys
+# sys.path.append("/home/shistikk/IndicatorsOfResilience/code")
+# from qlatent.qclm.qclm import *
 
 frequency_weights:SCALE = {
     'never':-4,
@@ -23,8 +26,9 @@ class STAITQ1(QCLM):
             descriptor = {"Questionnair":"STAI-T",
               "Factor":"Q",
               "Ordinal":1,
-              "Original":'IN THE PAST WEEK, have you felt: inadequate?'
+              "Original":'I feel pleasent'
             },
+            # direction = "positive",
             **kwargs
         )
 
@@ -43,6 +47,7 @@ class STAITQ2(QCLM):
               "Ordinal":2,
               "Original":'I tire quickly'
             },
+            # direction = "positive",
             **kwargs
         )
             
@@ -61,6 +66,7 @@ class STAITQ3(QCLM):
               "Ordinal":3,
               "Original":'I feel like crying'
             },
+            # direction = "positive",
             **kwargs
         )
                 
@@ -79,6 +85,7 @@ class STAITQ4(QCLM):
               "Ordinal":4,
               "Original":'I wish I could be as happy as others seem to be'
             },
+            # direction = "positive",
             **kwargs
         )
         
@@ -97,6 +104,7 @@ class STAITQ5(QCLM):
               "Ordinal":5,
               "Original":'I am losing opportunities because I cannot make decisions fast'
             }, 
+            # direction = "positive",
             **kwargs
         )
         
@@ -116,6 +124,7 @@ class STAITQ6(QCLM):
               "Ordinal":6,
               "Original":'I feel rested'
             },
+            # direction = "negative",
             **kwargs
         )
         
@@ -134,6 +143,7 @@ class STAITQ7(QCLM):
               "Ordinal":7,
               "Original":'I am calm'
             },
+            # direction = "negative",
             **kwargs
         )
 
@@ -151,6 +161,7 @@ class STAITQ8(QCLM):
               "Ordinal":8,
               "Original":'I feel that difficulties are piling up in such a way that I cannot overcome them'
             },
+            # direction = "positive",
             **kwargs
         )
 
@@ -168,6 +179,7 @@ class STAITQ9(QCLM):
               "Ordinal":9,
               "Original":'I worry too much about things that do not really matter'
             },
+            # direction = "positive",
             **kwargs
         )
 
@@ -186,6 +198,7 @@ class STAITQ10(QCLM):
               "Ordinal":10,
               "Original":'I am happy'
             },
+            # direction = "negative",
             **kwargs
         )
 
@@ -203,6 +216,7 @@ class STAITQ11(QCLM):
               "Ordinal":11,
               "Original":'I am inclined to take things hard'
             },
+            # direction = "positive",
             **kwargs
         )
 
@@ -220,6 +234,7 @@ class STAITQ12(QCLM):
               "Ordinal":12,
               "Original":'I lack self-confidence'
             },
+            # direction = "positive",
             **kwargs
         )
 
@@ -237,6 +252,7 @@ class STAITQ13(QCLM):
               "Ordinal":13,
               "Original":'I feel secure'
             },
+            # direction = "negative",
             **kwargs
         )
 
@@ -254,6 +270,7 @@ class STAITQ14(QCLM):
               "Ordinal":14,
               "Original":'I try to avoid facing a crisis or difficulty'
             },
+            # direction = "positive",
             **kwargs
         )
 
@@ -272,6 +289,7 @@ class STAITQ15(QCLM):
               "Ordinal":15,
               "Original":'I feel blue'
             },
+            # direction = "positive",
             **kwargs
         )
 
@@ -290,6 +308,7 @@ class STAITQ17(QCLM):
               "Ordinal":17,
               "Original":'Some unimportant thoughts run through my mind and bother me'
             },
+            # direction = "positive",
             **kwargs
         )
 
@@ -308,6 +327,7 @@ class STAITQ18(QCLM):
               "Ordinal":18,
               "Original":'I take disappointments so keenly that I cannot get them out of my mind'
             },
+            # direction = "positive",
             **kwargs
         )
 
@@ -326,6 +346,7 @@ class STAITQ19(QCLM):
               "Ordinal":19,
               "Original":'I am a steady person'
             },
+            # direction = "negative",
             **kwargs
         )
 
@@ -344,6 +365,7 @@ class STAITQ20(QCLM):
               "Ordinal":20,
               "Original":'I become tense and upset when I think about my current concerns'
             },
+            # direction = "positive",
             **kwargs
         )
 

@@ -1,4 +1,7 @@
 from qlatent.qclm.qclm import QCLM, SCALE, dict_pos_neg
+# import sys
+# sys.path.append("/home/shistikk/IndicatorsOfResilience/code")
+# from qlatent.qclm.qclm import *
 
 likert_weights:SCALE = {
     "not at all" : -2,
@@ -21,6 +24,7 @@ class STAISQ1(QCLM):
               "Ordinal":1,
               "Original":'I feel calm'
             },
+            # direction = "negative",
             **kwargs
         )
 
@@ -40,6 +44,7 @@ class STAISQ2(QCLM):
               "Ordinal":2,
               "Original":'I feel secure'
             },
+            # direction = "negative",
             **kwargs
         )
         
@@ -60,6 +65,7 @@ class STAISQ3(QCLM):
               "Ordinal":3,
               "Original":'I feel tense'
             },
+            # direction = "positive",
             **kwargs
         )
         
@@ -80,6 +86,7 @@ class STAISQ4(QCLM):
               "Ordinal":4,
               "Original":'I am regretful'
             },
+            # direction = "positive",
             **kwargs
         )
         
@@ -98,6 +105,7 @@ class STAISQ5(QCLM):
               "Ordinal":5,
               "Original":'I feel at ease'
             },
+            # direction = "negative",
             **kwargs
         )
         
@@ -117,6 +125,7 @@ class STAISQ6(QCLM):
               "Ordinal":6,
               "Original":'I feel upset'
             },
+            # direction = "positive",
             **kwargs
         )
         
@@ -135,6 +144,7 @@ class STAISQ7(QCLM):
               "Ordinal":7,
               "Original":'I am currently worried about possible misfortunes'
             },
+            # direction = "positive",
             **kwargs
         )
 
@@ -153,6 +163,7 @@ class STAISQ8(QCLM):
               "Ordinal":8,
               "Original":'I feel rested'
             },
+            # direction = "negative",
             **kwargs
         )
 
@@ -171,6 +182,7 @@ class STAISQ9(QCLM):
               "Ordinal":9,
               "Original":'I feel anxious'
             },
+            # direction = "positive",
             **kwargs
         )
 
@@ -189,6 +201,7 @@ class STAISQ10(QCLM):
               "Ordinal":10,
               "Original":'I feel comfortable'
             },
+            # direction = "negative",
             **kwargs
         )
 
@@ -206,6 +219,7 @@ class STAISQ11(QCLM):
               "Ordinal":11,
               "Original":'I feel self-confident'
             },
+            # direction = "negative",
             **kwargs
         )
 
@@ -224,6 +238,7 @@ class STAISQ12(QCLM):
               "Ordinal":12,
               "Original":'I feel nervous'
             },
+            # direction = "positive",
             **kwargs
         )
 
@@ -242,6 +257,7 @@ class STAISQ13(QCLM):
               "Ordinal":13,
               "Original":'I am jittery'
             },
+            # direction = "positive",
             **kwargs
         )
 
@@ -260,6 +276,7 @@ class STAISQ14(QCLM):
               "Ordinal":14,
               "Original":'I feel “high-strung”'
             },
+            # direction = "positive",
             **kwargs
         )
 
@@ -277,6 +294,7 @@ class STAISQ18(QCLM):
               "Ordinal":18,
               "Original":'I feel overexcited and rattled'
             },
+            # direction = "positive",
             **kwargs
         )
 
@@ -295,6 +313,7 @@ class STAISQ19(QCLM):
               "Ordinal":19,
               "Original":'I feel joyful'
             },
+            # direction = "negative",
             **kwargs
         )
 
@@ -311,8 +330,9 @@ class STAISQ20(QCLM):
             descriptor = {"Questionnair":"STAI-S",
               "Factor":"Q",
               "Ordinal":20,
-              "Original":'I feel fine'
+              "Original":'I feel pleasent'
             },
+            # direction = "negative",
             **kwargs
         )
 
